@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "57891280768",
+    "project_id": "just-medical-center",
+    "storage_bucket": "just-medical-center.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57891280768:android:dea5183bb6e86d2ea09365",
+        "android_client_info": {
+          "package_name": "com.example.just_medical_center_automation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdgtN-5WaNCWTh-TZKKp1Qy-srBRCm1PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
