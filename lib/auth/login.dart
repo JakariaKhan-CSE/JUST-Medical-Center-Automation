@@ -60,6 +60,7 @@ border: OutlineInputBorder(
       {
           return "Please enter your name";
       }
+    return null;
 
   },
 
@@ -91,6 +92,7 @@ suffixIcon: IconButton(onPressed: (){
                   {
                     return "Please enter your password";
                   }
+                  return null;
 
                 },
 
