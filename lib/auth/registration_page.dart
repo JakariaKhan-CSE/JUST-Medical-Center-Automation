@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/auth/login.dart';
 import 'package:just_medical_center_automation/main.dart';
+
+import '../screen/homepage.dart';
 class RegistrationPage extends StatefulWidget {
 
    RegistrationPage({super.key});
