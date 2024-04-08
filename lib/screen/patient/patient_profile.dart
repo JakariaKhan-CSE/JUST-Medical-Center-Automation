@@ -64,12 +64,16 @@ class PatientProfile extends StatelessWidget {
             ),
             PatientProfileRow(leading: 'Student ID', title: '190152',icon: Icons.copy,),
             PatientProfileRow(leading: 'Age', title: '23',),
+            PatientProfileRow(leading: 'E-mail', title: 'mdjakariaibnaazamkhan@gmail.com',),
+            PatientProfileRow(leading: 'Phone Number', title: '01612882257',),
+            PatientProfileRow(leading: 'Gender', title: 'Male',),
+            PatientProfileRow(leading: 'Date of Birth', title: '04-09-2002',),
 
             Divider(),
             SizedBox(
               height: 10,
             ),
-            TextButton(onPressed: () {}, child: Text('Edit your Profile')),
+            Center(child: TextButton(onPressed: () {}, child: Text('Edit your Profile'))),
             SizedBox(
               height: 10,
             ),
