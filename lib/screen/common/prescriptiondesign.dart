@@ -11,38 +11,40 @@ class PrescriptionDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 30, left: 15, right: 15),
-        child: Column(
-          children: [
-           PrescriptionDesignContainer(),
-            SizedBox(
-              height: 10,
-            ),
-            Divider(),
-            patient_info_prescription(),
-            SizedBox(
-              height: 10,
-            ),
-            Divider(),
-            SizedBox(
-              height: 10,
-            ),
-
-            // medicine name and others
-            Expanded(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                 prescription_left_side(),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(flex: 2, child: prescription_right_side())
-                ],
+      body: InteractiveViewer(  // InteractiveViewer widget use for screen zoom in/out
+        child: Padding(
+          padding: EdgeInsets.only(top: 30, left: 15, right: 15),
+          child: Column(
+            children: [
+             PrescriptionDesignContainer(),
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ],
+              Divider(),
+              patient_info_prescription(),
+              SizedBox(
+                height: 10,
+              ),
+              Divider(),
+              SizedBox(
+                height: 10,
+              ),
+        
+              // medicine name and others
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                   prescription_left_side(),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(flex: 2, child: prescription_right_side())
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
