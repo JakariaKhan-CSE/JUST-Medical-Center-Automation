@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/screen/Admin/admin_page.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,8 @@ import 'package:just_medical_center_automation/screen/patient/patient_screen.dar
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => IndexChange(),)
+    ChangeNotifierProvider(create: (context) => IndexChange(),),
+    ChangeNotifierProvider(create: (context) => AdminController(),)
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,

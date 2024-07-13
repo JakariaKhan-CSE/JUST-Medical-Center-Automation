@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class AddDoctorPage extends StatelessWidget {
+  const AddDoctorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Dashboard page'),
+        child: Text('Add doctor page'),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/screen/Admin/sidebar.dart';
+import 'package:just_medical_center_automation/widget/admin/adminRightSideFeaturePage.dart';
 
 import '../../widget/admin/adminPicture.dart';
 import '../../widget/admin/featureItemButton.dart';
@@ -18,7 +19,10 @@ class AdminPage extends StatelessWidget {
           ),
           Expanded(
               flex: 7,
-              child: Container(color: Colors.green.withOpacity(0.3),))
+              child: Container(color: Colors.green.withOpacity(0.3),
+              child: Adminrightsidefeaturepage(),
+              )
+          )
         ],
       ),
     );
