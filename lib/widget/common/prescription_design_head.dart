@@ -11,7 +11,7 @@ class PrescriptionDesignContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Dr. Jakaria Khan',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),

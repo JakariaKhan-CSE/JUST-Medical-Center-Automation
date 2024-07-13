@@ -7,7 +7,7 @@ import 'package:just_medical_center_automation/auth/login.dart';
 import '../screen/homepage.dart';
 class RegistrationPage extends StatefulWidget {
 
-   RegistrationPage({super.key});
+   const RegistrationPage({super.key});
 
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -31,7 +31,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     final User? user = (await firebaseAuth.createUserWithEmailAndPassword(email: email!, password: password!)).user;
  if(user != null)
    {
-     Navigator.push(context, MaterialPageRoute(builder: (ctx)=>HomePage()));
+     Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const HomePage()));
    }
  else{
    print('Error Occur>>>');
@@ -40,7 +40,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      appBar: AppBar(title: Text('Registration'),centerTitle: true,),
+      appBar: AppBar(title: const Text('Registration'),centerTitle: true,),
       body: SingleChildScrollView(
         child: Form(
           key: _formkey,
@@ -69,12 +69,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 //   },
                 //
                 // ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email_outlined),
+                      prefixIcon: const Icon(Icons.email_outlined),
                       labelText: "Email",
                       hintText: 'Enter your email',
                       border: OutlineInputBorder(
@@ -86,18 +86,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     {
                       return "Please enter your email";
                     }
+                    return null;
 
                   },
 
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: secure,
                   obscuringCharacter: '*',
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffixIcon: IconButton(onPressed: (){
 
                         setState(() {
@@ -117,18 +118,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     {
                       return "Please enter your password";
                     }
+                    return null;
 
                   },
 
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 TextFormField(
                   controller: _confirmpasswordController,
                   obscureText: secure2,
                   obscuringCharacter: '*',
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffixIcon: IconButton(onPressed: (){
 
                         setState(() {
@@ -152,11 +154,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       {
                         return 'Password does not match';
                       }
+                    return null;
 
                   },
 
                 ),
-                SizedBox(height: 40,),
+                const SizedBox(height: 40,),
                 SizedBox(
                   width: (double.infinity),
                   height: 40,
@@ -179,21 +182,21 @@ password = '';
 _emailController.clear();
 _passwordController.clear();
 _confirmpasswordController.clear();
-                  },child: Text('Sign Up',style: TextStyle(
+                  },child: const Text('Sign Up',style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20
                   ),),),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Already have an account',style: TextStyle(
+                  const Text('Already have an account',style: TextStyle(
                     fontSize: 16.5
                   ),),
                   TextButton(onPressed: (){
-Navigator.push(context, MaterialPageRoute(builder: (ctx)=>LoginPage()));
-                  }, child: Text('Login',style: TextStyle(
+Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const LoginPage()));
+                  }, child: const Text('Login',style: TextStyle(
                       fontSize: 16.5
                   )))
                 ],

@@ -7,7 +7,7 @@ class NewHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       body: Center(
-        child: Text('Welcome ${user}'),
+        child: Text('Welcome $user'),
       ),
     ));
   }

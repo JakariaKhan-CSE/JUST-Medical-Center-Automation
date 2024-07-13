@@ -9,14 +9,14 @@ class available_doctor_text extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
+        const Text(
           'Available Doctors in online',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         Expanded(child: Container()),
         GestureDetector(
             onTap: () {},
-            child: Text(
+            child: const Text(
               'see all',
               style: TextStyle(fontSize: 18, color: Colors.blue),
             )),

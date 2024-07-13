@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
 
     //start UI here
     return SafeArea(child: Scaffold(
-appBar: AppBar(title: Text('Login'),centerTitle: true,),
+appBar: AppBar(title: const Text('Login'),centerTitle: true,),
       body: Form(
         key: _formkey,
         child: Padding(
@@ -48,7 +48,7 @@ TextFormField(
   controller: _emailController,
   keyboardType: TextInputType.emailAddress,
   decoration: InputDecoration(
-prefixIcon: Icon(Icons.email_outlined),
+prefixIcon: const Icon(Icons.email_outlined),
     labelText: "Email",
     hintText: 'Enter your email',
 border: OutlineInputBorder(
@@ -65,14 +65,14 @@ border: OutlineInputBorder(
   },
 
 ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               TextFormField(
                 controller: _passwordController,
                 obscureText: secure,
                 obscuringCharacter: '*',
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
 suffixIcon: IconButton(onPressed: (){
 
   setState(() {
@@ -97,7 +97,7 @@ suffixIcon: IconButton(onPressed: (){
                 },
 
               ),
-              SizedBox(height: 40,),
+              const SizedBox(height: 40,),
               SizedBox(
                 width: 300,
                 height: 40,
@@ -112,22 +112,22 @@ if(_formkey.currentState!.validate())
 
 _emailController.clear();
 _passwordController.clear();
-                },child: Text('Log in',style: TextStyle(
+                },child: const Text('Log in',style: TextStyle(
                   fontWeight: FontWeight.bold,
 fontSize: 20
                 ),),),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
-                  Text('New user?',style: TextStyle(
+                  const Text('New user?',style: TextStyle(
                     fontSize: 15.5
                   ),),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=>RegistrationPage()));
-                  }, child: Text('Create new account',style: TextStyle(
+                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const RegistrationPage()));
+                  }, child: const Text('Create new account',style: TextStyle(
                       fontSize: 15.5
                   ),))
                 ],

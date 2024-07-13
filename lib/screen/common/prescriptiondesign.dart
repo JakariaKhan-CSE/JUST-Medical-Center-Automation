@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/widget/common/prescription_right_side.dart';
 import 'package:just_medical_center_automation/widget/common/patient_info_prescription.dart';
@@ -12,7 +11,7 @@ class PrescriptionDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: InteractiveViewer(  // InteractiveViewer widget use for screen zoom in/out
-        child: Padding(
+        child: const Padding(
           padding: EdgeInsets.only(top: 30, left: 15, right: 15),
           child: Column(
             children: [
