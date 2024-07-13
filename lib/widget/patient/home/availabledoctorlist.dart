@@ -45,7 +45,7 @@ class availabledoctorlist extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   color: Colors.green),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 'online',
                                 style: TextStyle(
@@ -59,12 +59,12 @@ class availabledoctorlist extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           singleData['name'],
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
                               color: Colors.black),
@@ -72,7 +72,7 @@ class availabledoctorlist extends StatelessWidget {
                         // SizedBox(height: 5,),
                         Text(
                           singleData['department'],
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                          style: const TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                       ],
                     )),

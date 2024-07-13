@@ -5,7 +5,7 @@ import '../auth/login.dart';
 import '../auth/registration_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     try{
       await Firebase.initializeApp(
 
-          options: FirebaseOptions(
+          options: const FirebaseOptions(
 
               apiKey: 'AIzaSyBdgtN-5WaNCWTh-TZKKp1Qy-srBRCm1PQ',
               appId: '1:57891280768:android:dea5183bb6e86d2ea09365',
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(child: Scaffold(
       appBar: AppBar(
-        title: Text('JUST Medical Center'),
+        title: const Text('JUST Medical Center'),
         centerTitle: true,
         elevation: 2.5,
         shadowColor: Colors.yellowAccent,
@@ -56,8 +56,8 @@ class _HomePageState extends State<HomePage> {
                   Center(
                     child: Image.asset('images/just logo.jpg',height: 90,),
                   ),
-                  SizedBox(height: 5,),
-                  Center(
+                  const SizedBox(height: 5,),
+                  const Center(
                     child: Text("JUST Medical Center",style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.4
@@ -66,12 +66,12 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>HomePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const HomePage()));
               },
-              child: Card(
+              child: const Card(
 
                 child: ListTile(
                   title: Text('Home'),
@@ -79,13 +79,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Card(
+            const Card(
               child: ListTile(
                 title: Text('Services'),
                 trailing: Icon(Icons.arrow_forward_sharp),
               ),
             ),
-            Card(
+            const Card(
               child: ListTile(
                 title: Text('Ambulance'),
                 trailing: Icon(Icons.arrow_forward_sharp),
@@ -93,9 +93,9 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>RegistrationPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const RegistrationPage()));
               },
-              child: Card(
+              child: const Card(
                 child: ListTile(
                   title: Text('Registration'),
                   trailing: Icon(Icons.arrow_forward_sharp),
@@ -104,16 +104,16 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>LoginPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const LoginPage()));
               },
-              child: Card(
+              child: const Card(
                 child: ListTile(
                   title: Text('Login'),
                   trailing: Icon(Icons.arrow_forward_sharp),
                 ),
               ),
             ),
-            Card(
+            const Card(
               child: ListTile(
                 title: Text('About'),
                 trailing: Icon(Icons.arrow_forward_sharp),
@@ -128,16 +128,16 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               child:  Image.asset('images/home picture.jpg'),
             ),
-            Text('24/7 On Campus Medical Services',textAlign:TextAlign.center ,style: TextStyle(
+            const Text('24/7 On Campus Medical Services',textAlign:TextAlign.center ,style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.6
             ),),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text('The campus has a large and well equipped medical center with four specialist doctors. There is also a 24/7 ambulance service for emergency patient'
                   ' transportations. Students can get medical service at 24/7 basis which is free of cost. '
                   'Students also get the necessary medicines which are prescribed by the doctors for their '

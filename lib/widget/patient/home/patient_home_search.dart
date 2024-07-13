@@ -10,11 +10,11 @@ class PatientHomeSearch extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: Colors.deepOrange.withOpacity(0.09)),
-          child: TextField(
+          child: const TextField(
             decoration: InputDecoration(
                 border: InputBorder.none, hintText: 'Search for a doctor'),
           ),
@@ -28,7 +28,7 @@ class PatientHomeSearch extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.deepPurple),
-              child: Icon(
+              child: const Icon(
                 Icons.search,
                 size: 30,
                 color: Colors.white,

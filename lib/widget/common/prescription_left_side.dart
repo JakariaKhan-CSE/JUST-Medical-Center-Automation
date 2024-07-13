@@ -7,7 +7,7 @@ class prescription_left_side extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return const Expanded(
         flex: 1,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

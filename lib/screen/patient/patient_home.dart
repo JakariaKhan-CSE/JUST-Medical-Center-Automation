@@ -12,9 +12,9 @@ class PatientHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 10),
             child:
                 CircleAvatar(backgroundImage: AssetImage('images/jakaria.jpg')),
           )
@@ -23,7 +23,7 @@ class PatientHome extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(
-          children: [
+          children: const [
             SizedBox(
               height: 20,
             ),

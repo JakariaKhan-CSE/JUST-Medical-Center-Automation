@@ -10,24 +10,24 @@ class PatientProfile extends StatelessWidget {
     return Scaffold(
       // backgroundColor:Colors.grey,
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
           ),
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
+            const Center(
               child: CircleAvatar(
                 radius: 70,
                 backgroundImage: AssetImage('images/jakaria.jpg'),
@@ -35,31 +35,31 @@ class PatientProfile extends StatelessWidget {
             ),
             Center(
                 child: TextButton(
-                    onPressed: () {}, child: Text('Change Profile Picture'))),
-            Divider(),
-            SizedBox(
+                    onPressed: () {}, child: const Text('Change Profile Picture'))),
+            const Divider(),
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Profile Information',
               style: TextStyle(fontWeight: FontWeight.w800, fontSize: 23),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             PatientProfileRow(leading: 'Name',title: 'Md. Jakaria Ibna Azam Khan',),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Personal Information',
               style: TextStyle(fontWeight: FontWeight.w800, fontSize: 23),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             PatientProfileRow(leading: 'Student ID', title: '190152',icon: Icons.copy,),
@@ -69,12 +69,12 @@ class PatientProfile extends StatelessWidget {
             PatientProfileRow(leading: 'Gender', title: 'Male',),
             PatientProfileRow(leading: 'Date of Birth', title: '04-09-2002',),
 
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 10,
             ),
-            Center(child: TextButton(onPressed: () {}, child: Text('Edit your Profile'))),
-            SizedBox(
+            Center(child: TextButton(onPressed: () {}, child: const Text('Edit your Profile'))),
+            const SizedBox(
               height: 10,
             ),
           ],
