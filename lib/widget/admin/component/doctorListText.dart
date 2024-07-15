@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class listDoctorText extends StatelessWidget {
-  const listDoctorText({
-    super.key,
+class listText extends StatelessWidget {
+  final String listName;
+
+  const listText({
+    super.key, required this.listName,
   });
 
   @override
@@ -10,7 +12,7 @@ class listDoctorText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('List all doctor',style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.w600), ),
+        Text(listName,style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.w600), ),
         InkWell(
             onTap: (){
 

@@ -13,7 +13,10 @@ class itemView extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         width: 400,
-        color: Colors.blueGrey,
+       decoration: BoxDecoration(
+         color: Colors.blueGrey,
+         borderRadius: BorderRadius.circular(15)
+       ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -32,19 +35,16 @@ class itemView extends StatelessWidget {
                 width: 10,
               ),
               Expanded(
-                  child: DefaultTextStyle(
-                    style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(name),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(degree??'')
-                      ],
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(name,style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(degree??'',style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),maxLines: 2,overflow: TextOverflow.ellipsis,)
+                    ],
                   ))
             ],
           ),

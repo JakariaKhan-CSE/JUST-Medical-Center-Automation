@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'itemView.dart';
 
-class allDoctorList extends StatelessWidget {
-  const allDoctorList({
-    super.key,
+class allHorizontalList extends StatelessWidget {
+  final List<Map<String, dynamic>> data;
+  const allHorizontalList({
+    super.key, required this.data,
   });
 
   @override
@@ -13,11 +14,11 @@ class allDoctorList extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2.8,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: data.length,
         itemBuilder: (context, index) => itemView(
-          imagePath: 'images/doctor2.jpg',
-          name: 'Jakaria Khan',
-          degree: 'MBBS, FCPS',
+          imagePath: data[index]['img'],
+          name: data[index]['name'],
+          degree: data[index]['department'] ?? '',
         ),
       ),
     );

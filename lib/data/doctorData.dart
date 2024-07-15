@@ -26,4 +26,31 @@ class DoctorData{
       'img': "images/jakaria.jpg"
     },
   ];
+  static List<Map<String,dynamic>> dataPharmacist = [
+    {
+      "name": "Jakaria Ibna Azam Khan",
+
+      'img': "images/jakaria.jpg"
+    },
+    {
+      "name": "Dr. Ekramul",
+
+      'img': "images/doctor1.jpg"
+    },
+    {
+      "name": "Jakaria Khan",
+
+      'img': "images/jakaria.jpg"
+    },
+    {
+      "name": "Dr. Munna",
+
+      'img': "images/doctor2.jpg"
+    },
+    {
+      "name": "Jakaria Ibna Azam Khan",
+
+      'img': "images/jakaria.jpg"
+    },
+  ];
 }
