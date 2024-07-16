@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final String label;
   final TextEditingController fieldController;
+  final TextInputType textInputType;
   const CustomTextField({
     super.key,
-    required this.fieldController, required this.label
+    required this.fieldController, required this.label, required this.textInputType
   });
 
 

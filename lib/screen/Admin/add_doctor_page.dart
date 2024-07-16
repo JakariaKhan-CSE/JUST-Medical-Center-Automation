@@ -30,13 +30,13 @@ class AddDoctorPage extends StatelessWidget {
                         color: Colors.black, fontWeight: FontWeight.bold
                       ),),
                       SizedBox(height: 60,),
-                      CustomTextField(label: 'Doctor Name', fieldController: nameController,),
+                      CustomTextField(label: 'Doctor Name', fieldController: nameController,textInputType: TextInputType.name,),
                       SizedBox(height: 20,),
-                      CustomTextField(fieldController: emailController, label: 'Email'),
+                      CustomTextField(fieldController: emailController, label: 'Email',textInputType: TextInputType.emailAddress,),
                       SizedBox(height: 20,),
-                      CustomTextField(fieldController: passwordController, label: 'Password'),
+                      CustomTextField(fieldController: passwordController, label: 'Password', textInputType: TextInputType.text,),
                       SizedBox(height: 20,),
-                      CustomTextField(fieldController: conformPasswordController, label: 'Confirm Password'),
+                      CustomTextField(fieldController: conformPasswordController, label: 'Confirm Password', textInputType: TextInputType.text,),
                       SizedBox(height: 40,),
                       CustomButton(btnName: 'Submit',pressed: (){
                         if(_formkey.currentState!.validate())
