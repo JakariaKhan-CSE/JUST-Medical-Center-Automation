@@ -13,6 +13,7 @@ class allHorizontalList extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2.8,
       child: ListView.builder(
+        physics: AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: data.length,
         itemBuilder: (context, index) => itemView(
