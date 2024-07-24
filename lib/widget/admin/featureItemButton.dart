@@ -9,7 +9,7 @@ class featureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-mouseCursor: MaterialStateMouseCursor.clickable,
+
       onTap: onTap,
       child: Container(
         width: double.infinity,

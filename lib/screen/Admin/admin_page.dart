@@ -20,7 +20,7 @@ class AdminPage extends StatelessWidget {
           Expanded(
               flex: 7,
               child: Container(color: Colors.green.withOpacity(0.3),
-              child: Adminrightsidefeaturepage(),
+                child: Adminrightsidefeaturepage(),
               )
           )
         ],
