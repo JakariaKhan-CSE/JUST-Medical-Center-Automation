@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +29,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<AdminController>(context, listen: true);
+
     return Scaffold(
         //backgroundColor: Colors.deepPurple.withOpacity(0.1),
         body: SingleChildScrollView(
