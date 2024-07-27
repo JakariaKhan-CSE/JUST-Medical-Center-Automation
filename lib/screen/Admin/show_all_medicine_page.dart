@@ -24,7 +24,7 @@ class ShowAllMedicinePage extends StatelessWidget {
                itemBuilder: (context, index) {
                 return Table(
                    textDirection: TextDirection.ltr,
-                   border: TableBorder.all(color: Colors.black, width: 1.0),
+                   border: TableBorder.all(color: Colors.black54, width: 1.0),
                    children: [
                    index==0?  TableRow(
                          children:[
@@ -67,7 +67,8 @@ class Heading extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Text(text,textAlign: TextAlign.center,style: TextStyle(
         fontSize: 22,
-        fontWeight: FontWeight.w700
+        fontWeight: FontWeight.w700,
+          color: Colors.black
       ),),
     );
   }
@@ -85,7 +86,8 @@ class Data extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Text(text,textAlign: TextAlign.center,style: TextStyle(
           fontSize: 18,
-          fontWeight: FontWeight.w400
+          fontWeight: FontWeight.w400,
+        color: Colors.black
       ),),
     );
   }
