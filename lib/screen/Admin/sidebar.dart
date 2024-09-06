@@ -25,22 +25,27 @@ class SideBar extends StatelessWidget {
             const SizedBox(height: 30,),
             featureItem(featureName: "DashBoard",onTap: (){
       _pageController.SetIndex(0);
+      Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "Add Doctor",onTap: (){
               _pageController.SetIndex(1);
+              Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "Add Pharmacist",onTap: (){
               _pageController.SetIndex(2);
+              Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "See all Medicine",onTap: (){
               _pageController.SetIndex(3);
+              Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "Log Out",onTap: (){
               _pageController.SetIndex(4);
+              Scaffold.of(context).closeDrawer();
             },),
 
             const SizedBox(height: 30,),

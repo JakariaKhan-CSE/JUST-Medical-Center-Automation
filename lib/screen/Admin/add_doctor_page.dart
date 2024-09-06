@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:provider/provider.dart';
 
+import '../../responsive.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';
 
@@ -67,7 +68,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                     height: 20,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: Responsive.isDesktop(context)  ? MediaQuery.of(context).size.width * 0.3:MediaQuery.of(context).size.width -30,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
@@ -103,7 +104,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                     height: 20,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: Responsive.isDesktop(context)  ? MediaQuery.of(context).size.width * 0.3:MediaQuery.of(context).size.width -30,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
