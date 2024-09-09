@@ -19,7 +19,8 @@ class _ShowalldoctorwithupdatedelteState
     final Height = MediaQuery.of(context).size.height;
     final Width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
+      padding: Responsive.isDesktop(context) ? EdgeInsets.symmetric(horizontal: 30,vertical: 20):
+      EdgeInsets.symmetric(horizontal: 10,vertical: 5),
       child: ListView.builder(
         itemCount: DoctorData.data.length,
         itemBuilder: (context, index) {
@@ -40,7 +41,7 @@ class _ShowalldoctorwithupdatedelteState
                 children: [
                   Row(
                     children: [
-            Image.asset(data['img'],fit: BoxFit.cover,height:Responsive.isDesktop(context) ? Height*0.3:Height*0.1,width: Responsive.isDesktop(context) ? Width*0.15:Width*0.09,),
+            Image.asset(data['img'],fit: BoxFit.cover,height:Responsive.isDesktop(context) ? Height*0.3:55,width: Responsive.isDesktop(context) ? Width*0.15:55,),
                       Responsive.isDesktop(context) ? SizedBox(width: 20,):SizedBox(width: 5,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +69,7 @@ class _ShowalldoctorwithupdatedelteState
                         CustomButton(pressed: (){
                           //write update database code
                         }, btnName: 'Update'),
-                        SizedBox(height: 20,),
+                        Responsive.isDesktop(context) ? SizedBox(height: 20,):SizedBox(height: 5,),
                         CustomButton(pressed: (){
                           //write delete database code
                         }, btnName: 'Delete'),

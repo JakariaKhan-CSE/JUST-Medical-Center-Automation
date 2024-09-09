@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
             backgroundColor: Colors.grey.withOpacity(0.5),
             foregroundColor: Colors.black,
             padding: Responsive.isDesktop(context) ? EdgeInsets.symmetric(horizontal: 120, vertical: 20):
-            EdgeInsets.symmetric(horizontal: 40, vertical: 10)
+            EdgeInsets.symmetric(horizontal: 20, vertical: 5)
         ),
         onPressed: pressed,
         child: Text(btnName,style: Responsive.isDesktop(context) ? TextStyle(fontSize: 20, fontWeight: FontWeight.w700):
