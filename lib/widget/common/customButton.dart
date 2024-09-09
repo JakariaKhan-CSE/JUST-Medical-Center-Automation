@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../responsive.dart';
 class CustomButton extends StatelessWidget {
   final Function() pressed;
   final String btnName;
@@ -15,9 +17,11 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.grey.withOpacity(0.5),
             foregroundColor: Colors.black,
-            padding: EdgeInsets.symmetric(horizontal: 120, vertical: 20)
+            padding: Responsive.isDesktop(context) ? EdgeInsets.symmetric(horizontal: 120, vertical: 20):
+            EdgeInsets.symmetric(horizontal: 40, vertical: 10)
         ),
         onPressed: pressed,
-        child: Text(btnName,style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),));
+        child: Text(btnName,style: Responsive.isDesktop(context) ? TextStyle(fontSize: 20, fontWeight: FontWeight.w700):
+        TextStyle(fontSize: 15, fontWeight: FontWeight.w600),));
   }
 }
