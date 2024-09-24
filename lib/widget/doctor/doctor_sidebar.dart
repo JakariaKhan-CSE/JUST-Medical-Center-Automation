@@ -29,16 +29,19 @@ class DoctorSidebar extends StatelessWidget {
             const Divider(),
             const SizedBox(height: 30,),
             featureItem(featureName: "DashBoard",onTap: (){
+
               _pageController.SetIndex(0);
               Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "See All Patient",onTap: (){
+
               _pageController.SetIndex(1);
               Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
             featureItem(featureName: "Message",onTap: (){
+
               _pageController.SetIndex(2);
               Scaffold.of(context).closeDrawer();
             },),

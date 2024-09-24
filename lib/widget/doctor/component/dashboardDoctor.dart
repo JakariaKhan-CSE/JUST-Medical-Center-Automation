@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DashBoardMiddlePart extends StatelessWidget {
-  const DashBoardMiddlePart({
+class DashBoardDoctor extends StatelessWidget {
+  const DashBoardDoctor({
     super.key,
   });
 

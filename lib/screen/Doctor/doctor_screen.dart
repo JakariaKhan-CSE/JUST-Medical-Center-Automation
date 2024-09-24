@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/widget/doctor/doctorMiddlePartFeatures.dart';
 import 'package:just_medical_center_automation/widget/doctor/doctor_sidebar.dart';
 
-import '../../widget/doctor/dashboardMiddlePart.dart';
+import '../../widget/doctor/component/dashboardDoctor.dart';
 
 class DoctorScreen extends StatefulWidget {
   const DoctorScreen({super.key});
@@ -22,7 +23,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
           ),
           Expanded(
               flex: 7,
-              child: DashBoardMiddlePart()
+              child: DoctorMiddlePartFeature()
           ),
           Expanded(
               flex: 2,
