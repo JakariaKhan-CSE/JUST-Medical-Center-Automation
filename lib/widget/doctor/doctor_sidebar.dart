@@ -40,19 +40,20 @@ class DoctorSidebar extends StatelessWidget {
               Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
-            // featureItem(featureName: "Message",onTap: (){
-            //
-            //   _pageController.SetIndex(2);
-            //   Scaffold.of(context).closeDrawer();
-            // },),
-            // const SizedBox(height: 15,),
-            featureItem(featureName: "Setting",onTap: (){
+
+            featureItem(featureName: "Update Profile",onTap: (){
               _pageController.SetIndex(2);
               Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
-            featureItem(featureName: "Log Out",onTap: (){
+            featureItem(featureName: "Change Password",onTap: (){
+
               _pageController.SetIndex(3);
+              Scaffold.of(context).closeDrawer();
+            },),
+            const SizedBox(height: 15,),
+            featureItem(featureName: "Log Out",onTap: (){
+              _pageController.SetIndex(4);
               Scaffold.of(context).closeDrawer();
             },),
 

@@ -23,7 +23,7 @@ class DoctorMiddlePartFeature extends StatelessWidget {
     else if(_pageController.current_index == 1)
       return SeeAllPatientList();
     else if(_pageController.current_index == 2)
-      return SettingPage();
+      return UpdateProfilePage();
     // else if(_pageController.current_index == 3)
     //   return ShowAllMedicinePage();
     // else if(_pageController.current_index == 4)
