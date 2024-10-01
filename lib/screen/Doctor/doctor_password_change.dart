@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:provider/provider.dart';
 
 import '../../widget/common/customButton.dart';
 
@@ -16,6 +19,7 @@ class _DoctorPasswordChangeState extends State<DoctorPasswordChange> {
   final confirmPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<DoctorController>(context,listen: true);
     final size = MediaQuery.of(context).size;
     return Scaffold(
 backgroundColor: Colors.greenAccent.withOpacity(0.4),
@@ -40,6 +44,7 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                 SizedBox(
                   width: size.width/2.5,
                   child: TextFormField(
+                    obscureText: controller.oldPasswordSecure,
                     controller: oldPassword,
                     validator: (val){
                       if(val!.isEmpty)
@@ -49,6 +54,11 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                       return null;
                     },
                     decoration: InputDecoration(
+                      suffixIcon: IconButton(onPressed: (){
+                        controller.setOldPasswordSecure();
+                      },
+                          icon: controller.oldPasswordSecure?Icon(CupertinoIcons.eye_slash):
+                          Icon(CupertinoIcons.eye)),
                         border: OutlineInputBorder(),
 
                     ),
@@ -60,6 +70,7 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                 SizedBox(
                   width: size.width/2.5,
                   child: TextFormField(
+                    obscureText: controller.newPasswordSecure,
                     controller: newPassword,
                     validator: (val){
                       if(val!.isEmpty || val.length<7)
@@ -69,6 +80,11 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                       return null;
                     },
                     decoration: InputDecoration(
+                        suffixIcon: IconButton(onPressed: (){
+                          controller.setNewPasswordSecure();
+                        },
+                            icon: controller.newPasswordSecure?Icon(CupertinoIcons.eye_slash):
+                            Icon(CupertinoIcons.eye)),
                         border: OutlineInputBorder()
                     ),
                   ),
@@ -79,6 +95,7 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                 SizedBox(
                   width: size.width/2.5,
                   child: TextFormField(
+                    obscureText: controller.confirmPasswordSecure,
                     controller: confirmPassword,
                     validator: (val){
                       if(newPassword.text != confirmPassword.text)
@@ -89,6 +106,11 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                       return null;
                     },
                     decoration: InputDecoration(
+                        suffixIcon: IconButton(onPressed: (){
+                          controller.setConfirmPasswordSecure();
+                        },
+                            icon: controller.confirmPasswordSecure?Icon(CupertinoIcons.eye_slash):
+                            Icon(CupertinoIcons.eye)),
                         border: OutlineInputBorder()
                     ),
                   ),

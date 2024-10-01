@@ -9,14 +9,17 @@ class DoctorController extends ChangeNotifier{
   bool get oldPasswordSecure => _oldPasswordSecure;
   void  setOldPasswordSecure(){
     _oldPasswordSecure = !_oldPasswordSecure;
+    notifyListeners();
   }
   bool get newPasswordSecure => _newPasswordSecure;
   void  setNewPasswordSecure(){
     _newPasswordSecure = !_newPasswordSecure;
+    notifyListeners();
   }
   bool get confirmPasswordSecure => _confirmPasswordSecure;
   void  setConfirmPasswordSecure(){
     _confirmPasswordSecure = !_confirmPasswordSecure;
+    notifyListeners();
   }
 
   void SetIndex(index)
