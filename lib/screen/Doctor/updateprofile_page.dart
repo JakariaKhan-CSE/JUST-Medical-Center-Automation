@@ -114,10 +114,12 @@ body: Center(
     SizedBox(height: 30,),
               Align(
                 alignment: Alignment.center,
-                child: SizedBox(
-                    width: size.width/4,
-                    height: 40,
-                    child: ElevatedButton(onPressed: (){}, child: Text('Update',style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.blue, fontWeight: FontWeight.w600),))),
+                child: CustomButton(pressed: (){
+                  // call update doctor profile functionalities
+
+                }, btnName: "Update Profile",
+                  backgroundColor: Colors.lightGreen.withOpacity(0.7),
+                ),
               ),
               SizedBox(height: 30,),
             ],
