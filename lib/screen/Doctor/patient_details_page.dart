@@ -25,6 +25,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [
