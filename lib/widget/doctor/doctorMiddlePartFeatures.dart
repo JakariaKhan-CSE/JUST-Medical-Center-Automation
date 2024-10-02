@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
+
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/screen/Admin/add_doctor_page.dart';
-import 'package:just_medical_center_automation/screen/Admin/add_pharmacist_page.dart';
-import 'package:just_medical_center_automation/screen/Admin/dashBoard_page.dart';
-import 'package:just_medical_center_automation/screen/Admin/show_all_medicine_page.dart';
+
 import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
+import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
 import 'package:just_medical_center_automation/screen/doctor/updateprofile_page.dart';
 import 'package:just_medical_center_automation/widget/doctor/component/dashboardDoctor.dart';
 import 'package:just_medical_center_automation/widget/doctor/seeAllPatient.dart';
@@ -27,8 +25,8 @@ class DoctorMiddlePartFeature extends StatelessWidget {
       return UpdateProfilePage();
     else if(_pageController.current_index == 3)
       return DoctorPasswordChange();
-    // else if(_pageController.current_index == 4)
-    //   return Showalldoctorwithupdatedelte();
+    else if(_pageController.current_index == 4)
+      return PatientDetailsPage();
     // else if(_pageController.current_index == 5)
     //   return ShowAllPharmacistUpdateDelete();
     else
