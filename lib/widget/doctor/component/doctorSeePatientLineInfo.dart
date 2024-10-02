@@ -17,10 +17,10 @@ class doctorSeePatientLineInfo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(name,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700),),
-        Text(':',style: Theme.of(context).textTheme.bodyMedium),
-        Text('${value}',style: Theme.of(context).textTheme.bodyMedium,)
+        Text("$name : ",
+          style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w700),),
+
+        Text('${value}',style: Theme.of(context).textTheme.headlineMedium,)
       ],
     );
   }
