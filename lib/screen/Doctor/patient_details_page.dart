@@ -20,6 +20,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
     final _controller = Provider.of<DoctorController>(context,listen: false);
     Patient? patient = _controller.patient;
     return Scaffold(
+      appBar: AppBar(title: Text('Patient Details'),centerTitle: true,backgroundColor: Colors.cyanAccent.withOpacity(0.6),),
       backgroundColor: Colors.cyanAccent.withOpacity(0.6),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
@@ -58,7 +59,15 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
               _controller.SetIndex(5);
             }, btnName: 'Make Prescription',backgroundColor: Colors.lightGreenAccent,),
             SizedBox(height: 30,),
-            CustomButton(pressed: (){}, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,)
+            CustomButton(pressed: (){
+              // patient previous prescription name like(ID-prescription 1,2,..)
+              // set controller value
+            }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
+            SizedBox(height: 30,),
+            CustomButton(pressed: (){
+              // go to patient previous test report
+              // set controller value
+            }, btnName: 'Previous Test Report',backgroundColor: Colors.cyanAccent,)
           ],
         ),
       ),

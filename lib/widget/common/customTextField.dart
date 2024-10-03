@@ -30,6 +30,7 @@ class CustomTextField extends StatelessWidget {
           if (value!.isEmpty) {
             return "$label is required";
           }
+          return null;
         },
         decoration: InputDecoration(
 

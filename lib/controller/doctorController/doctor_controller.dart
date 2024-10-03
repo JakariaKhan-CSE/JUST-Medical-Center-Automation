@@ -37,4 +37,19 @@ void setPatientData(Patient data)
     current_index = index;
     notifyListeners();
   }
+  List<TextEditingController> textEditingControllerList = [TextEditingController()];
+  //new TextEditingController with field generate
+void generateTextEditingController()
+{
+  textEditingControllerList.add(TextEditingController());
+notifyListeners();
+}
+// remove textField
+void removeTextField(int index){
+  textEditingControllerList[index].clear();
+  textEditingControllerList[index].dispose();
+  textEditingControllerList.removeAt(index);
+  notifyListeners();
+}
+
 }
