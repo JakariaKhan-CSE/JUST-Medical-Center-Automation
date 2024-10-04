@@ -55,8 +55,11 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
             ),
             SizedBox(height: 100,),
             CustomButton(pressed: (){
+              // when doctor click make prescription for new patient it requires to remove previous prescription field from controller
+              _controller.removeAllTextField();
               // show make prescription screen
               _controller.SetIndex(5);
+
             }, btnName: 'Make Prescription',backgroundColor: Colors.lightGreenAccent,),
             SizedBox(height: 30,),
             CustomButton(pressed: (){

@@ -57,6 +57,17 @@ void removeTextField(int index){
   daysTextEditingControllerList[index].dispose();
   daysTextEditingControllerList.removeAt(index);
   notifyListeners();
+
+}
+
+void removeAllTextField(){
+  // for remove entire list
+  textEditingControllerList.clear();
+  daysTextEditingControllerList.clear();
+  // for single one created for doctor easier to read
+  textEditingControllerList.add(TextEditingController());
+  daysTextEditingControllerList.add(TextEditingController());
+  notifyListeners();
 }
 
 }
