@@ -24,17 +24,34 @@ backgroundColor: Colors.tealAccent.withOpacity(0.3),
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 final textController = doctorNotifier.textEditingControllerList[index];
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomTextField(
-                      fieldController: textController,
-                      label: "Medicine Name",
-                      textInputType: TextInputType.text),
-                  index != 0? IconButton(onPressed: (){
-doctorNotifier.removeTextField(index);
-                  }, icon: Icon(Icons.delete)):const SizedBox()
-                ],
+                final daysController = doctorNotifier.daysTextEditingControllerList[index];
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomTextField(
+                        fieldController: textController,
+                        label: "Medicine Name",
+                        textInputType: TextInputType.text),
+
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width*0.08,
+                      child: TextFormField(
+                        controller: daysController,
+                        decoration: InputDecoration(
+                          label: Text('days'),
+                          hintText: "Enter days",
+                          border:  OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+                        ),
+                      ),
+                    ),
+
+                    index != 0? IconButton(onPressed: (){
+                doctorNotifier.removeTextField(index);
+                    }, icon: Icon(Icons.delete)):const SizedBox()
+                  ],
+                ),
               );
             },);
           },),

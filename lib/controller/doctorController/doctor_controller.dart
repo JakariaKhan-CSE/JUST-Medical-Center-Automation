@@ -38,17 +38,24 @@ void setPatientData(Patient data)
     notifyListeners();
   }
   List<TextEditingController> textEditingControllerList = [TextEditingController()];
+  List<TextEditingController> daysTextEditingControllerList = [TextEditingController()];
   //new TextEditingController with field generate
 void generateTextEditingController()
 {
   textEditingControllerList.add(TextEditingController());
+  daysTextEditingControllerList.add(TextEditingController());
 notifyListeners();
 }
 // remove textField
 void removeTextField(int index){
+  //medicine name textfield
   textEditingControllerList[index].clear();
   textEditingControllerList[index].dispose();
   textEditingControllerList.removeAt(index);
+  // how many days use medicine day
+  daysTextEditingControllerList[index].clear();
+  daysTextEditingControllerList[index].dispose();
+  daysTextEditingControllerList.removeAt(index);
   notifyListeners();
 }
 
