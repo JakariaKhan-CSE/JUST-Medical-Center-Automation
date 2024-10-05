@@ -1,3 +1,6 @@
+// import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart'; // this is very dangerous when come it program not work
+
+
 import 'package:flutter/cupertino.dart';
 
 import '../../data/patientData.dart';
@@ -44,6 +47,7 @@ void generateTextEditingController()
 {
   textEditingControllerList.add(TextEditingController());
   daysTextEditingControllerList.add(TextEditingController());
+
 notifyListeners();
 }
 // remove textField
@@ -56,6 +60,12 @@ void removeTextField(int index){
   daysTextEditingControllerList[index].clear();
   daysTextEditingControllerList[index].dispose();
   daysTextEditingControllerList.removeAt(index);
+  //medicine rule checkbox delete
+  morningList.removeAt(index);
+  afternoonList.removeAt(index);
+  nightList.removeAt(index);
+  // medicine use before or after meal
+  beforeList.removeAt(index);
   notifyListeners();
 
 }
@@ -67,7 +77,40 @@ void removeAllTextField(){
   // for single one created for doctor easier to read
   textEditingControllerList.add(TextEditingController());
   daysTextEditingControllerList.add(TextEditingController());
+  // medicine rule
+  morningList.clear();
+  afternoonList.clear();
+  nightList.clear();
+  // when use medicine before or after meal
+  beforeList.clear();
+  // for single one created for doctor easier to read
+  morningList.add(true);
+  afternoonList.add(false);
+  nightList.add(true);
+  beforeList.add(false);
   notifyListeners();
 }
+// medicine use rule
+  List<bool> morningList = [true];
+  List<bool> afternoonList = [false];
+  List<bool> nightList = [false];
+
+// when use medicine before or after meal
+  List<bool> beforeList = [false];
+  // medicine use rule generate
+  void generateCheckBoxRule()
+  {
+    morningList.add(true);
+    afternoonList.add(false);
+    nightList.add(true);
+    notifyListeners();
+  }
+// when use medicine before or after meal generate
+  void generateCheckBoxMeal()
+  {
+    beforeList.add(false);
+    notifyListeners();
+  }
+
 
 }
