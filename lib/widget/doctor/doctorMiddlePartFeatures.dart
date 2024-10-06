@@ -27,9 +27,11 @@ class DoctorMiddlePartFeature extends StatelessWidget {
     else if(_pageController.current_index == 3)
       return DoctorPasswordChange();
     else if(_pageController.current_index == 4)
-      return PatientDetailsPage();
+      return DashBoardDoctor();
     else if(_pageController.current_index == 5)
       return MakePrescription();
+    else if(_pageController.current_index == 6)
+      return PatientDetailsPage();
     else
       return DashBoardDoctor();
   }

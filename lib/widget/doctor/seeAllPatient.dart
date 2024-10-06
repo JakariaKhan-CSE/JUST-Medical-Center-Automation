@@ -30,7 +30,7 @@ class SeeAllPatientList extends StatelessWidget {
                 onTap: (){
                   //when click go to patient details page amd make prescription option
                   _controller.setPatientData(patient);
-                  _controller.SetIndex(4);
+                  _controller.SetIndex(6);
 
                 },
                 leading: CircleAvatar(

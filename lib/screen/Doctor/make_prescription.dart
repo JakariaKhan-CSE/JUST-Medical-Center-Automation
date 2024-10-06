@@ -88,12 +88,15 @@ class _MakePrescriptionState extends State<MakePrescription> {
       int index,
       DoctorController doctorNotifier) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        Text('${index+1}.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w600),),
+        SizedBox(width: 3,),
         CustomTextField(
             fieldController: textController,
             label: "Medicine Name",
             textInputType: TextInputType.text),
+        SizedBox(width: 10,),
         Container(
           width: MediaQuery.of(context).size.width * 0.08,
           decoration: BoxDecoration(
@@ -107,6 +110,7 @@ class _MakePrescriptionState extends State<MakePrescription> {
                     borderRadius: BorderRadius.circular(10))),
           ),
         ),
+        SizedBox(width: 15,),
         index != 0
             ? IconButton(
                 onPressed: () {
@@ -121,8 +125,9 @@ class _MakePrescriptionState extends State<MakePrescription> {
   Row buildCheckBox(bool morning, DoctorController doctorNotifier, int index,
       bool afternoon, bool night, bool beforeMeal) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        SizedBox(width: 15,),
         Row(
           children: [
             Transform.scale(
