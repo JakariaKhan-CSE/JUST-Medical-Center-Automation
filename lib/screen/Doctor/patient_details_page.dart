@@ -65,11 +65,13 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
             CustomButton(pressed: (){
               // patient previous prescription name like(ID-prescription 1,2,..)
               // set controller value
+              _controller.SetIndex(7);
             }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
             SizedBox(height: 30,),
             CustomButton(pressed: (){
               // go to patient previous test report
               // set controller value
+              _controller.SetIndex(8);
             }, btnName: 'Previous Test Report',backgroundColor: Colors.cyanAccent,)
           ],
         ),

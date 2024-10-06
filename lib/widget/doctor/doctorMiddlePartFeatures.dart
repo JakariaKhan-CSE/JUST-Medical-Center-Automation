@@ -6,6 +6,8 @@ import 'package:just_medical_center_automation/controller/doctorController/docto
 import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
+import 'package:just_medical_center_automation/screen/doctor/patient_test_report.dart';
+import 'package:just_medical_center_automation/screen/doctor/previous_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/updateprofile_page.dart';
 import 'package:just_medical_center_automation/widget/doctor/component/dashboardDoctor.dart';
 import 'package:just_medical_center_automation/widget/doctor/seeAllPatient.dart';
@@ -27,11 +29,15 @@ class DoctorMiddlePartFeature extends StatelessWidget {
     else if(_pageController.current_index == 3)
       return DoctorPasswordChange();
     else if(_pageController.current_index == 4)
-      return DashBoardDoctor();
+      return DashBoardDoctor(); // this is for logout functionalities
     else if(_pageController.current_index == 5)
       return MakePrescription();
     else if(_pageController.current_index == 6)
       return PatientDetailsPage();
+    else if(_pageController.current_index == 7)
+      return PreviousPrescription();
+    else if(_pageController.current_index == 8)
+      return PatientTestReport();
     else
       return DashBoardDoctor();
   }
