@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
 import 'package:just_medical_center_automation/data/prescriptionData.dart';
+import 'package:provider/provider.dart';
 
 
 class PreviousPrescription extends StatelessWidget {
@@ -7,6 +9,7 @@ class PreviousPrescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _controller = Provider.of<DoctorController>(context);
     return Scaffold(
       backgroundColor: Colors.teal.withOpacity(0.3),
       body: Padding(
@@ -25,7 +28,7 @@ class PreviousPrescription extends StatelessWidget {
                   onTap: (){
                     //when click go to patient details page amd make prescription option
                     // _controller.setPatientData(patient);
-                    // _controller.SetIndex(6);
+                    _controller.SetIndex(9);
 
                   },
 

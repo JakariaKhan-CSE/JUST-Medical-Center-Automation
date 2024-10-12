@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
 
 import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
@@ -38,6 +39,8 @@ class DoctorMiddlePartFeature extends StatelessWidget {
       return PreviousPrescription();
     else if(_pageController.current_index == 8)
       return PatientTestReport();
+    else if(_pageController.current_index == 9)
+      return PrescriptionDesign();
     else
       return DashBoardDoctor();
   }

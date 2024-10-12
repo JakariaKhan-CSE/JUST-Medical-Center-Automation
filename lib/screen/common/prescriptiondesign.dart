@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/data/medicine%20data.dart';
+import 'package:just_medical_center_automation/data/patientData.dart';
 import 'package:just_medical_center_automation/widget/common/prescription_right_side.dart';
 import 'package:just_medical_center_automation/widget/common/patient_info_prescription.dart';
 import 'package:just_medical_center_automation/widget/common/prescription_design_head.dart';
 import 'package:just_medical_center_automation/widget/common/prescription_left_side.dart';
 
 class PrescriptionDesign extends StatelessWidget {
+  // final DoctorModel doctorinfo; // get doctor which doctor write prescription for patient
+  // final Patient patientInfo; // use this data for patient info field
+  // final DateTime dateTimePrescription; // get from database
+  // final MedicineData medicineData;
+
   const PrescriptionDesign({super.key});
 
   @override
