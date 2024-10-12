@@ -3,6 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 
+import '../../data/diagnosticTestData.dart';
 import '../../data/patientData.dart';
 
 class DoctorController extends ChangeNotifier{
@@ -11,13 +12,21 @@ class DoctorController extends ChangeNotifier{
   bool _newPasswordSecure = true;
   bool _confirmPasswordSecure = true;
   Patient? _patient;
-
+  DiagonasticData? _labTestInfo;
+// for patient info
 Patient? get patient => _patient;
 void setPatientData(Patient data)
 {
   _patient = data;
   notifyListeners();
 }
+// for labTestReport info
+  DiagonasticData? get diagonasticData => _labTestInfo;
+  void setDiagonasticData(DiagonasticData data)
+  {
+    _labTestInfo = data;
+    notifyListeners();
+  }
 
   bool get oldPasswordSecure => _oldPasswordSecure;
   void  setOldPasswordSecure(){

@@ -14,6 +14,8 @@ import 'package:just_medical_center_automation/widget/doctor/component/dashboard
 import 'package:just_medical_center_automation/widget/doctor/seeAllPatient.dart';
 import 'package:provider/provider.dart';
 
+import '../../screen/common/labTestReportPage.dart';
+
 
 class DoctorMiddlePartFeature extends StatelessWidget {
   const DoctorMiddlePartFeature({super.key});
@@ -41,6 +43,8 @@ class DoctorMiddlePartFeature extends StatelessWidget {
       return PatientTestReport();
     else if(_pageController.current_index == 9)
       return PrescriptionDesign();
+    else if(_pageController.current_index == 10)
+      return LabTestReportPage();
     else
       return DashBoardDoctor();
   }
