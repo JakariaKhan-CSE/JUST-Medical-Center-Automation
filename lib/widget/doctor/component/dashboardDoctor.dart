@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../responsive.dart';
+
 class DashBoardDoctor extends StatelessWidget {
   const DashBoardDoctor({
     super.key,
@@ -29,7 +31,8 @@ class DashBoardDoctor extends StatelessWidget {
                       color: Colors.black.withOpacity(0.3)
                   ),
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width/4,
+                    width: Responsive.isDesktop(context) ? MediaQuery.of(context).size.width/4 :
+                    MediaQuery.of(context).size.width/1.7,
                     child: TextField(
 
                       decoration: InputDecoration(

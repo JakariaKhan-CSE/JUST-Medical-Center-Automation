@@ -31,15 +31,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
               child: DoctorSidebar()
           ),
           Expanded(
-              flex: 7,  // device mobile hole patient history middle part er nise show korbe r desktop hole right side a
-              child: Responsive.isMobile(context) ? SingleChildScrollView(
-                child: Column(
-                  children: [
-                    DoctorMiddlePartFeature(),
-                    PatientHistory()
-                  ],
-                ),
-              ) : DoctorMiddlePartFeature()
+              flex: 7,
+              child: DoctorMiddlePartFeature()
           ),
           if(Responsive.isDesktop(context))  // desktop holei aita show korbe otherwise show korbe na
           Expanded(

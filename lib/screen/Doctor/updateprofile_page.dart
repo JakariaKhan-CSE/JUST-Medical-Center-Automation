@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/widget/common/customButton.dart';
 
+import '../../responsive.dart';
+
 class UpdateProfilePage extends StatefulWidget {
 
   UpdateProfilePage({super.key});
@@ -30,7 +32,8 @@ body: Center(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text('Update Profile',style: Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w800,letterSpacing: 2.3),),
+        Text('Update Profile',style: Responsive.isDesktop(context) ? Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w800,letterSpacing: 2.3):
+        Theme.of(context).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w700,letterSpacing: 2.0),),
         SizedBox(height: 10,),
         Padding(
     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -49,80 +52,101 @@ body: Center(
         ),
         SizedBox(height: 20,),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 150),
+          padding: Responsive.isDesktop(context) ?  EdgeInsets.symmetric(horizontal: 150) :
+          EdgeInsets.symmetric(horizontal: 15),
           child: Form(
             key: _key,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Name: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('Name: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                ),
                 SizedBox(height: 5,),
-                SizedBox(
-                  width: size.width/2.5,
-                  child: TextFormField(
-                    validator: (val){
-                      if(val!.isEmpty){
-                        return "Enter your name";
-                      }
-                      return null;
-                    },
-                controller: name,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder()
+                Center(
+                  child: SizedBox(
+                    width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
+                    child: TextFormField(
+                      validator: (val){
+                        if(val!.isEmpty){
+                          return "Enter your name";
+                        }
+                        return null;
+                      },
+                  controller: name,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder()
+                      ),
                     ),
                   ),
                 ),
             SizedBox(height: 15,),
-                Text('Email: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('Email: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                ),
                 SizedBox(height: 5,),
-                SizedBox(
-                  width: size.width/2.5,
-                  child: TextFormField(
-                    validator: (val){
-                      if(val!.isEmpty){
-                        return "Enter your email";
-                      }
-                      return null;
-                    },
-                controller: email,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder()
+                Center(
+                  child: SizedBox(
+                    width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
+                    child: TextFormField(
+                      validator: (val){
+                        if(val!.isEmpty){
+                          return "Enter your email";
+                        }
+                        return null;
+                      },
+                  controller: email,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder()
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 15,),
-                Text('Specialist: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('Specialist: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                ),
                 SizedBox(height: 5,),
-                SizedBox(
-                  width: size.width/2.5,
-                  child: TextFormField(
-                    validator: (val){
-                      if(val!.isEmpty){
-                        return "Enter your specialist";
-                      }
-                      return null;
-                    },
-                controller: specialist,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder()
+                Center(
+                  child: SizedBox(
+                    width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
+                    child: TextFormField(
+                      validator: (val){
+                        if(val!.isEmpty){
+                          return "Enter your specialist";
+                        }
+                        return null;
+                      },
+                  controller: specialist,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder()
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 15,),
-                Text('Description: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('Description: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
+                ),
                 SizedBox(height: 5,),
-                SizedBox(
-                  width: size.width/2.5,
-                  child: TextFormField(
-                    validator: (val){
-                      if(val!.isEmpty){
-                        return "Enter your description";
-                      }
-                      return null;
-                    },
-                controller: description,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder()
+                Center(
+                  child: SizedBox(
+                    width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
+                    child: TextFormField(
+                      validator: (val){
+                        if(val!.isEmpty){
+                          return "Enter your description";
+                        }
+                        return null;
+                      },
+                  controller: description,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder()
+                      ),
                     ),
                   ),
                 ),
