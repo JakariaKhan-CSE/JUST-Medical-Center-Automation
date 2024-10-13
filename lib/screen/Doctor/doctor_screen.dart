@@ -4,6 +4,7 @@ import 'package:just_medical_center_automation/widget/doctor/doctor_sidebar.dart
 
 import '../../responsive.dart';
 import '../../widget/doctor/component/dashboardDoctor.dart';
+import '../../widget/doctor/component/patient_history.dart';
 
 class DoctorScreen extends StatefulWidget {
   const DoctorScreen({super.key});
@@ -30,27 +31,26 @@ class _DoctorScreenState extends State<DoctorScreen> {
               child: DoctorSidebar()
           ),
           Expanded(
-              flex: 7,
-              child: DoctorMiddlePartFeature()
+              flex: 7,  // device mobile hole patient history middle part er nise show korbe r desktop hole right side a
+              child: Responsive.isMobile(context) ? SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DoctorMiddlePartFeature(),
+                    PatientHistory()
+                  ],
+                ),
+              ) : DoctorMiddlePartFeature()
           ),
           if(Responsive.isDesktop(context))  // desktop holei aita show korbe otherwise show korbe na
           Expanded(
               flex: 2,
-              child: Container(
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(padding: EdgeInsets.only(top: 50)),
-                    Text('Patient History',textAlign: TextAlign.center,style: TextStyle(fontSize: 20,
-                    fontWeight: FontWeight.w600,letterSpacing: 2,wordSpacing: 5),),
-                    Divider()
-                  ],
-                ),
-              )),
+              child: PatientHistory()),
         ],
       ),
     );
   }
 }
+
+
 
 
