@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
 import 'package:provider/provider.dart';
 
+import '../../responsive.dart';
 import '../../widget/common/customButton.dart';
 
 class DoctorPasswordChange extends StatefulWidget {
@@ -27,7 +28,9 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Change Password',style: Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w800,letterSpacing: 2.3),),
+          Text('Change Password',style: Responsive.isDesktop(context) ?
+          Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w800,letterSpacing: 2.3):
+          Theme.of(context).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w800,letterSpacing: 2.3),),
           SizedBox(height: 10,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -38,11 +41,12 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
             key: _key,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+
               children: [
                 Text('Old Password: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
                 SizedBox(height: 5,),
                 SizedBox(
-                  width: size.width/2.5,
+                  width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
                   child: TextFormField(
                     obscureText: controller.oldPasswordSecure,
                     controller: oldPassword,
@@ -68,7 +72,7 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                 Text('New Password: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
                 SizedBox(height: 5,),
                 SizedBox(
-                  width: size.width/2.5,
+                  width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
                   child: TextFormField(
                     obscureText: controller.newPasswordSecure,
                     controller: newPassword,
@@ -93,7 +97,7 @@ backgroundColor: Colors.greenAccent.withOpacity(0.4),
                 Text('Confirm Password: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
                 SizedBox(height: 5,),
                 SizedBox(
-                  width: size.width/2.5,
+                  width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
                   child: TextFormField(
                     obscureText: controller.confirmPasswordSecure,
                     controller: confirmPassword,
