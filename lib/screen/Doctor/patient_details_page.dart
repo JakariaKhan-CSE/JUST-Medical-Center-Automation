@@ -4,6 +4,7 @@ import 'package:just_medical_center_automation/widget/common/customButton.dart';
 import 'package:provider/provider.dart';
 
 import '../../data/patientData.dart';
+import '../../responsive.dart';
 import '../../widget/doctor/component/doctorSeePatientLineInfo.dart';
 
 class PatientDetailsPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
+            Responsive.isDesktop(context) ? Row(
               children: [
              Expanded(
                flex: 2,
@@ -52,8 +53,34 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
                     child: Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,))
                 // patient picture here
               ],
+            ):
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // use patient picture here
+                Container(
+                    height: 150,
+                    width: 150,
+                    child: Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,)),
+                SizedBox(height: 20,),
+      Column(
+                  children: [
+                    doctorSeePatientLineInfo(name: "Patient Name",value: '${patient?.name}',),
+                    SizedBox(height: 10,),
+                    doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.ID}',),
+                    SizedBox(height: 10,),
+                    doctorSeePatientLineInfo(name: "Patient age",value: '${patient?.age}',),
+                    SizedBox(height: 10,),
+                    doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
+
+                  ],
+                ),
+
+
+                // patient picture here
+              ],
             ),
-            SizedBox(height: 100,),
+            Responsive.isDesktop(context) ? SizedBox(height: 100,):SizedBox(height: 30,),
             CustomButton(pressed: (){
               // when doctor click make prescription for new patient it requires to remove previous prescription field from controller
               _controller.removeAllTextField();
@@ -61,13 +88,13 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
               _controller.SetIndex(5);
 
             }, btnName: 'Make Prescription',backgroundColor: Colors.lightGreenAccent,),
-            SizedBox(height: 30,),
+            Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
             CustomButton(pressed: (){
               // patient previous prescription name like(ID-prescription 1,2,..)
               // set controller value
               _controller.SetIndex(7);
             }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
-            SizedBox(height: 30,),
+            Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
             CustomButton(pressed: (){
               // go to patient previous test report
               // set controller value

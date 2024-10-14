@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../responsive.dart';
+
 
 class doctorSeePatientLineInfo extends StatelessWidget {
   final String name;
@@ -18,10 +20,13 @@ class doctorSeePatientLineInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text("$name : ",
-          style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w700),),
+          style: Responsive.isDesktop(context) ? Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w700):
+          Theme.of(context).textTheme.labelLarge!.copyWith(fontWeight: FontWeight.w700),),
 
-        Text('${value}',style: Theme.of(context).textTheme.headlineMedium,)
+        Text('${value}',style: Responsive.isDesktop(context) ? Theme.of(context).textTheme.headlineSmall:
+        Theme.of(context).textTheme.labelMedium,)
       ],
-    );
+    )
+    ;
   }
 }
