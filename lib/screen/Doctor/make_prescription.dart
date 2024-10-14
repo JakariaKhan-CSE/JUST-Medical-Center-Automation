@@ -4,6 +4,8 @@ import 'package:just_medical_center_automation/widget/common/customButton.dart';
 import 'package:just_medical_center_automation/widget/common/customTextField.dart';
 import 'package:provider/provider.dart';
 
+import '../../responsive.dart';
+
 class MakePrescription extends StatefulWidget {
   const MakePrescription({super.key});
 
@@ -38,18 +40,25 @@ class _MakePrescriptionState extends State<MakePrescription> {
                     final night = doctorNotifier.nightList[index];
                     final beforeMeal = doctorNotifier.beforeList[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 5),
-                      child: Column(
-                        children: [
-                          buildTextField(textController, context,
-                              daysController, index, doctorNotifier),
-                          SizedBox(
-                            height: 5,
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: Card(
+                        elevation: 3,
+                        child: Padding(
+
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 5),
+                          child:  Column(
+                            children: [
+                              buildTextField(textController, context,
+                                  daysController, index, doctorNotifier),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              buildCheckBox(morning, doctorNotifier, index,
+                                  afternoon, night, beforeMeal)
+                            ],
                           ),
-                          buildCheckBox(morning, doctorNotifier, index,
-                              afternoon, night, beforeMeal)
-                        ],
+                        ),
                       ),
                     );
                   },
@@ -81,13 +90,13 @@ class _MakePrescriptionState extends State<MakePrescription> {
     );
   }
 
-  Row buildTextField(
+  Widget buildTextField(
       TextEditingController textController,
       BuildContext context,
       TextEditingController daysController,
       int index,
       DoctorController doctorNotifier) {
-    return Row(
+    return Responsive.isDesktop(context) ? Row(
       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('${index+1}.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w600),),
@@ -110,14 +119,86 @@ class _MakePrescriptionState extends State<MakePrescription> {
                     borderRadius: BorderRadius.circular(10))),
           ),
         ),
-        SizedBox(width: 15,),
+        Spacer(),
         index != 0
             ? IconButton(
                 onPressed: () {
                   doctorNotifier.removeTextField(index);
                 },
-                icon: Icon(Icons.delete))
-            : const SizedBox()
+                icon: Icon(Icons.delete,color: Colors.red,))
+            : const SizedBox(),
+        SizedBox(width: 10,)
+      ],
+    ):
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Text('${index+1}.',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+            SizedBox(width: 1,),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: TextFormField(
+                    controller:  textController,
+                    validator: (val){
+                      if(val!.isEmpty)
+                        {
+                          return "Enter medicine name";
+                        }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      label: Text("Medicine Name"),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+
+                   ),
+              ),
+            ),
+SizedBox(width: 5,),
+            index != 0
+                ? IconButton(
+                onPressed: () {
+                  doctorNotifier.removeTextField(index);
+                },
+                icon: Icon(Icons.delete,color: Colors.deepOrange,))
+                : const SizedBox()
+          ],
+        ),
+        SizedBox(height: 5,),
+
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.3,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            child: TextFormField(
+              validator: (val){
+                if(val!.isEmpty)
+                {
+                  return "Enter medicine days";
+                }
+                return null;
+              },
+              controller: daysController,
+              decoration: InputDecoration(
+                  label: Text('days'),
+                  hintText: "Enter days",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))),
+            ),
+          ),
+        ),
+
       ],
     );
   }
@@ -165,7 +246,7 @@ class _MakePrescriptionState extends State<MakePrescription> {
         Spacer(),
         Row(
           children: [
-            Text('Before meal: '),
+            Responsive.isDesktop(context) ? Text('Before meal: '): Text('Before: '),
             Transform.scale(
               scale: 1.2,
               child: Checkbox(
@@ -178,6 +259,7 @@ class _MakePrescriptionState extends State<MakePrescription> {
             ),
           ],
         ),
+        if(Responsive.isDesktop(context))
         Spacer(),
         Spacer(),
       ],
