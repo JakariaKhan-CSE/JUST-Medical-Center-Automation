@@ -10,6 +10,8 @@ class ChangePasswordPharmacist extends StatefulWidget {
 class _ChangePasswordPharmacistState extends State<ChangePasswordPharmacist> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(child: Text("Change Password Page"),),
+    );
   }
 }

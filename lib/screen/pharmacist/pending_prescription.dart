@@ -10,6 +10,8 @@ class PendingPrescriptionPage extends StatefulWidget {
 class _PendingPrescriptionPageState extends State<PendingPrescriptionPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(child: Text("Pending Prescription"),),
+    );
   }
 }

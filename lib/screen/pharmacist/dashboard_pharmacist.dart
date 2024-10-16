@@ -10,6 +10,9 @@ class DashboardPharmacist extends StatefulWidget {
 class _DashboardPharmacistState extends State<DashboardPharmacist> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.purpleAccent.withOpacity(0.2),
+      body: Center(child: Text("Dashboard"),),
+    );
   }
 }

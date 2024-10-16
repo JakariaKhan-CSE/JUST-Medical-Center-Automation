@@ -10,6 +10,8 @@ class MedicineAddPage extends StatefulWidget {
 class _MedicineAddPageState extends State<MedicineAddPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(child: Text("Medicine Add Page"),),
+    );
   }
 }
