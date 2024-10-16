@@ -11,7 +11,7 @@ import 'package:just_medical_center_automation/screen/doctor/patient_test_report
 import 'package:just_medical_center_automation/screen/doctor/previous_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/updateprofile_page.dart';
 import 'package:just_medical_center_automation/widget/doctor/component/dashboardDoctor.dart';
-import 'package:just_medical_center_automation/widget/doctor/seeAllPatient.dart';
+import 'package:just_medical_center_automation/widget/common/seeAllPatient.dart';
 import 'package:provider/provider.dart';
 
 import '../../screen/common/labTestReportPage.dart';

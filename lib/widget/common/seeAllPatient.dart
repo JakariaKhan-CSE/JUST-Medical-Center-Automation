@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
 import 'package:just_medical_center_automation/data/patientData.dart';
-import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
 import 'package:provider/provider.dart';
 
 class SeeAllPatientList extends StatelessWidget {
