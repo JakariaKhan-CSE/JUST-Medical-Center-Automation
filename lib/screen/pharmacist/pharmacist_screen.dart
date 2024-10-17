@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/widget/pharmacist/pharmacist_right_side.dart';
-import 'package:just_medical_center_automation/widget/pharmacist/pharmacist_sidebar.dart';
+import 'package:just_medical_center_automation/screen/pharmacist/widget/pharmacist/pharmacist_right_side.dart';
+import 'package:just_medical_center_automation/screen/pharmacist/widget/pharmacist/pharmacist_sidebar.dart';
 import '../../responsive.dart';
 class PharmacistScreen extends StatefulWidget {
   const PharmacistScreen({super.key});

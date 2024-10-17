@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
-import 'package:just_medical_center_automation/widget/pharmacist/components/pharmacist_name.dart';
 import 'package:provider/provider.dart';
-import '../../screen/admin/widget/admin/featureItemButton.dart';
+
+import '../../../admin/widget/admin/featureItemButton.dart';
+import 'components/pharmacist_name.dart';
 
 
 class PharmacistSidebar extends StatelessWidget {
