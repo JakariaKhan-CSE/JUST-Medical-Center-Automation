@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../responsive.dart';
+
+import '../../../../../responsive.dart';
 import 'itemView.dart';
 
 class allHorizontalList extends StatelessWidget {

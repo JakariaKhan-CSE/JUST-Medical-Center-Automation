@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
+import 'package:just_medical_center_automation/screen/admin/widget/admin/adminPicture.dart';
+import 'package:just_medical_center_automation/screen/admin/widget/admin/featureItemButton.dart';
 import 'package:provider/provider.dart';
 
-import '../../widget/admin/adminPicture.dart';
-import '../../widget/admin/featureItemButton.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({

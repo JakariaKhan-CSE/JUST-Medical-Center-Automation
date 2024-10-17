@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/data/doctorData.dart';
+import 'package:just_medical_center_automation/screen/admin/widget/admin/component/allDoctorList.dart';
+import 'package:just_medical_center_automation/screen/admin/widget/admin/component/doctorListText.dart';
 import 'package:provider/provider.dart';
 
-import '../../widget/admin/component/allDoctorList.dart';
-import '../../widget/admin/component/doctorListText.dart';
-import '../../widget/admin/component/showAllDoctorwithUpdateDelte.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});

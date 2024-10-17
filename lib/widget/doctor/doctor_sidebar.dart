@@ -3,7 +3,7 @@ import 'package:just_medical_center_automation/controller/doctorController/docto
 import 'package:just_medical_center_automation/widget/doctor/component/doctorPicture.dart';
 import 'package:provider/provider.dart';
 
-import '../admin/featureItemButton.dart';
+import '../../screen/admin/widget/admin/featureItemButton.dart';
 import 'component/doctorName.dart';
 
 class DoctorSidebar extends StatelessWidget {

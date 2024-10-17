@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/screen/Admin/sidebar.dart';
-import 'package:just_medical_center_automation/widget/admin/adminRightSideFeaturePage.dart';
-
+import 'package:just_medical_center_automation/screen/admin/widget/admin/adminRightSideFeaturePage.dart';
 import '../../responsive.dart';
-import '../../widget/admin/adminPicture.dart';
-import '../../widget/admin/featureItemButton.dart';
+
 
 class AdminPage extends StatelessWidget {
   const AdminPage({super.key});

@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/screen/Admin/add_doctor_page.dart';
 import 'package:just_medical_center_automation/screen/Admin/add_pharmacist_page.dart';
 import 'package:just_medical_center_automation/screen/Admin/dashBoard_page.dart';
-import 'package:just_medical_center_automation/screen/Admin/show_all_medicine_page.dart';
 import 'package:provider/provider.dart';
 
+import '../../../common/show_all_medicine_page.dart';
 import 'component/showAllDoctorwithUpdateDelte.dart';
 import 'component/showAllPharmacistUpdateDelete.dart';
 

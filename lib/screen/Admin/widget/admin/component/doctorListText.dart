@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../responsive.dart';
+import '../../../../../responsive.dart';
+
 
 class listText extends StatelessWidget {
   final String listName;
