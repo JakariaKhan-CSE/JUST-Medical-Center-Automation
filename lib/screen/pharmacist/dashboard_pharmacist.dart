@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_medical_center_automation/screen/pharmacist/widget/EachCardShow.dart';
 
 class DashboardPharmacist extends StatefulWidget {
   const DashboardPharmacist({super.key});
@@ -39,15 +41,7 @@ class _DashboardPharmacistState extends State<DashboardPharmacist> {
               SizedBox(height: 20,),
               Divider(color: Colors.blue,thickness: 1.5,),
               SizedBox(height: 20,),
-Container(
-  height: height*0.16,
-  width: width*0.2,
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(12),
-    color: Colors.grey.withOpacity(0.6),
-    border: Border.all(color: Colors.yellowAccent)
-  ),
-)
+EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
 
               // SizedBox(height: 20,),
               // Divider(color: Colors.blue,thickness: 1.5,),
@@ -59,3 +53,5 @@ Container(
     );
   }
 }
+
+
