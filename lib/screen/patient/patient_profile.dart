@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:just_medical_center_automation/widget/patient/profile/patient_profile_row.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/profile/patient_profile_row.dart';
 
 class PatientProfile extends StatelessWidget {
   const PatientProfile({super.key});

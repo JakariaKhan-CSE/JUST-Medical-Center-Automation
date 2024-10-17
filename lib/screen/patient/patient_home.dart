@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/widget/patient/home/availabledoctorlist.dart';
-import 'package:just_medical_center_automation/widget/patient/home/available_doctor_text.dart';
-import 'package:just_medical_center_automation/widget/patient/home/doctor_listbuilder.dart';
-import 'package:just_medical_center_automation/widget/patient/home/doctors_all_text.dart';
-import 'package:just_medical_center_automation/widget/patient/home/patient_home_search.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/home/available_doctor_text.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/home/availabledoctorlist.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/home/doctor_listbuilder.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/home/doctors_all_text.dart';
+import 'package:just_medical_center_automation/screen/patient/widget/patient/home/patient_home_search.dart';
+
 
 class PatientHome extends StatelessWidget {
   const PatientHome({super.key});

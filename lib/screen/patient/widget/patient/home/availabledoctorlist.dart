@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/doctorData.dart';
+import '../../../../../data/doctorData.dart';
 
-class doctorListbuilder extends StatelessWidget {
-  const doctorListbuilder({
+class availabledoctorlist extends StatelessWidget {
+  const availabledoctorlist({
     super.key,
   });
 
@@ -25,14 +25,34 @@ class doctorListbuilder extends StatelessWidget {
               children: [
                 Expanded(
                     flex: 5,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        singleData['img'],
-                        fit: BoxFit.cover,
-                        width: 150,
-                        height: 150,
-                      ),
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            singleData['img'],
+                            fit: BoxFit.cover,
+                            width: 150,
+                            height: 150,
+                          ),
+                        ),
+                        Positioned(
+                            bottom: -5,
+                            left: 35,
+                            child: Container(
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.green),
+                              child: const Center(
+                                  child: Text(
+                                'online',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              )),
+                            ))
+                      ],
                     )),
                 Expanded(
                     flex: 2,
