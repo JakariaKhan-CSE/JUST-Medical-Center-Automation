@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/widget/doctor/component/doctorPicture.dart';
 import 'package:provider/provider.dart';
 
-import '../../screen/admin/widget/admin/featureItemButton.dart';
+import '../../../admin/widget/admin/featureItemButton.dart';
 import 'component/doctorName.dart';
+import 'component/doctorPicture.dart';
 
 class DoctorSidebar extends StatelessWidget {
   const DoctorSidebar({super.key});

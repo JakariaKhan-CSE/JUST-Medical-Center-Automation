@@ -1,20 +1,18 @@
 import 'package:flutter/cupertino.dart';
-
-
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
 import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
-
 import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_test_report.dart';
 import 'package:just_medical_center_automation/screen/doctor/previous_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/updateprofile_page.dart';
-import 'package:just_medical_center_automation/widget/doctor/component/dashboardDoctor.dart';
 import 'package:just_medical_center_automation/widget/common/seeAllPatient.dart';
 import 'package:provider/provider.dart';
 
-import '../../screen/common/labTestReportPage.dart';
+import '../../../common/labTestReportPage.dart';
+import 'component/dashboardDoctor.dart';
+
 
 
 class DoctorMiddlePartFeature extends StatelessWidget {

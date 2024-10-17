@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/widget/doctor/doctorMiddlePartFeatures.dart';
-import 'package:just_medical_center_automation/widget/doctor/doctor_sidebar.dart';
-
+import 'package:just_medical_center_automation/screen/doctor/widget/doctor/component/patient_history.dart';
+import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctorMiddlePartFeatures.dart';
+import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctor_sidebar.dart';
 import '../../responsive.dart';
-import '../../widget/doctor/component/dashboardDoctor.dart';
-import '../../widget/doctor/component/patient_history.dart';
 
 class DoctorScreen extends StatefulWidget {
   const DoctorScreen({super.key});

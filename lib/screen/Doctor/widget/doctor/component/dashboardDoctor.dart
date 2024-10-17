@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../responsive.dart';
-
+import '../../../../../responsive.dart';
 class DashBoardDoctor extends StatelessWidget {
   const DashBoardDoctor({
     super.key,

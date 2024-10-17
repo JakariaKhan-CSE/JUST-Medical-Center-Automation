@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../responsive.dart';
-
+import '../../../../../responsive.dart';
 
 class doctorSeePatientLineInfo extends StatelessWidget {
   final String name;
