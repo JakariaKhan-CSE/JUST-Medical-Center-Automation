@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/widget/EachCardShow.dart';
+import 'package:just_medical_center_automation/screen/pharmacist/widget/today_report.dart';
 
 class DashboardPharmacist extends StatefulWidget {
   const DashboardPharmacist({super.key});
@@ -41,7 +42,19 @@ class _DashboardPharmacistState extends State<DashboardPharmacist> {
               SizedBox(height: 20,),
               Divider(color: Colors.blue,thickness: 1.5,),
               SizedBox(height: 20,),
-EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Column(
+      children: [
+        EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
+        SizedBox(height: 20,),
+        EachPartCard(height: height, width: width, text: 'Total Medicine',number: '20 K',),
+      ],
+    ),
+    TodayReport(height: height, width: width,number: "568",)
+  ],
+),
 
               // SizedBox(height: 20,),
               // Divider(color: Colors.blue,thickness: 1.5,),
@@ -53,5 +66,7 @@ EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
     );
   }
 }
+
+
 
 

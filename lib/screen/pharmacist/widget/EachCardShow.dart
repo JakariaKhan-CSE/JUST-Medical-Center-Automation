@@ -31,13 +31,13 @@ class EachPartCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text("5",style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w700),),
+                Text(number,style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w700),),
                 SizedBox(width: 3,),
                 Icon(CupertinoIcons.triangle_fill,color: Colors.yellowAccent,size: 16,)
               ],
             ),
             SizedBox(height: 10,),
-            Text("Total Patient",style: Theme.of(context).textTheme.titleMedium!.copyWith(
+            Text(text,style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 fontWeight: FontWeight.w600,letterSpacing: 1.9),),
           ],
         ),
