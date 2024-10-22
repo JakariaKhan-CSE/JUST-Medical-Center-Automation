@@ -49,6 +49,7 @@ Row(
       children: [
         EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
         SizedBox(height: 20,),
+        // total medicine of month
         EachPartCard(height: height, width: width, text: 'Total Medicine',number: '20 K',),
       ],
     ),
