@@ -5,6 +5,7 @@ import 'package:just_medical_center_automation/screen/pharmacist/dashboard_pharm
 import 'package:just_medical_center_automation/screen/pharmacist/manage_medicine.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/medicine_add_page.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/pending_prescription.dart';
+import 'package:just_medical_center_automation/screen/pharmacist/widget/pharmacist/see_patient_prescription.dart';
 import 'package:provider/provider.dart';
 
 
@@ -25,6 +26,8 @@ class PharmacistRightPartFeature extends StatelessWidget {
       return ManageMedicine();
     else if(_pageController.current_index == 4)
       return ChangePasswordPharmacist();
+    else if(_pageController.current_index == 5)
+      return SeePatientPrescription();
     else
       return DashboardPharmacist();
   }
