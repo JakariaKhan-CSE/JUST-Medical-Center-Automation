@@ -7,42 +7,26 @@ import 'package:flutter/cupertino.dart';
    current_index = index;
    notifyListeners();
   }
-//   bool _oldPasswordSecure = true;
-//   bool _newPasswordSecure = true;
-//   bool _confirmPasswordSecure = true;
-//   Patient? _patient;
-//   DiagonasticData? _labTestInfo;
-// // for patient info
-//   Patient? get patient => _patient;
-//   void setPatientData(Patient data)
-//   {
-//     _patient = data;
-//     notifyListeners();
-//   }
-// // for labTestReport info
-//   DiagonasticData? get diagonasticData => _labTestInfo;
-//   void setDiagonasticData(DiagonasticData data)
-//   {
-//     _labTestInfo = data;
-//     notifyListeners();
-//   }
-//
-//   bool get oldPasswordSecure => _oldPasswordSecure;
-//   void  setOldPasswordSecure(){
-//     _oldPasswordSecure = !_oldPasswordSecure;
-//     notifyListeners();
-//   }
-//   bool get newPasswordSecure => _newPasswordSecure;
-//   void  setNewPasswordSecure(){
-//     _newPasswordSecure = !_newPasswordSecure;
-//     notifyListeners();
-//   }
-//   bool get confirmPasswordSecure => _confirmPasswordSecure;
-//   void  setConfirmPasswordSecure(){
-//     _confirmPasswordSecure = !_confirmPasswordSecure;
-//     notifyListeners();
-//   }
-//
+  bool _oldPasswordSecure = true;
+  bool _newPasswordSecure = true;
+  bool _confirmPasswordSecure = true;
+
+  bool get oldPasswordSecure => _oldPasswordSecure;
+  void  setOldPasswordSecure(){
+    _oldPasswordSecure = !_oldPasswordSecure;
+    notifyListeners();
+  }
+  bool get newPasswordSecure => _newPasswordSecure;
+  void  setNewPasswordSecure(){
+    _newPasswordSecure = !_newPasswordSecure;
+    notifyListeners();
+  }
+  bool get confirmPasswordSecure => _confirmPasswordSecure;
+  void  setConfirmPasswordSecure(){
+    _confirmPasswordSecure = !_confirmPasswordSecure;
+    notifyListeners();
+  }
+
 
 //   List<TextEditingController> textEditingControllerList = [TextEditingController()];
 //   List<TextEditingController> daysTextEditingControllerList = [TextEditingController()];
