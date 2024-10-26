@@ -54,7 +54,7 @@ class PharmacistSidebar extends StatelessWidget {
 
               const SizedBox(height: 15,),
               featureItem(featureName: "Log Out",onTap: (){
-                _pageController.SetIndex(5);
+                _pageController.SetIndex(6);
                 Scaffold.of(context).closeDrawer();
               },),
 

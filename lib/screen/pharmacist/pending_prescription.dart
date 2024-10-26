@@ -42,7 +42,7 @@ class _PendingPrescriptionPageState extends State<PendingPrescriptionPage> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                      print('index is : $index');
+                      // print('index is : $index');
                       _controller.SetIndex(5); // show patient prescription
 
                     },
