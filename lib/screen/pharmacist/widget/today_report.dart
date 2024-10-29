@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../responsive.dart';
 class TodayReport extends StatelessWidget {
   const TodayReport({
     super.key,
@@ -14,8 +16,8 @@ class TodayReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height*0.34,
-      width: width*0.4,
+      height:  Responsive.isDesktop(context)? height*0.34:height*0.34,
+      width: Responsive.isDesktop(context)? width*0.4 : width-50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.grey.withOpacity(0.4),

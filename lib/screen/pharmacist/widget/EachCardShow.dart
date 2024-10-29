@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../responsive.dart';
+
 class EachPartCard extends StatelessWidget {
   final String text;
   final String number;
@@ -16,8 +18,8 @@ class EachPartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height*0.16,
-      width: width*0.2,
+      height:Responsive.isDesktop(context)? height*0.16: (height/3.5)-30,
+      width:Responsive.isDesktop(context)? width*0.2 : (width/2)-50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.grey.withOpacity(0.5),

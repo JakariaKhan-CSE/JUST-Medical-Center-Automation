@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/widget/EachCardShow.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/widget/today_report.dart';
 
+import '../../responsive.dart';
+
 class DashboardPharmacist extends StatefulWidget {
   const DashboardPharmacist({super.key});
 
@@ -24,38 +26,114 @@ class _DashboardPharmacistState extends State<DashboardPharmacist> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20,),
-          Row(
-            children: [
-              Icon(Icons.home,size: 36,color: Colors.black,),
-              SizedBox(width: 15,),
-              Text('Dashboard',style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w700,
-              color: Colors.black,letterSpacing: 1.4),)
-            ],
-          ),
-              SizedBox(height: 5,),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.home,
+                    size: 36,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Dashboard',
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        letterSpacing: 1.4),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 55),
-                child: Text('Home',style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w600,
-                    color: Colors.black,letterSpacing: 1.3),),
+                child: Text(
+                  'Home',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      letterSpacing: 1.3),
+                ),
               ),
-              SizedBox(height: 20,),
-              Divider(color: Colors.blue,thickness: 1.5,),
-              SizedBox(height: 20,),
-Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    Column(
-      children: [
-        EachPartCard(height: height, width: width, text: 'Total Patient',number: '10',),
-        SizedBox(height: 20,),
-        // total medicine of month
-        EachPartCard(height: height, width: width, text: 'Total Medicine',number: '20 K',),
-      ],
-    ),
-    TodayReport(height: height, width: width,number: "568",)
-  ],
-),
+              SizedBox(
+                height: 20,
+              ),
+              Divider(
+                color: Colors.blue,
+                thickness: 1.5,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Responsive.isDesktop(context)
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            EachPartCard(
+                              height: height,
+                              width: width,
+                              text: 'Total Patient',
+                              number: '10',
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            // total medicine of month
+                            EachPartCard(
+                              height: height,
+                              width: width,
+                              text: 'Total Medicine',
+                              number: '20 K',
+                            ),
+                          ],
+                        ),
+                        TodayReport(
+                          height: height,
+                          width: width,
+                          number: "568",
+                        ),
+                      ],
+                    )
+                  : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TodayReport(
+                          height: height,
+                          width: width,
+                          number: "568",
+                        ),
+                        SizedBox(height: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            EachPartCard(
+                              height: height,
+                              width: width,
+                              text: 'Total Patient',
+                              number: '10',
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            // total medicine of month
+                            EachPartCard(
+                              height: height,
+                              width: width,
+                              text: 'Total Medicine',
+                              number: '20 K',
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
 
               // SizedBox(height: 20,),
               // Divider(color: Colors.blue,thickness: 1.5,),
@@ -67,7 +145,3 @@ Row(
     );
   }
 }
-
-
-
-
