@@ -18,7 +18,7 @@ class EachPartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:Responsive.isDesktop(context)? height*0.16: (height/3.5)-30,
+      height:Responsive.isDesktop(context)? height*0.16: (height/3.5)-50,
       width:Responsive.isDesktop(context)? width*0.2 : (width/2)-50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
