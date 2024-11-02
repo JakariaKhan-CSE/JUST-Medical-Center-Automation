@@ -72,7 +72,8 @@ class _PendingPrescriptionPageState extends State<PendingPrescriptionPage> {
                               children: [
                                 Text('Dr. Jakaria Khan',style: TextStyle(color: Colors.white,fontSize: 15),),
                                 Text('For: Myself',style: TextStyle(color: Colors.white,fontSize: 15),),
-                                Text('8 april 2024 - 10:37 PM',style: TextStyle(color: Colors.white,fontSize: 12),)
+                                Text('8 april 2024',style: TextStyle(color: Colors.white,fontSize: 12),),
+                                // Text('10:37 PM',style: TextStyle(color: Colors.white,fontSize: 12),)
                               ],
                             ),
                           ),
