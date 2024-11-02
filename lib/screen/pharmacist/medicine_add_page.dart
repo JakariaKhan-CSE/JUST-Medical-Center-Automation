@@ -5,6 +5,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/widget/common/customButton.dart';
 import 'package:just_medical_center_automation/widget/common/customTextField.dart';
 
+import '../../responsive.dart';
+
 class MedicineAddPage extends StatefulWidget {
   const MedicineAddPage({super.key});
 
@@ -32,14 +34,17 @@ key: _key,
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
               child: Column(
                 children: [
-                  Text('Add Medicine',style: Theme.of(context).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w700),),
+                  Text('Add Medicine',style: Responsive.isDesktop(context) ? Theme.of(context).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w700):
+                  Theme.of(context).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w500),),
                   SizedBox(height: 5,),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    padding: Responsive.isDesktop(context) ? EdgeInsets.symmetric(horizontal: 100):
+                    EdgeInsets.symmetric(horizontal: 15),
                     child: Divider(color: Colors.black,),
                   ),
-                  SizedBox(height: 90,),
-                  Row(
+                  Responsive.isDesktop(context) ? SizedBox(height: 90,) : SizedBox(height: 30,),
+              Responsive.isDesktop(context) ?
+              Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Spacer(),
@@ -54,7 +59,26 @@ key: _key,
                           textInputType: TextInputType.number),
                       Spacer()
                     ],
-                  ),
+                  ):
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  CustomTextField(
+                      fieldController: _medicineController,
+                      label: "Type Medicine Name",
+                      textInputType: TextInputType.text),
+                  SizedBox(height: 20,),
+                  CustomTextField(
+                      fieldController: _quantityController,
+                      label: "Quantity",
+                      textInputType: TextInputType.number),
+
+                ],
+                            ),
+              ),
                   SizedBox(height: 40,),
                   CustomButton(pressed: (){
                     if(_key.currentState!.validate())
