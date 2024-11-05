@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class PharmacistInfo extends StatelessWidget {
   final String pharmacistName;
-  const PharmacistInfo({super.key, required this.pharmacistName});
+  final String imageLink;
+  const PharmacistInfo({super.key, required this.pharmacistName, required this.imageLink});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class PharmacistInfo extends StatelessWidget {
         AspectRatio(aspectRatio: 1.5,
             child: CircleAvatar(
                 radius: 100,
-                child:  Image.network('https://cdn-icons-png.flaticon.com/512/1560/1560896.png',fit: BoxFit.cover,))
+                child:  Image.network(imageLink,fit: BoxFit.cover,))
         ),
 
         const SizedBox(height: 20,),

@@ -23,7 +23,7 @@ class PharmacistSidebar extends StatelessWidget {
             children: [
 
               // show current doctor picture(which is log in)
-              PharmacistInfo(pharmacistName: "Welcome Pharmacist"),
+              PharmacistInfo(pharmacistName: "Welcome Pharmacist",imageLink: "'https://cdn-icons-png.flaticon.com/512/1560/1560896.png'",),
               featureItem(featureName: "DashBoard",onTap: (){
 
                 _pageController.SetIndex(0);

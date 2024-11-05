@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/controller/common_controller.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/controller/labTechController/labTechnicianController.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
+import 'package:just_medical_center_automation/screen/Lab%20Technician/lab-technician_screen.dart';
 import 'package:just_medical_center_automation/screen/doctor/doctor_screen.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/pharmacist_screen.dart';
@@ -17,11 +19,12 @@ void main(){
     ChangeNotifierProvider(create: (context) => DoctorController(),),
     ChangeNotifierProvider(create: (context) => PharmacistController(),),
     ChangeNotifierProvider(create: (context) => CommonController(),),
+    ChangeNotifierProvider(create: (context) => LabTechnicianController(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    home: PharmacistScreen()
+    home: LabTechnicianScreen()
   ),
   ),
 

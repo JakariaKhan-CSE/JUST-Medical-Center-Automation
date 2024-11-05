@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/screen/Lab%20Technician/dashboard_labTech.dart';
 import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
 import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
@@ -22,7 +23,7 @@ class DoctorMiddlePartFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     final _pageController = Provider.of<DoctorController>(context, listen: true);
     if(_pageController.current_index == 0)
-      return DashBoardDoctor();
+      return DashBoardLabTechnician();
     else if(_pageController.current_index == 1)
       return SeeAllPatientList();
     else if(_pageController.current_index == 2)
