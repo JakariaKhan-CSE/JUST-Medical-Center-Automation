@@ -13,7 +13,7 @@ class allHorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: Responsive.isDesktop(context) ? 3: 2.5,
+      aspectRatio: Responsive.isDesktop(context) ? 5: 2.7,
       child: SizedBox(
         // height: MediaQuery.of(context).size.height / 2.8,
         child: ListView.builder(

@@ -3,6 +3,7 @@ import 'package:just_medical_center_automation/controller/adminController/adminC
 import 'package:just_medical_center_automation/screen/Admin/add_doctor_page.dart';
 import 'package:just_medical_center_automation/screen/Admin/add_pharmacist_page.dart';
 import 'package:just_medical_center_automation/screen/Admin/dashBoard_page.dart';
+import 'package:just_medical_center_automation/screen/admin/monthly_record.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/show_all_medicine_page.dart';
@@ -27,6 +28,8 @@ class Adminrightsidefeaturepage extends StatelessWidget {
       return Showalldoctorwithupdatedelte();
     else if(_pageController.current_index == 5)
       return ShowAllPharmacistUpdateDelete();
+    else if(_pageController.current_index == 6)
+      return MonthlyRecord();
     else
       return DashboardPage();
   }
