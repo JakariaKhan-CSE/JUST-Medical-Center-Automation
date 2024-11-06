@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/screen/patient/PatientPrescription.dart';
+import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
+import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
+import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 
 import '../auth/login.dart';
 import '../auth/registration_page.dart';
@@ -37,92 +41,11 @@ class _HomePageState extends State<HomePage> {
     _loadDatabase();
     super.initState();
   }
+  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile()];
   @override
   Widget build(BuildContext context) {
 
     return SafeArea(child: Scaffold(
-      appBar: AppBar(
-        title: const Text('JUST Medical Center'),
-        centerTitle: true,
-        elevation: 2.5,
-        shadowColor: Colors.yellowAccent,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Center(
-                    child: Image.asset('images/just logo.jpg',height: 90,),
-                  ),
-                  const SizedBox(height: 5,),
-                  const Center(
-                    child: Text("JUST Medical Center",style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.4
-                    ),),
-                  )
-                ],
-              ),
-            )),
-            const SizedBox(height: 10,),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const HomePage()));
-              },
-              child: const Card(
-
-                child: ListTile(
-                  title: Text('Home'),
-                  trailing: Icon(Icons.arrow_forward_sharp),
-                ),
-              ),
-            ),
-            const Card(
-              child: ListTile(
-                title: Text('Services'),
-                trailing: Icon(Icons.arrow_forward_sharp),
-              ),
-            ),
-            const Card(
-              child: ListTile(
-                title: Text('Ambulance'),
-                trailing: Icon(Icons.arrow_forward_sharp),
-              ),
-            ),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const RegistrationPage()));
-              },
-              child: const Card(
-                child: ListTile(
-                  title: Text('Registration'),
-                  trailing: Icon(Icons.arrow_forward_sharp),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const LoginPage()));
-              },
-              child: const Card(
-                child: ListTile(
-                  title: Text('Login'),
-                  trailing: Icon(Icons.arrow_forward_sharp),
-                ),
-              ),
-            ),
-            const Card(
-              child: ListTile(
-                title: Text('About'),
-                trailing: Icon(Icons.arrow_forward_sharp),
-              ),
-            ),
-
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
 
         child: Column(
@@ -151,6 +74,8 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    ));
+    ),
+
+    );
   }
 }

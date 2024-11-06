@@ -5,15 +5,25 @@ import 'package:just_medical_center_automation/screen/patient/PatientPrescriptio
 import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
 import 'package:provider/provider.dart';
+
+import '../homepage.dart';
 class PatientScreen extends StatelessWidget {
 
-  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile()];
+  // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
+  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(), const HomePage()];
   PatientScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChange>(context,listen: true);
     return Scaffold(
+    appBar: AppBar(
+        title: const Text('JUST Medical Center'),
+        centerTitle: true,
+        elevation: 2.5,
+        shadowColor: Colors.yellowAccent,
+      ),
+      drawer: PatientDrawer(),
       body: Screen[indexChange.currentPageIndex], // change page using Screen List(which contain home and profile page)
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (index) {
@@ -22,7 +32,8 @@ class PatientScreen extends StatelessWidget {
 
         },
         indicatorColor: Colors.amber,
-        selectedIndex: indexChange.currentPageIndex,
+        // if user select any item from drawer 0 index mark(bottom nav bar)
+        selectedIndex: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? indexChange.currentPageIndex: 0,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.document_scanner_sharp), label: 'Prescription History'),
@@ -30,6 +41,90 @@ class PatientScreen extends StatelessWidget {
         ],
       ),
 
+    );
+  }
+}
+
+class PatientDrawer extends StatelessWidget {
+  const PatientDrawer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final indexChange = Provider.of<IndexChange>(context,listen: true);
+    return Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Center(
+                  child: Image.asset('images/just logo.jpg',height: 90,),
+                ),
+                const SizedBox(height: 5,),
+                const Center(
+                  child: Text("JUST Medical Center",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.4
+                  ),),
+                )
+              ],
+            ),
+          )),
+          const SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              // not use navigator.push. If you use remove bottom navigationbar to get new page
+              // Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const HomePage()));
+              //  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(), const HomePage()];
+              // here 3 index is homepage
+              indexChange.ChangeIndexValue(3);
+              Scaffold.of(context).closeDrawer(); // close drawer
+            },
+            child: const Card(
+
+              child: ListTile(
+                title: Text('DashBoard'),
+                trailing: Icon(Icons.arrow_forward_sharp),
+              ),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              title: Text('Services'),
+              trailing: Icon(Icons.arrow_forward_sharp),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              title: Text('Ambulance'),
+              trailing: Icon(Icons.arrow_forward_sharp),
+            ),
+          ),
+
+           Card(
+            child: ListTile(
+              onTap: (){
+                // go to my developer page
+              },
+              title: Text('About us'),
+              trailing: Icon(Icons.arrow_forward_sharp),
+            ),
+          ),
+
+          Card(
+            child: ListTile(
+              onTap: (){
+                // trigger logout function
+              },
+              title: Text('Log out'),
+              trailing: Icon(Icons.arrow_forward_sharp),
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }
