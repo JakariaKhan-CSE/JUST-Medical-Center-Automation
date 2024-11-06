@@ -23,7 +23,7 @@ class DoctorMiddlePartFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     final _pageController = Provider.of<DoctorController>(context, listen: true);
     if(_pageController.current_index == 0)
-      return DashBoardLabTechnician();
+      return DashBoardDoctor();
     else if(_pageController.current_index == 1)
       return SeeAllPatientList();
     else if(_pageController.current_index == 2)

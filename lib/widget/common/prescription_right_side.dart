@@ -78,7 +78,8 @@ class prescription_right_side extends StatelessWidget {
                 style: TextStyle( fontSize: 15),
               ),
             ],
-          )
+          ),
+          SizedBox(height: 10,)
       
         ],
       ),

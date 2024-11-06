@@ -94,11 +94,12 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
               _controller.SetIndex(7);
             }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
             Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
-            CustomButton(pressed: (){
-              // go to patient previous test report
-              // set controller value
-              _controller.SetIndex(8);
-            }, btnName: 'Previous Test Report',backgroundColor: Colors.cyanAccent,)
+            // add this feature future
+            // CustomButton(pressed: (){
+            //   // go to patient previous test report
+            //   // set controller value
+            //   _controller.SetIndex(8);
+            // }, btnName: 'Previous Test Report',backgroundColor: Colors.cyanAccent,)
           ],
         ),
       ),
