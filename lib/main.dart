@@ -6,6 +6,7 @@ import 'package:just_medical_center_automation/controller/labTechController/labT
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
 import 'package:just_medical_center_automation/screen/Lab%20Technician/lab-technician_screen.dart';
+import 'package:just_medical_center_automation/screen/admin/admin_page.dart';
 import 'package:just_medical_center_automation/screen/doctor/doctor_screen.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/pharmacist_screen.dart';
@@ -24,7 +25,7 @@ void main(){
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    home: LabTechnicianScreen()
+    home: PharmacistScreen()
   ),
   ),
 

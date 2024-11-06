@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
-import 'package:just_medical_center_automation/screen/common/show_all_medicine_page.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/change_password_pharmacist.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/dashboard_pharmacist.dart';
 import 'package:just_medical_center_automation/screen/pharmacist/manage_medicine.dart';

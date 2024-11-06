@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../responsive.dart';
 import '../common/prescriptiondesign.dart';
+import '../common/searchBarRoleWised.dart';
 
 class PendingPrescriptionPage extends StatefulWidget {
   const PendingPrescriptionPage({super.key});
@@ -26,7 +27,26 @@ class _PendingPrescriptionPageState extends State<PendingPrescriptionPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Total Pending Prescription: $prescription',style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+            Responsive.isDesktop(context) ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Total Pending Prescription: $prescription',style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                SearchBarRoleWise(hintText: "Search Pending Prescription", onTap: (){
+                  // pending prescription search
+                },),
+              ],
+            ):Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: SearchBarRoleWise(hintText: "Search Medicine", onTap: (){
+                    // medicine search
+                  },),
+                ),
+                SizedBox(height: 5,),
+                Text('Total Pending Prescription: $prescription',style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+              ],
+            ),
             const SizedBox(height: 10,),
             Divider(),
             const SizedBox(height: 30,),

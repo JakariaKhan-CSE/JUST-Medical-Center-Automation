@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/data/medicine%20data.dart';
-import 'package:just_medical_center_automation/screen/pharmacist/widget/searchBar.dart';
-
+import 'package:just_medical_center_automation/screen/common/searchBarRoleWised.dart';
 import '../../responsive.dart';
 
 
@@ -17,7 +16,12 @@ class ManageMedicine extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            searchBar(),
+            Align(
+              alignment: Alignment.topRight,
+              child: SearchBarRoleWise(hintText: "Search Medicine", onTap: (){
+                // medicine search
+              },),
+            ),
             SizedBox(height: 20,),
             Center(
               child: Text('All Medicine List',style:Responsive.isDesktop(context) ? Theme.of(context).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.bold):
