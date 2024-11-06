@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class PatientProfileRow extends StatelessWidget {
   final String leading;
   final String title;
-  IconData? icon;
+
   PatientProfileRow({
-    super.key, required this.leading, required this.title,this.icon
+    super.key, required this.leading, required this.title,
   });
 
   @override
@@ -22,14 +22,10 @@ class PatientProfileRow extends StatelessWidget {
                 style: const TextStyle(fontSize: 15, color: Colors.grey),
               )),
           Expanded(
-              flex: 5,
+              flex: 6,
               child: Text(title,
                   style: const TextStyle(fontSize: 15, color: Colors.black))),
-          Expanded(
-              child: Icon(
-            icon??Icons.arrow_forward_ios, // aitar value na dile(null hole) aita nibe
-            size: 20,
-          ))
+
         ],
       ),
     );

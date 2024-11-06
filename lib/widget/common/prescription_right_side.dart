@@ -21,7 +21,10 @@ class prescription_right_side extends StatelessWidget {
           // SizedBox(
           //   height: 10,
           // ),
-          ListView.builder(shrinkWrap: true,itemCount: MedicineData.data.length,itemBuilder: (context, index) {
+          ListView.builder(shrinkWrap: true,
+            itemCount: MedicineData.data.length,
+            physics: ScrollPhysics(), // use so that scroll medicine
+            itemBuilder: (context, index) {
             Map<String,dynamic> oneData = MedicineData.data[index];
 
               return Column(
@@ -61,8 +64,8 @@ class prescription_right_side extends StatelessWidget {
                   const SizedBox(height: 10,),
                 ],
               );
-      
-      
+
+
           },),
       
       

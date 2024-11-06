@@ -13,6 +13,7 @@ class PatientHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 10),

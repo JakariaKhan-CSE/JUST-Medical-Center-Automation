@@ -40,11 +40,15 @@ class PrescriptionDesign extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 prescription_left_side(),
+                 Expanded(
+                     flex: 3,
+                     child: prescription_left_side()),
                   SizedBox(
                     width: 5,
                   ),
-                  Expanded(flex: 2, child: prescription_right_side())
+                  Expanded(
+                      flex: 6,
+                      child: prescription_right_side())
                 ],
               ),
             ),

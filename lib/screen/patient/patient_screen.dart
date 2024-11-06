@@ -1,16 +1,21 @@
 // this is patient home page and target design is mobile
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
+import 'package:just_medical_center_automation/screen/common/about_developer.dart';
 import 'package:just_medical_center_automation/screen/patient/PatientPrescription.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
+import 'package:just_medical_center_automation/screen/patient/update%20profile.dart';
 import 'package:provider/provider.dart';
 
+import '../common/prescriptiondesign.dart';
 import '../homepage.dart';
 class PatientScreen extends StatelessWidget {
 
   // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
-  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(), const HomePage()];
+  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(),
+    const HomePage(), const PrescriptionDesign(), const AboutDeveloperPage(),
+    const UpdatePatientProfile()];
   PatientScreen({super.key});
 
   @override
@@ -31,7 +36,7 @@ class PatientScreen extends StatelessWidget {
           indexChange.ChangeIndexValue(index);
 
         },
-        indicatorColor: Colors.amber,
+        indicatorColor: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? Colors.amber : Colors.grey,
         // if user select any item from drawer 0 index mark(bottom nav bar)
         selectedIndex: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? indexChange.currentPageIndex: 0,
         destinations: const [
@@ -107,8 +112,10 @@ class PatientDrawer extends StatelessWidget {
             child: ListTile(
               onTap: (){
                 // go to my developer page
+                indexChange.ChangeIndexValue(5); //Screen[5]
+                Scaffold.of(context).closeDrawer();
               },
-              title: Text('About us'),
+              title: Text('Developer'),
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),

@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
+import 'package:provider/provider.dart';
+
+import '../../controller/patientController/indexChange.dart';
 
 class PatientPrescription extends StatelessWidget {
   int prescription = 11;
@@ -8,6 +11,7 @@ class PatientPrescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final indexChange = Provider.of<IndexChange>(context,listen: true);
     return Scaffold(
       appBar: AppBar(title: const Text('Prescription Manager'),centerTitle: true,),
       body: Padding(
@@ -29,8 +33,10 @@ class PatientPrescription extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                      print('index is : $index');
-                      Get.to(const PrescriptionDesign());
+                      // print('index is : $index');
+                      // not navigate use pages in body so that, bottom nav bar not hide
+                      // Get.to(const PrescriptionDesign());
+                      indexChange.ChangeIndexValue(4); // prescription design
                     },
                     child: Stack(
                       children: [
