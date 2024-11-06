@@ -28,7 +28,7 @@ class LabTechnicianSidebar extends StatelessWidget {
             children: [
 
               // show current doctor picture(which is log in)
-              PharmacistInfo(pharmacistName: "Welcome Lab Technician",imageLink: "https://img.freepik.com/premium-vector/cute-lab-technician-preparing-samples-cartoon-vector-icon_1022901-113149.jpg",),
+              PharmacistInfo(pharmacistName: "Welcome Lab Technician",imageLink: 'https://img.lovepik.com/element/40168/0924.png_1200.png',),
               featureItem(featureName: "DashBoard",onTap: (){
 
                 _pageController.SetIndex(0);

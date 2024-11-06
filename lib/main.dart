@@ -25,7 +25,7 @@ void main(){
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    home: DoctorScreen()
+    home: LabTechnicianScreen()
   ),
   ),
 
