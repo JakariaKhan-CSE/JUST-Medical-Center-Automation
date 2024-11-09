@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import '../../controller/loginProvider.dart';
 import '../../controller/signUpProvider.dart';
+import '../../model/req/auth/signUpModel.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';
 import 'login_page.dart';
@@ -30,7 +31,6 @@ class _signUpPageState extends State<signUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    var loginNotifier = Provider.of<LoginNotifier>(context);
     return Consumer<SignUpNotifier>(
       builder: (context, signUpNotifier, child) {
         return Scaffold(
@@ -38,7 +38,6 @@ class _signUpPageState extends State<signUpPage> {
             preferredSize: const Size.fromHeight(50),
             child: AppBar(
               title: Text('Sign Up'),
-
             ),
           ),
           body: Padding(
@@ -51,14 +50,12 @@ class _signUpPageState extends State<signUpPage> {
                   const SizedBox(
                     height: 50,
                   ),
-                  const Text(
-                      'Hello, Welcome!',
+                  const Text('Hello, Welcome!',
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w600,
                           color: Colors.black)),
-                  const Text(
-                      'Fill the details to signup to your account',
+                  const Text('Fill the details to signup to your account',
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -73,7 +70,7 @@ class _signUpPageState extends State<signUpPage> {
                     validator: (name) {
                       if (name!
                           .isEmpty) // email filed jodi empty hoi and @ na thake tahole invalid message return korbe
-                          {
+                      {
                         return "Please enter your name";
                       }
                       return null;
@@ -90,7 +87,7 @@ class _signUpPageState extends State<signUpPage> {
                       if (email!.isEmpty ||
                           !email.contains(
                               "@")) // email filed jodi empty hoi and @ na thake tahole invalid message return korbe
-                          {
+                      {
                         return "Please enter a valid email";
                       }
                       return null;
@@ -107,7 +104,7 @@ class _signUpPageState extends State<signUpPage> {
                       if (password!.isEmpty ||
                           password.length <
                               6) // email filed jodi empty hoi and @ na thake tahole invalid message return korbe
-                          {
+                      {
                         return "Please enter at least 6 digit password";
                       }
                       return null;
@@ -116,17 +113,17 @@ class _signUpPageState extends State<signUpPage> {
                     suffixIcon: GestureDetector(
                       onTap: () {
                         signUpNotifier.obsecureText =
-                        !signUpNotifier.obsecureText;
+                            !signUpNotifier.obsecureText;
                       },
                       child: signUpNotifier.obsecureText
                           ? const Icon(
-                        Icons.visibility_off,
-                        color: Colors.black,
-                      )
+                              Icons.visibility_off,
+                              color: Colors.black,
+                            )
                           : const Icon(
-                        Icons.visibility,
-                        color: Colors.black,
-                      ),
+                              Icons.visibility,
+                              color: Colors.black,
+                            ),
                     ),
                   ),
                   const SizedBox(
@@ -151,19 +148,31 @@ class _signUpPageState extends State<signUpPage> {
                   ),
                   CustomButton(
                       btnName: 'Sign Up',
+                      backgroundColor: Colors.indigoAccent,
                       pressed: () {
                         // user registration complete korle first time false kore deya hobe jeno next time login korte gele profile update page show na kore
                         // loginNotifier.firstTime = !loginNotifier.firstTime;
 
                         if (signUpNotifier.validateFormAndSave()) {
+                          // firstly check passowrd is strong or not
+                          if(signUpNotifier.passwordValidator(password.text)){
+                            SignUpModel model = SignUpModel(
+                                email: email.text,
+                                password: password.text,
+                                username: name.text,
+                                role: 'patient');
 
-                          // SignUpModel model = SignUpModel(
-                          //     email: email.text,
-                          //     password: password.text,
-                          //     username: name.text);
-                          //
-                          // signUpNotifier.signUp(model);
-
+                            signUpNotifier.signUp(model);
+                          }
+                          else{
+                            Get.snackbar(
+                              "Weak Password",
+                              "Please use Strong password",
+                              colorText: Colors.white,
+                              backgroundColor: Colors.deepOrangeAccent,
+                              icon: const Icon(Icons.add_alert),
+                            );
+                          }
                         } else {
                           Get.snackbar(
                             "Sign up Failed",

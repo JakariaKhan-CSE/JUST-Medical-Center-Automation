@@ -17,6 +17,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
+          minimumSize: Size.fromHeight(50),
             backgroundColor: backgroundColor ?? Colors.grey.withOpacity(0.5), // define  kore na dile automatic grey color hobe
             foregroundColor:foregroundColor?? Colors.black, // foregroundColor null hole black set hobe
             padding: Responsive.isDesktop(context) ? EdgeInsets.symmetric(horizontal: 120, vertical: 20):
@@ -24,6 +25,6 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: pressed,
         child: Text(btnName,style: Responsive.isDesktop(context) ? TextStyle(fontSize: 20, fontWeight: FontWeight.w700):
-        TextStyle(fontSize: 15, fontWeight: FontWeight.w600),));
+        TextStyle(fontSize: 19, fontWeight: FontWeight.w600),));
   }
 }

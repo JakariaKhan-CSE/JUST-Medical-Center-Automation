@@ -1,6 +1,10 @@
 // this is patient home page and target design is mobile
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:just_medical_center_automation/controller/loginProvider.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
+import 'package:just_medical_center_automation/screen/auth/login_page.dart';
 import 'package:just_medical_center_automation/screen/common/about_developer.dart';
 import 'package:just_medical_center_automation/screen/common/ambulance_service_page.dart';
 import 'package:just_medical_center_automation/screen/common/show_all_services.dart';
@@ -60,6 +64,8 @@ class PatientDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChange>(context,listen: true);
+    final loginNotifier = Provider.of<LoginNotifier>(context);
+
     return Drawer(
       child: ListView(
         children: [
@@ -119,7 +125,17 @@ class PatientDrawer extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),
-
+          Card(
+            child: ListTile(
+              onTap: (){
+                // go to my change password page
+                // indexChange.ChangeIndexValue(8); //Screen[8]
+                // Scaffold.of(context).closeDrawer();
+              },
+              title: Text('Change Passord'),
+              trailing: Icon(Icons.arrow_forward_sharp),
+            ),
+          ),
            Card(
             child: ListTile(
               onTap: (){
@@ -136,6 +152,9 @@ class PatientDrawer extends StatelessWidget {
             child: ListTile(
               onTap: (){
                 // trigger logout function
+                loginNotifier.logout();
+                Get.offAll(LoginPage());
+
               },
               title: Text('Log out'),
               trailing: Icon(Icons.arrow_forward_sharp),

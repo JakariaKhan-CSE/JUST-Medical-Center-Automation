@@ -34,10 +34,10 @@ class ImageUploader extends ChangeNotifier {
   Future<String?> imageUpload(XFile upload) async {
     File image = File(upload.path);
 
-
+// before use firebase storage make sure to create storage in firebase console
     final ref = FirebaseStorage.instance
         .ref()
-        .child('users').child('patient')
+        .child('users').child('patients')
         .child('${uuid.v1()}.jpg');
     // image ke store kora hosse
     await ref.putFile(image);

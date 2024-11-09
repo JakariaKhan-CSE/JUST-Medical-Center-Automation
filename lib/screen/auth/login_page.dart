@@ -4,6 +4,7 @@ import 'package:just_medical_center_automation/screen/auth/signUpPage.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/loginProvider.dart';
+import '../../model/req/auth/loginModel.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';
 class LoginPage extends StatefulWidget {
@@ -102,27 +103,24 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 50,),
-                  CustomButton(btnName: 'Login',
+                  CustomButton(btnName: 'Login',backgroundColor: Colors.indigoAccent,
                       pressed: (){
 
-
-
-                        // i get form (null) error so i comment out this code
-                        // if(loginNotifier.validateAndSave())
-                        // {
-                        //   LoginModel model = LoginModel(
-                        //       email: email.text,
-                        //       password: password.text);
-                        //   loginNotifier.userLogin(model);
-                        // }
-                        // else{
-                        //   Get.snackbar("Sign Failed",
-                        //       "Please fill this field",
-                        //       colorText: Colors.white,
-                        //       backgroundColor: Colors.red,
-                        //       icon: const Icon(Icons.add_alert)
-                        //   );
-                        // }
+                        if(loginNotifier.validateAndSave())
+                        {
+                          LoginModel model = LoginModel(
+                              email: email.text,
+                              password: password.text);
+                          loginNotifier.userLogin(model);
+                        }
+                        else{
+                          Get.snackbar("Sign Failed",
+                              "Please fill this field",
+                              colorText: Colors.white,
+                              backgroundColor: Colors.red,
+                              icon: const Icon(Icons.add_alert)
+                          );
+                        }
 
                       }
                   )
