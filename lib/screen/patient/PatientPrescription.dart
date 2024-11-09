@@ -13,9 +13,9 @@ class PatientPrescription extends StatelessWidget {
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChange>(context,listen: true);
     return Scaffold(
-      appBar: AppBar(title: const Text('Prescription Manager'),centerTitle: true,),
+    //  appBar: AppBar(title: const Text('Prescription Manager'),centerTitle: true,),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

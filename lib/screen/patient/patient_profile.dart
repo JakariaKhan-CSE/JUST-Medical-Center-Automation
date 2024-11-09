@@ -12,24 +12,27 @@ class PatientProfile extends StatelessWidget {
     final indexChange = Provider.of<IndexChange>(context,listen: true);
     return Scaffold(
       // backgroundColor:Colors.grey,
-      appBar: AppBar(
-        title: const Text('Profile'),
-        centerTitle: true,
-        // leading: IconButton(
-        //   onPressed: () {
-        //     Get.back();
-        //   },
-        //   icon: const Icon(
-        //     Icons.arrow_back_ios,
-        //     size: 20,
-        //   ),
-        // ),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Profile'),
+      //   centerTitle: true,
+      //   // leading: IconButton(
+      //   //   onPressed: () {
+      //   //     Get.back();
+      //   //   },
+      //   //   icon: const Icon(
+      //   //     Icons.arrow_back_ios,
+      //   //     size: 20,
+      //   //   ),
+      //   // ),
+      // ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Align(
+            //     alignment: Alignment.center,
+            //     child: Text('Profile',style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w600),)),
             const Center(
               child: CircleAvatar(
                 radius: 70,

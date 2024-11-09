@@ -71,7 +71,7 @@ class doctorListbuilder extends StatelessWidget {
           itemBuilder: (context, index) {
             Map<String, dynamic> singleData = DoctorData.data[index];
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -81,7 +81,7 @@ class doctorListbuilder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
                           singleData['img'],
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                           width: 150,
                           height: 150,
                         ),
@@ -95,7 +95,7 @@ class doctorListbuilder extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            singleData['name'],
+                            singleData['name'],overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
@@ -103,7 +103,7 @@ class doctorListbuilder extends StatelessWidget {
                           ),
                           // SizedBox(height: 5,),
                           Text(
-                            singleData['department'],
+                            singleData['department'],overflow: TextOverflow.ellipsis,
                             style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],

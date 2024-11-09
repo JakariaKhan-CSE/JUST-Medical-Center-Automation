@@ -12,16 +12,16 @@ class PatientHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-            child:
-                CircleAvatar(backgroundImage: AssetImage('images/jakaria.jpg')),
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //
+      //   actions: const [
+      //     Padding(
+      //       padding: EdgeInsets.only(right: 10),
+      //       child:
+      //           CircleAvatar(backgroundImage: AssetImage('images/jakaria.jpg')),
+      //     )
+      //   ],
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
