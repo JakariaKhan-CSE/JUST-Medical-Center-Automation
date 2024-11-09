@@ -5,13 +5,14 @@ import 'package:just_medical_center_automation/controller/doctorController/docto
 import 'package:just_medical_center_automation/controller/labTechController/labTechnicianController.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
-import 'package:just_medical_center_automation/screen/patient/PersonalDetails.dart';
-import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
+import 'package:just_medical_center_automation/controller/signUpProvider.dart';
+import 'package:just_medical_center_automation/screen/auth/login_page.dart';
+
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 import 'controller/patientController/imageProvider.dart';
-import 'controller/patientController/loginProvider.dart';
+import 'controller/loginProvider.dart';
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MultiProvider(providers: [
@@ -23,12 +24,14 @@ void main(){
     ChangeNotifierProvider(create: (context) => LabTechnicianController(),),
     ChangeNotifierProvider(create: (context) => ImageUploader(),),
     ChangeNotifierProvider(create: (context) => LoginNotifier(),),
+    ChangeNotifierProvider(create: (context) => SignUpNotifier(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
     // home: PatientScreen()
-    home: PersonalDetails(),
+    //home: PersonalDetails(),
+    home: LoginPage(),
   ),
   ),
 

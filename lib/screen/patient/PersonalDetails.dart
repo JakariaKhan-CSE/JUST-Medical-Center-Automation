@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/patientController/imageProvider.dart';
-import '../../controller/patientController/loginProvider.dart';
+import '../../controller/loginProvider.dart';
 import '../../model/req/auth/profileUpdateModel.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';

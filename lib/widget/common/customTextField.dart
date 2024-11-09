@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
-import 'package:provider/provider.dart';
 
 import '../../responsive.dart';
 
@@ -8,12 +6,15 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final TextEditingController fieldController;
   final TextInputType textInputType;
+  final String? Function(String?)? validator;  //final String?(this null important) otherwise return null show error> Function(String?)? validator;
+  final bool? obscureText;
+  final Widget? suffixIcon;
 
   const CustomTextField(
       {super.key,
       required this.fieldController,
       required this.label,
-      required this.textInputType,
+      required this.textInputType, this.validator, this.obscureText, this.suffixIcon,
       });
 
   @override
@@ -25,15 +26,10 @@ class CustomTextField extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
         controller: fieldController,
-
-        validator: (value) {
-          if (value!.isEmpty) {
-            return "$label is required";
-          }
-          return null;
-        },
+        obscureText: obscureText??false,
+        validator: validator,
         decoration: InputDecoration(
-
+            suffixIcon: suffixIcon,
             label: Text(
               label,
               style:

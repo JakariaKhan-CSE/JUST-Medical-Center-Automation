@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/screen/patient/PatientPrescription.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
-import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 
-import '../auth/login.dart';
-import '../auth/registration_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
