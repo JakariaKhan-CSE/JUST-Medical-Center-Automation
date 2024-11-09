@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/screen/common/about_developer.dart';
+import 'package:just_medical_center_automation/screen/common/ambulance_service_page.dart';
+import 'package:just_medical_center_automation/screen/common/show_all_services.dart';
 import 'package:just_medical_center_automation/screen/patient/PatientPrescription.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
@@ -14,8 +16,8 @@ class PatientScreen extends StatelessWidget {
 
   // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
   List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(),
-    const HomePage(), const PrescriptionDesign(), const AboutDeveloperPage(),
-    const UpdatePatientProfile()];
+    const HomePage(), const PrescriptionDesign(),  AboutDeveloperPage(),
+    const UpdatePatientProfile(), AmbulanceServicePage(), ShowAllServicesPage()];
   PatientScreen({super.key});
 
   @override
@@ -95,14 +97,24 @@ class PatientDrawer extends StatelessWidget {
               ),
             ),
           ),
-          const Card(
+          Card(
             child: ListTile(
+              onTap: (){
+                // go to my all service page
+                indexChange.ChangeIndexValue(8); //Screen[8]
+                Scaffold.of(context).closeDrawer();
+              },
               title: Text('Services'),
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),
-          const Card(
+          Card(
             child: ListTile(
+              onTap: (){
+                // go to my ambulance service page
+                indexChange.ChangeIndexValue(7); //Screen[7]
+                Scaffold.of(context).closeDrawer();
+              },
               title: Text('Ambulance'),
               trailing: Icon(Icons.arrow_forward_sharp),
             ),

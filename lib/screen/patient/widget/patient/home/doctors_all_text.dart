@@ -14,12 +14,12 @@ class doctors_all_text extends StatelessWidget {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         Expanded(child: Container()),
-        GestureDetector(
-            onTap: () {},
-            child: const Text(
-              'see all',
-              style: TextStyle(fontSize: 18, color: Colors.blue),
-            )),
+        // GestureDetector(
+        //     onTap: () {},
+        //     child: const Text(
+        //       'see all',
+        //       style: TextStyle(fontSize: 18, color: Colors.blue),
+        //     )),
       ],
     );
   }

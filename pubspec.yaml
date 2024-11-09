@@ -46,6 +46,8 @@ dependencies:
   flutter_animate: ^4.5.0
   timeago: ^3.7.0
 
+
+
   provider: any
   get: any
 dev_dependencies:

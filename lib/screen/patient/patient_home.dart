@@ -24,7 +24,7 @@ class PatientHome extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: ListView(
+        child: Column(
           children: const [
             SizedBox(
               height: 20,
@@ -38,14 +38,14 @@ class PatientHome extends StatelessWidget {
               height: 10,
             ),
             doctorListbuilder(),
-            SizedBox(
-              height: 10,
-            ),
-            available_doctor_text(),
-            SizedBox(
-              height: 10,
-            ),
-            availabledoctorlist()
+            // SizedBox(
+            //   height: 10,
+            // ),
+            // available_doctor_text(),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            // availabledoctorlist()
           ],
         ),
       ),
