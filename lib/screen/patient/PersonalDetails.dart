@@ -40,7 +40,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   }
   @override
   Widget build(BuildContext context) {
-    final imageUploader = Provider.of<ImageUploader>(context,listen: true);
+    // final imageUploader = Provider.of<ImageUploader>(context,listen: true);
     return Scaffold(
 
         body: Consumer<LoginNotifier>(  // LoginNotifier which is provider file(must same this name)

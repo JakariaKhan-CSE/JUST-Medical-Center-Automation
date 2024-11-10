@@ -104,7 +104,7 @@ class LoginNotifier extends ChangeNotifier{
   updateProfile(ProfileUpdateModel model)async
   {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? userId = prefs.getString('userId');
+    // String? userId = prefs.getString('userId');
     // print('userId is: $userId');
     AuthHelper.updateProfile(model).then((response){
       // user resgistration korle first time take update profile page niye jawa hobe
@@ -116,7 +116,7 @@ class LoginNotifier extends ChangeNotifier{
             icon: const Icon(Icons.add_alert)
         );
         // 3 second delay kore mainscreen a niye jabe
-        Future.delayed(const Duration(seconds: 3)).then((value){
+        Future.delayed(const Duration(seconds: 1)).then((value){
           // Get.offAll deya hoese jeno r back na hoi
           Get.offAll( MainScreen(role: model.role,));
         });

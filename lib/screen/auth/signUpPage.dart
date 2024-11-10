@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import '../../controller/loginProvider.dart';
 import '../../controller/signUpProvider.dart';
 import '../../model/req/auth/signUpModel.dart';
 import '../../widget/common/customButton.dart';

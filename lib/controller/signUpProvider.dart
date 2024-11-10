@@ -54,17 +54,17 @@ class SignUpNotifier extends ChangeNotifier {
             duration: const Duration(seconds: 2)
         );
       }
-      // // go to login page
-      // else if(response[0])
-      // {
-      //
-      //   // this is important and useful see carefully
-      //   Get.off(()=>const LoginPage(),
-      //       transition: Transition.fade,
-      //       duration:const Duration(seconds: 2)
-      //   );
-      //
-      // }
+      // // go to main page (because when admin add any member not need to login admin)
+      else if(response[0])
+      {
+// nothing happened
+        // this is important and useful see carefully
+        // Get.off(()=>const LoginPage(),
+        //     transition: Transition.fade,
+        //     duration:const Duration(seconds: 2)
+        // );
+
+      }
       else {
         Get.snackbar(
           "Sign up Failed",

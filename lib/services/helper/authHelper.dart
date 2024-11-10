@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../model/req/auth/loginModel.dart';
 import '../../model/req/auth/profileUpdateModel.dart';
 import '../../model/req/auth/signUpModel.dart';
+import '../../model/res/auth/profile response.dart';
 import '../config.dart';
 class AuthHelper{
   //static var client = //https.Client();
@@ -30,7 +31,7 @@ class AuthHelper{
     {
 
       final SharedPreferences pref = await SharedPreferences.getInstance();
-print('res body is: ${response.body}');
+// print('res body is: ${response.body}');
 
 //jsonDecode na korle aitar map value gulo access kora jai na
       //Converts the JSON string into a Dart map
@@ -154,40 +155,40 @@ print('res body is: ${response.body}');
   }
 
 // Get Profile
-//   static Future<ProfileResponse> getProfile()async{
-//     final SharedPreferences pref = await SharedPreferences.getInstance();
-//     String? token = pref.getString("token");
-//     String? userId = pref.getString('userId');
-//
-//     http.Response? response;
-//     Map<String, String> requestHeaders = {
-//       "Content-Type": "application/json",
-//       "x-auth-token": '$token'  // this is x-auth-token same as backend req.header("x-auth-token");
-//     };
-//     try{
-//       response = await http.get(Uri.parse('${Config.apiUrl}${Config.profileUrl}/$userId'),
-//           headers: requestHeaders);
-//     }catch(e)
-//     {
-//       //print('update profile api call error: $e');
-//     }
-//
-//     if(response!.statusCode == 200)
-//     {
-//       //  var data = jsonDecode(response.body);
-//       // print(data);
-//
-//       ProfileResponse profile;
-//
-//       profile = profileResponseFromJson(response.body);
-//
-//
-//       return profile;
-//     }
-//     else{
-//       throw Exception('Failed to get profile');
-//     }
-//
-//   }
+  static Future<ProfileResponse> getProfile()async{
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+    // String? userId = pref.getString('userId');
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token'  // this is x-auth-token same as backend req.header("x-auth-token");
+    };
+    try{
+      response = await http.get(Uri.parse('${Config.apiUrl}${Config.profileurl}'),
+          headers: requestHeaders);
+    }catch(e)
+    {
+      //print('update profile api call error: $e');
+    }
+
+    if(response!.statusCode == 200)
+    {
+      //  var data = jsonDecode(response.body);
+      // print(data);
+
+      ProfileResponse profile;
+
+      profile = ProfileResponse.fromJson(jsonDecode(response.body));
+
+
+      return profile;
+    }
+    else{
+      throw Exception('Failed to get profile');
+    }
+
+  }
 
 }

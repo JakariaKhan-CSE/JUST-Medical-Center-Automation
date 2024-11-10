@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'controller/patientController/imageProvider.dart';
 import 'controller/loginProvider.dart';
+import 'firebase_options.dart';
 
 Widget defaultHome = const LoginPage();
 
@@ -23,14 +24,7 @@ Future<void> main()async{
   WidgetsFlutterBinding.ensureInitialized();
   try{
     await Firebase.initializeApp(
-
-        options: const FirebaseOptions(
-
-            apiKey: 'AIzaSyBdgtN-5WaNCWTh-TZKKp1Qy-srBRCm1PQ',
-            appId: '1:57891280768:android:dea5183bb6e86d2ea09365',
-            messagingSenderId: '57891280768',
-            projectId: 'just-medical-center'
-        )
+      options: DefaultFirebaseOptions.currentPlatform,
     );
   }catch(e)
   {
