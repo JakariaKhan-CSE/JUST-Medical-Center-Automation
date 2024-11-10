@@ -23,7 +23,7 @@ class PatientProfileRow extends StatelessWidget {
               )),
           Expanded(
               flex: 6,
-              child: Text(title,
+              child: Text(title,overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontSize: 15, color: Colors.black))),
 
         ],
