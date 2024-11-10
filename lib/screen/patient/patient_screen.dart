@@ -42,7 +42,7 @@ class PatientScreen extends StatelessWidget {
           indexChange.ChangeIndexValue(index);
 
         },
-        indicatorColor: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? Colors.amber : Colors.grey,
+        indicatorColor: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? Colors.amber : Colors.grey.withOpacity(0.1),
         // if user select any item from drawer 0 index mark(bottom nav bar)
         selectedIndex: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? indexChange.currentPageIndex: 0,
         destinations: const [

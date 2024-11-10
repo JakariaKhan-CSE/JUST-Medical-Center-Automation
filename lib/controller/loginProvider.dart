@@ -12,16 +12,6 @@ import '../services/helper/authHelper.dart';
 class LoginNotifier extends ChangeNotifier{
   final profileFormKey = GlobalKey<FormState>();
 
-  // first time signup/registration korle update profile page a niye jabe and firsttime = false kore dibe jokhon signup button a click kora hobe
-  bool _firstTime = true;
-  bool get firstTime=> _firstTime;
-  set firstTime(bool newState)
-  {
-    _firstTime = newState;
-    notifyListeners();
-  }
-
-
   bool _obsecureText = true;
 
   bool get obsecureText => _obsecureText;
@@ -100,7 +90,7 @@ class LoginNotifier extends ChangeNotifier{
     );
   }
 
-  //user profile update
+  //user profile update (first time login)
   updateProfile(ProfileUpdateModel model)async
   {
     final SharedPreferences prefs = await SharedPreferences.getInstance();

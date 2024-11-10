@@ -4,15 +4,15 @@ class ProfileUpdateModel{
   final int ID;
   final String phone;
   final int age;
-  final String profile;
+  final String? profile;
   final String gender;
   final String role;
   final bool isUpdatedProfile;
 
-  ProfileUpdateModel( {required this.isUpdatedProfile,required this.role,
+  ProfileUpdateModel( {required this.isUpdatedProfile, required this.role,
     required this.ID, required this.age, required this.gender,
     required this.phone,
-    required this.profile,
+    this.profile,
     });
 
   factory ProfileUpdateModel.fromMap(Map<String,dynamic> json)

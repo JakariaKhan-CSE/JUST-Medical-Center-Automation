@@ -33,6 +33,9 @@ class PatientProfile extends StatelessWidget {
             }
             else{
               final userData = snapshot.data;
+              // i use bottom nav bar. so, i can navigate another page(not used constructor)
+              // so, i add and fetch data from profileNotifier
+              profileNotifier.setUserData(userData!);
              return SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                 child: Column(
