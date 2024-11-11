@@ -26,12 +26,12 @@ class DoctorHelper {
       // print(jsonDecode(response.body)); // this is helpful when not find proper error in response data
 
       // don't use try catch block here
-      doctorList = DoctorResponse.fromJson(jsonDecode(response.body));
+      doctorList = doctorResponseFromJson(response.body);
 
       return doctorList;
     }
     else {
-      throw Exception('Failed to get JobsList');
+      throw Exception('Failed to get doctorList');
     }
   }
 }

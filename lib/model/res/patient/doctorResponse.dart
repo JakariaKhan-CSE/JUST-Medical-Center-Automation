@@ -1,33 +1,8 @@
-// all doctor return korbe
 import 'dart:convert';
 
-// very useful when return  model list
-List<DoctorResponse> doctorResponseFromJson(String str) => List<DoctorResponse>.from(json.decode(str).map((x) => DoctorResponse.fromJson(x)));
-// single doctor return korbe
-DoctorResponse singleDoctorResponseFromJson(String str) =>  DoctorResponse.fromJson(jsonDecode(str));// all doctor return korbe
-
-class DoctorResponse {
-  List<TotalDoctors>? totalDoctors;
-
-  DoctorResponse({this.totalDoctors});
-
-  DoctorResponse.fromJson(Map<String, dynamic> json) {
-    if (json['totalDoctors'] != null) {
-      totalDoctors = <TotalDoctors>[];
-      json['totalDoctors'].forEach((v) {
-        totalDoctors!.add(new TotalDoctors.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.totalDoctors != null) {
-      data['totalDoctors'] = this.totalDoctors!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
+// For parsing a JSON string into a list of `TotalDoctors` objects
+List<TotalDoctors> totalDoctorsFromJson(String str) =>
+    List<TotalDoctors>.from(json.decode(str)["totalDoctors"].map((x) => TotalDoctors.fromJson(x)));
 
 class TotalDoctors {
   String? gender;
@@ -39,15 +14,16 @@ class TotalDoctors {
   int? age;
   String? phone;
 
-  TotalDoctors(
-      {this.gender,
-        this.sId,
-        this.name,
-        this.role,
-        this.profile,
-        this.iD,
-        this.age,
-        this.phone});
+  TotalDoctors({
+    this.gender,
+    this.sId,
+    this.name,
+    this.role,
+    this.profile,
+    this.iD,
+    this.age,
+    this.phone,
+  });
 
   TotalDoctors.fromJson(Map<String, dynamic> json) {
     gender = json['gender'];
@@ -61,15 +37,15 @@ class TotalDoctors {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['gender'] = this.gender;
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['role'] = this.role;
-    data['profile'] = this.profile;
-    data['ID'] = this.iD;
-    data['age'] = this.age;
-    data['phone'] = this.phone;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['gender'] = gender;
+    data['_id'] = sId;
+    data['name'] = name;
+    data['role'] = role;
+    data['profile'] = profile;
+    data['ID'] = iD;
+    data['age'] = age;
+    data['phone'] = phone;
     return data;
   }
 }
