@@ -153,6 +153,8 @@ class PatientDrawer extends StatelessWidget {
           Card(
             child: ListTile(
               onTap: (){
+                // before log out current index set 0 otherwise show (hibernate page)
+                indexChange.currentPageIndex = 0;
                 // trigger logout function
                 loginNotifier.logout();
                 Get.offAll(LoginPage());

@@ -27,7 +27,7 @@ class AuthHelper{
     {
       print('login api call error: $e');
     }
-print(response!.statusCode);
+// print(response!.statusCode);
     if(response!.statusCode == 200)
     {
 
