@@ -18,7 +18,8 @@ class doctorListbuilder extends StatelessWidget {
         // Firstly getAll doctors
         doctorNotifier.getDoctors();
       return Expanded(
-        child: FutureBuilder<List<DoctorResponse>>(
+        // if nested class avoid this model. remove useless attribute and make single model. So that easily access each attribute
+        child: FutureBuilder<List<TotalDoctors>>(
           future: doctorNotifier.doctorList,
           builder: (context, snapshot) {
             if (snapshot.connectionState ==
@@ -39,7 +40,6 @@ class doctorListbuilder extends StatelessWidget {
                     crossAxisCount: 2,crossAxisSpacing: 2,mainAxisSpacing: 2),
                 itemBuilder: (context, index) {
                   final doctor = doctors?[index];
-                  final doc = doctor?.totalDoctors;
                   return Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Column(
@@ -49,8 +49,8 @@ class doctorListbuilder extends StatelessWidget {
                             flex: 5,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                '',
+                              child: Image.network(
+                                doctor?.profile??'',
                                 fit: BoxFit.contain,
                                 width: 150,
                                 height: 150,
@@ -65,17 +65,17 @@ class doctorListbuilder extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  singleData['name'],overflow: TextOverflow.ellipsis,
+                                  doctor!.name!,overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
                                       color: Colors.black),
                                 ),
                                 // SizedBox(height: 5,),
-                                Text(
-                                  singleData['department'],overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(fontSize: 12, color: Colors.grey),
-                                ),
+                                // Text(
+                                //   singleData['department'],overflow: TextOverflow.ellipsis,
+                                //   style: const TextStyle(fontSize: 12, color: Colors.grey),
+                                // ),
                               ],
                             )),
                       ],

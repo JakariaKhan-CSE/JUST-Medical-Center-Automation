@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+// see carefully very useful
 // For parsing a JSON string into a list of `TotalDoctors` objects
 List<TotalDoctors> totalDoctorsFromJson(String str) =>
     List<TotalDoctors>.from(json.decode(str)["totalDoctors"].map((x) => TotalDoctors.fromJson(x)));

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/controller/common_controller.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/controller/doctorProvider.dart';
 import 'package:just_medical_center_automation/controller/labTechController/labTechnicianController.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
@@ -53,6 +54,7 @@ Future<void> main()async{
     ChangeNotifierProvider(create: (context) => LoginNotifier(),),
     ChangeNotifierProvider(create: (context) => SignUpNotifier(),),
     ChangeNotifierProvider(create: (context) => ProfileNotifier(),),
+    ChangeNotifierProvider(create: (context) => DoctorNotifier(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
