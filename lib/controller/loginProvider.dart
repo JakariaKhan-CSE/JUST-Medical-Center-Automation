@@ -68,8 +68,18 @@ class LoginNotifier extends ChangeNotifier{
   userLogin(LoginModel model)
   {
     AuthHelper.login(model).then((response){
+
+      // incorrect passowrd or email not verified show this error
+      if(!response[0])
+      {
+        Get.snackbar("SignIn Failed", "Please check your credentials",
+            colorText: Colors.white,
+            backgroundColor: Colors.red,
+            icon: const Icon(Icons.add_alert)
+        );
+      }
       // user er profile information update na thakle personal details page a niye jabe
-      if(response[0] & !response[1])
+      else if(response[0] & !response[1])
       {
 
         Get.off(PersonalDetails(role: response[2]));

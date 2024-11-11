@@ -27,7 +27,7 @@ class AuthHelper{
     {
       print('login api call error: $e');
     }
-
+print(response!.statusCode);
     if(response!.statusCode == 200)
     {
 
@@ -204,7 +204,7 @@ class AuthHelper{
     {
       //print('update profile api call error: $e');
     }
-
+print(response!.statusCode);
     if(response!.statusCode == 200)
     {
       //  var data = jsonDecode(response.body);

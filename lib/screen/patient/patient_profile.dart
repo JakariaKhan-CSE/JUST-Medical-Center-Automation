@@ -11,7 +11,7 @@ class PatientProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final indexChange = Provider.of<IndexChange>(context,listen: true);
+    final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);
     return Scaffold(
       body: Consumer<ProfileNotifier>(builder: (context, profileNotifier, child) {
         profileNotifier.getProfile();

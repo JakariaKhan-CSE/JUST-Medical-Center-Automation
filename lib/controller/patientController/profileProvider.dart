@@ -57,7 +57,7 @@ class ProfileNotifier extends ChangeNotifier {
         );
         // very useful beauty of getX( Get.context)
         // Update index to navigate to the  ProfilePage after success
-        final indexChange = Provider.of<IndexChange>(Get.context!, listen: false);
+        final indexChange = Provider.of<IndexChangeProvider>(Get.context!, listen: false);
         indexChange.ChangeIndexValue(2); // `2` for ProfilePage
 
         Get.back(); // Close the drawer if it's open, and show updated screen

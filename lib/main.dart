@@ -43,7 +43,7 @@ Future<void> main()async{
     defaultHome = const LoginPage();
   }
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => IndexChange(),),
+    ChangeNotifierProvider(create: (context) => IndexChangeProvider(),),
     ChangeNotifierProvider(create: (context) => AdminController(),),
     ChangeNotifierProvider(create: (context) => DoctorController(),),
     ChangeNotifierProvider(create: (context) => PharmacistController(),),
