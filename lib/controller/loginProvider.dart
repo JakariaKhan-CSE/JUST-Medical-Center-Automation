@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/req/auth/loginModel.dart';
@@ -129,6 +131,47 @@ class LoginNotifier extends ChangeNotifier{
         );
       }
     });
+  }
+
+  //user password change
+  changePassword(BuildContext context,String current, String newPass)async
+  {
+    /*
+    Provider Usage: Get.context! may not always provide the correct context for Provider.of. It's safer to pass the context directly as a parameter to the changePassword function to ensure the correct widget context is used.
+     */
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? userId = prefs.getString('userId');
+    // print('userId is: $userId');
+    AuthHelper.changePassword(current,newPass).then((response){
+      // user resgistration korle first time take update profile page niye jawa hobe
+      if(response)
+      {
+        /*
+        Icon: Used Icons.check_circle to better indicate a successful action.
+Additional Options:
+snackPosition: Set to SnackPosition.BOTTOM to show the snackbar at the bottom.
+duration: Optional parameter to control how long the snackbar is displayed.
+         */
+        Get.snackbar(
+          "Password Changed",
+          "Your password has been updated successfully.",
+          colorText: Colors.white,
+          backgroundColor: Colors.blue,
+          icon: const Icon(Icons.check_circle, color: Colors.white),
+         // snackPosition: SnackPosition.BOTTOM,  // Optional: position at the bottom of the screen
+          duration: const Duration(seconds: 2),  // Optional: duration to show the snackbar
+        );
+
+      }
+      else {
+        Get.snackbar("Password Change Failed", "Please try again",
+            colorText: Colors.white,
+            backgroundColor: Colors.orange,
+            icon: const Icon(Icons.add_alert)
+        );
+      }
+    }
+    );
   }
 
   // logout hole cache memory theke token remove hoye jabe

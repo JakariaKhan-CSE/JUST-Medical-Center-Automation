@@ -34,7 +34,7 @@ class _UpdatePatientProfileState extends State<UpdatePatientProfile> {
 WidgetsBinding.instance.addPostFrameCallback ensures the code runs after the widget tree is built.
 Provider.of<ProfileNotifier>(context, listen: false) provides access to profileNotifier without listening to changes, which is safe for initState.
  */
-    // veru useful. see carefully
+    // very useful. see carefully
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final profileNotifier = Provider.of<ProfileNotifier>(context, listen: false);
       setState(() {
