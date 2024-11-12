@@ -61,8 +61,10 @@ class ImageUploader extends ChangeNotifier {
   }
 
   Future<void> deleteImageFromServer() async {
+
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
+
     if (imageUrl == null) return;
 
     try {
@@ -70,6 +72,7 @@ class ImageUploader extends ChangeNotifier {
         Uri.parse('${Config.apiUrl}/api/user/profile/profile'),
         headers: {'x-auth-token': '$token'},
       );
+      print(response.statusCode);
       if (response.statusCode == 200) {
         imageUrl = null;
         imagePath = null;

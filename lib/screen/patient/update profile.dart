@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/controller/loginProvider.dart';
 import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
@@ -89,16 +91,25 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                       fontWeight: FontWeight.bold)),
               GestureDetector(
                 onTap: () async {
+
                   if (imageUploader.imageUrl == null) {
+
                     // Pick and upload image if none exists
                     await imageUploader.pickImageAndUpload();
 
                   } else {
+
                     // Delete image if it already exists
                     await imageUploader.deleteImageFromServer();
                   }
                 },
+                /*
+                This error occurs because NetworkImage expects a full URL (including the host) to load images over the network. Currently, your Flutter app is receiving only the relative path (/uploads/1731424764776-1000000033.jpg), so it interprets this as a local file path rather than a network URL.
+
+To fix this, make sure to prepend the server URL to the image path when setting NetworkImage in your Flutter code.
+                 */
                 child: CircleAvatar(
+
                   radius: 40,
                   backgroundColor: Colors.lightBlue,
                   backgroundImage: imageUploader.imageUrl != null
@@ -209,16 +220,14 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                     alignment: Alignment.center,
                     child: CustomButton(
                       pressed: () {
-                        // if(imageUploader.imageFil.isEmpty && imageUploader.imageUrl == null)
-                        // {
-                        //   Get.snackbar("Image Missing", "Please upload an image to proceed",
-                        //       colorText: Colors.white,
-                        //       backgroundColor: Colors.orange,
-                        //       icon: const Icon(Icons.add_alert)
-                        //   );
-                        // }else
-                        // {
-                        if (profileNotifier.validateFormAndSave()) {
+                        if(imageUploader.imagePath == null && imageUploader.imageUrl == null)
+                        {
+                          Get.snackbar("Image Missing", "Please upload an image to proceed",
+                              colorText: Colors.white,
+                              backgroundColor: Colors.orange,
+                              icon: const Icon(Icons.add_alert)
+                          );
+                        }else if (profileNotifier.validateFormAndSave()) {
                           ProfileEditModel model = ProfileEditModel(
                             ID: int.parse(ID.text),
                             age: int.parse(age.text),
@@ -230,8 +239,8 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                           // call update profile function
                           profileNotifier.editProfile(model);
                         }
-                        // }
-                      },
+                        },
+
                       btnName: 'Update Profile',
                       backgroundColor: Colors.cyan,
                     ),

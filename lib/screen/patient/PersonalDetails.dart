@@ -40,7 +40,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   }
   @override
   Widget build(BuildContext context) {
-    // final imageUploader = Provider.of<ImageUploader>(context,listen: true);
+
+     final imageUploader = Provider.of<ImageUploader>(context,listen: true);
     return Scaffold(
 
         body: Consumer<LoginNotifier>(  // LoginNotifier which is provider file(must same this name)
@@ -57,34 +58,31 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       const Text( 'Personal Details', style: TextStyle(fontSize: 25,
                           color: Colors.black, fontWeight: FontWeight.bold)),
 
-                      // image upload na thakle empty hobe tai image pick korbe
-                      // i can not add this feature beacuse firebase not provide free storage
-                      // imageUploader.imageFil.isEmpty? GestureDetector(
-                      //   onTap: (){
-                      //     // image gallery open hobe
-                      //     imageUploader.pickImage();
-                      //   },
-                      //   child: const CircleAvatar(
-                      //     backgroundColor: Colors.lightBlue,
-                      //     //backgroundImage: ,
-                      //     child: Icon(Icons.photo_filter_rounded),
-                      //   ),
-                      // ):
-                      // GestureDetector(
-                      //   onTap: (){
-                      //     // image list ta clear hoye jasse
-                      //     imageUploader.imageFil.clear();
-                      //     setState(() {
-                      //
-                      //     });
-                      //   },
-                      //   child: CircleAvatar(
-                      //     backgroundColor: Colors.lightBlue,
-                      //     // selected image ta show korbe
-                      //     backgroundImage: FileImage(File(imageUploader.imageFil[0])),
-                      //
-                      //   ),
-                      // ),
+                      GestureDetector(
+                        onTap: () async {
+
+                          if (imageUploader.imageUrl == null) {
+
+                            // Pick and upload image if none exists
+                            await imageUploader.pickImageAndUpload();
+
+                          } else {
+
+                            // Delete image if it already exists
+                            await imageUploader.deleteImageFromServer();
+                          }
+                        },
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.lightBlue,
+                          backgroundImage: imageUploader.imageUrl != null
+                              ? NetworkImage(
+                              imageUploader.imageUrl!) // Show uploaded image
+                              : null,
+                          child: imageUploader.imageUrl == null
+                              ? const Icon(Icons.photo_filter_rounded)
+                              : null,
+                        ),)
                     ],
                   ),
                   const SizedBox(height: 20,),
@@ -143,16 +141,14 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         return Align(
                           alignment: Alignment.center,
                           child: CustomButton(pressed: (){
-                            // if(imageUploader.imageFil.isEmpty && imageUploader.imageUrl == null)
-                            // {
-                            //   Get.snackbar("Image Missing", "Please upload an image to proceed",
-                            //       colorText: Colors.white,
-                            //       backgroundColor: Colors.orange,
-                            //       icon: const Icon(Icons.add_alert)
-                            //   );
-                            // }else
-                            // {
-                              if(loginNotifier.profileValidation())
+                            if(imageUploader.imageFil.isEmpty && imageUploader.imageUrl == null)
+                            {
+                              Get.snackbar("Image Missing", "Please upload an image to proceed",
+                                  colorText: Colors.white,
+                                  backgroundColor: Colors.orange,
+                                  icon: const Icon(Icons.add_alert)
+                              );
+                            }else  if(loginNotifier.profileValidation())
                               {
                                 ProfileUpdateModel model = ProfileUpdateModel(
                                     ID: int.parse(ID.text),
@@ -167,8 +163,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                 // call update profile function
                                 loginNotifier.updateProfile(model);
                               }
-                            // }
-                          }, btnName: 'Update Profile',backgroundColor: Colors.cyan,),
+                            }
+                          , btnName: 'Update Profile',backgroundColor: Colors.cyan,),
                         );
                       },)
                     ],
