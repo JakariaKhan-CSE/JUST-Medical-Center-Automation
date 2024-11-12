@@ -14,6 +14,7 @@ class TotalDoctors {
   String? iD;
   int? age;
   String? phone;
+  String? specialist;
 
   TotalDoctors({
     this.gender,
@@ -24,6 +25,7 @@ class TotalDoctors {
     this.iD,
     this.age,
     this.phone,
+    this.specialist
   });
 
   TotalDoctors.fromJson(Map<String, dynamic> json) {
@@ -35,6 +37,7 @@ class TotalDoctors {
     iD = json['ID'];
     age = json['age'];
     phone = json['phone'];
+    specialist = json['specialist'];
   }
 
   Map<String, dynamic> toJson() {
@@ -47,6 +50,7 @@ class TotalDoctors {
     data['ID'] = iD;
     data['age'] = age;
     data['phone'] = phone;
+    data['specialist'] = specialist;
     return data;
   }
 }

@@ -71,11 +71,11 @@ class doctorListbuilder extends StatelessWidget {
                                       fontSize: 15,
                                       color: Colors.black),
                                 ),
-                                // SizedBox(height: 5,),
-                                // Text(
-                                //   singleData['department'],overflow: TextOverflow.ellipsis,
-                                //   style: const TextStyle(fontSize: 12, color: Colors.grey),
-                                // ),
+                                SizedBox(height: 5,),
+                                Text(
+                                  doctor.specialist??'MBBS Doctor',overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
                               ],
                             )),
                       ],
