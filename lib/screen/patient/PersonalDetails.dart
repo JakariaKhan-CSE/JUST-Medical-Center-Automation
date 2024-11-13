@@ -141,7 +141,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         return Align(
                           alignment: Alignment.center,
                           child: CustomButton(pressed: (){
-                            if(imageUploader.imageFil.isEmpty && imageUploader.imageUrl == null)
+                            if(imageUploader.imagePath == null && imageUploader.imageUrl == null)
                             {
                               Get.snackbar("Image Missing", "Please upload an image to proceed",
                                   colorText: Colors.white,

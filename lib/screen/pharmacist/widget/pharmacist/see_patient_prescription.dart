@@ -21,7 +21,8 @@ class _SeePatientPrescriptionState extends State<SeePatientPrescription> {
         padding: const EdgeInsets.only(top: 30, left: 15, right: 15),
         child: Column(
           children: [
-            const PrescriptionDesignContainer(),
+            // change later
+            const PrescriptionDesignContainer(doctorName: 'Jakaria',date: '10 Jan 2024',),
             const SizedBox(
               height: 10,
             ),

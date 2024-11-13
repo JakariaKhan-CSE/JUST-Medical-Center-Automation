@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PrescriptionDesignContainer extends StatelessWidget {
+  final String? doctorName;
+
+  final String? date;
+
   const PrescriptionDesignContainer({
-    super.key,
+    super.key, required this.doctorName,  required this.date,
   });
 
   @override
@@ -11,8 +15,8 @@ class PrescriptionDesignContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Dr. Jakaria Khan',
+          Text(
+            doctorName??'Dr. Jakaria',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           Text(
@@ -24,12 +28,12 @@ class PrescriptionDesignContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Dermatology, General Physician',
+                'General Physician',
                 style: TextStyle(
                     fontSize: 13, color: Colors.black.withOpacity(0.7)),
               ),
               Text(
-                'Date: 8 April 2024',
+                'Date: ${date}',
                 style: TextStyle(
                     fontSize: 15, color: Colors.black.withOpacity(0.7)),
               ),

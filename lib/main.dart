@@ -8,6 +8,7 @@ import 'package:just_medical_center_automation/controller/labTechController/labT
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
 import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
 import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
+import 'package:just_medical_center_automation/controller/prescriptionProvider.dart';
 import 'package:just_medical_center_automation/controller/signUpProvider.dart';
 import 'package:just_medical_center_automation/screen/auth/login_page.dart';
 import 'package:just_medical_center_automation/screen/main_screen.dart';
@@ -55,6 +56,7 @@ Future<void> main()async{
     ChangeNotifierProvider(create: (context) => SignUpNotifier(),),
     ChangeNotifierProvider(create: (context) => ProfileNotifier(),),
     ChangeNotifierProvider(create: (context) => DoctorNotifier(),),
+    ChangeNotifierProvider(create: (context) => PrescriptionNotifier(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
