@@ -27,7 +27,9 @@ class _SeePatientPrescriptionState extends State<SeePatientPrescription> {
               height: 10,
             ),
             const Divider(),
-            const patient_info_prescription(),
+            // change this data later
+            const patient_info_prescription(patientName: 'jakaria',age: '21',
+            gender: 'age',ID: '190152',),
             const SizedBox(
               height: 10,
             ),
@@ -45,7 +47,8 @@ class _SeePatientPrescriptionState extends State<SeePatientPrescription> {
                   SizedBox(
                     width: 5,
                   ),
-                  Expanded(flex: 2, child: prescription_right_side())
+                  // change later
+                  Expanded(flex: 2, child: prescription_right_side(medicines: [],))
                 ],
               ),
             ),

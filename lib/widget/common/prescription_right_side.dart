@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/data/medicine_info.dart';
+import 'package:just_medical_center_automation/model/res/patient/prescriptionResponse.dart';
 class prescription_right_side extends StatelessWidget {
+  final List<Medicines> medicines;
   const prescription_right_side({
-    super.key,
+    super.key, required this.medicines,
   });
 
   @override
@@ -22,10 +24,10 @@ class prescription_right_side extends StatelessWidget {
           //   height: 10,
           // ),
           ListView.builder(shrinkWrap: true,
-            itemCount: MedicineData.data.length,
+            itemCount: medicines.length,
             physics: ScrollPhysics(), // use so that scroll medicine
             itemBuilder: (context, index) {
-            Map<String,dynamic> oneData = MedicineData.data[index];
+            Medicines medicine = medicines[index];
 
               return Column(
                 children: [
@@ -38,7 +40,7 @@ class prescription_right_side extends StatelessWidget {
                       ),
                       // medicine name
                       Text(
-                        oneData['medicine_name'],
+                        medicine.name??'',
                         style: const TextStyle(fontSize: 15),
                       )
                     ],
@@ -47,14 +49,14 @@ class prescription_right_side extends StatelessWidget {
                     children: [
                       const SizedBox(width: 10,),
                       Text(
-                        oneData['rule'],
+                        '1+0+10',
                         style: const TextStyle(fontSize: 15),
                       ),
                       const SizedBox(
                         width: 30,
                       ),
                       Text(
-                        oneData['day'],
+                        (medicine.quantity).toString(),
                         style: const TextStyle(fontSize: 15),
                       )
                     ],

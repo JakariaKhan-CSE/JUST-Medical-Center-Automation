@@ -38,7 +38,9 @@ String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
                 height: 10,
               ),
               Divider(),
-              patient_info_prescription(),
+              patient_info_prescription(patientName: prescription.patientId?.name,
+              ID: prescription.patientId?.iD,gender: prescription.patientId?.gender,
+              age: (prescription.patientId!.age).toString(),),
               SizedBox(
                 height: 10,
               ),
@@ -60,7 +62,7 @@ String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
                     ),
                     Expanded(
                         flex: 6,
-                        child: prescription_right_side())
+                        child: prescription_right_side(medicines: prescription.medicines!,))
                   ],
                 ),
               ),

@@ -5,8 +5,13 @@ import 'package:flutter/widgets.dart';
 import '../../responsive.dart';
 
 class patient_info_prescription extends StatelessWidget {
+  final String? patientName;
+  final String? gender;
+  final String? age;
+  final String? ID;
+
   const patient_info_prescription({
-    super.key,
+    super.key, required this.patientName, required this.gender, required this.age, required this.ID,
   });
 
   @override
@@ -19,7 +24,7 @@ class patient_info_prescription extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         ),
         Text(
-          'Md. Jakaria Ibna Azam Khan',
+          patientName!,
           style: TextStyle(fontSize: 13),
 
         ),
@@ -31,7 +36,7 @@ class patient_info_prescription extends StatelessWidget {
         ),
         if(Responsive.isDesktop(context))
         Text(
-          'Male',
+          gender!,
           style: TextStyle(fontSize: 13),
         ),
         Spacer(),
@@ -41,20 +46,20 @@ class patient_info_prescription extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         ),
         Text(
-          '23y',
+          '${age}y',
           style: TextStyle(fontSize: 13),
         ),
-        Spacer(),
-        if(Responsive.isDesktop(context))
-        Text(
-          'Weight:',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-        ),
-        if(Responsive.isDesktop(context))
-        Text(
-          '65 kg',
-          style: TextStyle(fontSize: 13),
-        ),
+        // Spacer(),
+        // if(Responsive.isDesktop(context))
+        // Text(
+        //   'Weight:',
+        //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+        // ),
+        // if(Responsive.isDesktop(context))
+        // Text(
+        //   '65 kg',
+        //   style: TextStyle(fontSize: 13),
+        // ),
       ],
     );
   }

@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../controller/patientController/indexChange.dart';
 
 class PatientPrescription extends StatelessWidget {
-  int prescription = 11;
+
   PatientPrescription({super.key});
 
   @override
@@ -39,7 +39,8 @@ class PatientPrescription extends StatelessWidget {
                 children: [
                   Text('Total Prescription: ${prescriptions?.length}',style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                   const SizedBox(height: 30,),
-                  Expanded(
+                  prescriptions?.length ==0 ? Center(child: Text('No Prescription',style: Theme.of(context).textTheme.titleMedium,))
+                 : Expanded(
                       child: GridView.builder(
                         itemCount: prescriptions?.length,
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

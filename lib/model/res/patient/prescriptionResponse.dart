@@ -1,5 +1,10 @@
 import 'dart:convert';
-
+/*
+{
+    "message": "User prescriptions fetched successfully",
+    "prescriptions": [ ]
+    }
+ */
 List<PrescriptionResponse> totalPrescriptionFromJson(String str) =>
     List<PrescriptionResponse>.from(json.decode(str)["prescriptions"].map((x) => PrescriptionResponse.fromJson(x)));
 
