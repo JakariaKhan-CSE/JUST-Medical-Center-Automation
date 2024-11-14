@@ -12,6 +12,7 @@ import 'package:just_medical_center_automation/controller/prescriptionProvider.d
 import 'package:just_medical_center_automation/controller/signUpProvider.dart';
 import 'package:just_medical_center_automation/screen/auth/login_page.dart';
 import 'package:just_medical_center_automation/screen/main_screen.dart';
+import 'package:just_medical_center_automation/services/connectivity_service.dart';
 
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
@@ -20,11 +21,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'controller/patientController/imageProvider.dart';
 import 'controller/loginProvider.dart';
 import 'firebase_options.dart';
-
+/*
+In your main.dart file, initialize the ConnectivityService before
+running the app. This will ensure that connectivity checking
+is active throughout the app lifecycle.
+ */
 Widget defaultHome = const LoginPage();
 
 Future<void> main()async{
   WidgetsFlutterBinding.ensureInitialized();
+  // prottek page a internet connection check kora lagbe na
+  // ai main function theke alltime monitoring korbe
+  ConnectivityService.instance.initialize();
+  /*
+  Centralized: The connectivity check and alert are handled in one place, reducing the need to add code on every page.
+Performance: With this setup, there’s no need to create multiple connectivity listeners across different pages.
+User Experience: Users will see the connectivity status regardless of where they are in the app.
+   */
   try{
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
