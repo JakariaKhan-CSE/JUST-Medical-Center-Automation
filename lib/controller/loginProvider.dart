@@ -69,8 +69,17 @@ class LoginNotifier extends ChangeNotifier{
 
   userLogin(LoginModel model)
   {
+    // backend theke response na asha porjonto ai circularprogress colte thakbe
+    // Show loading dialog
+    Get.dialog(
+      Center(child: CircularProgressIndicator()),
+      // user cancel korte parbe na loading er somoi
+      barrierDismissible: false, // Prevents the user from closing the dialog
+    );
     AuthHelper.login(model).then((response){
-
+      // backend theke response pele circular progress cancel hoye jabe
+      // Dismiss the loading dialog
+      Get.back();
       // incorrect passowrd or email not verified show this error
       if(!response[0])
       {
