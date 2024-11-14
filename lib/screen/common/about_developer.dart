@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutDeveloperPage extends StatelessWidget {
-  //final Uri linkedInProfile = Uri.parse("https://www.linkedin.com/in/md-jakaria-ibna-azam-khan-a05aa5266/");
+  final Uri linkedInProfile = Uri.parse("https://www.linkedin.com/in/md-jakaria-ibna-azam-khan-a05aa5266/");
   AboutDeveloperPage({super.key});
 
   @override
@@ -43,12 +44,14 @@ class AboutDeveloperPage extends StatelessWidget {
                 Text('Jashore University of Science and Technology',style: TextStyle(
                     fontSize: 14, fontWeight: FontWeight.w500, color: Colors.blueGrey
                 ),),
-            //     SizedBox(height: 20,),
-            // ElevatedButton(onPressed: ()async{
-            //   // if (!await launchUrl(linkedInProfile)) {
-            //   // throw Exception('Could not launch $linkedInProfile');
-            //   // }
-            // }, child: Text("LinkedIn")),
+                SizedBox(height: 20,),
+            ElevatedButton(onPressed: ()async{
+              if (!await launchUrl(linkedInProfile)) {
+              throw Exception('Could not launch $linkedInProfile');
+              }else{
+                launchUrl(linkedInProfile);
+              }
+            }, child: Text("LinkedIn")),
 
 
           ],

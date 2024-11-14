@@ -47,6 +47,11 @@ dependencies:
   #timeago: ^3.7.0
   firebase_database: ^11.1.5
   intl:
+  url_launcher:
+  connectivity_plus:
+  permission_handler:
+  animate_do:
+  rename:
 
 
 

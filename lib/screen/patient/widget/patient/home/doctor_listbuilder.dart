@@ -37,7 +37,7 @@ class doctorListbuilder extends StatelessWidget {
 
                 itemCount: doctors?.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,crossAxisSpacing: 2,mainAxisSpacing: 2),
+                    crossAxisCount: 2,crossAxisSpacing: 2,mainAxisSpacing: 1),
                 itemBuilder: (context, index) {
                   final doctor = doctors?[index];
                   return Padding(
@@ -46,7 +46,7 @@ class doctorListbuilder extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                            flex: 5,
+                            flex: 6,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: Image.network(
@@ -57,7 +57,7 @@ class doctorListbuilder extends StatelessWidget {
                               ),
                             )),
                         Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
