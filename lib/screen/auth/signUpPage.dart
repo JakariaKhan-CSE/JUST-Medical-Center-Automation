@@ -149,8 +149,6 @@ class _signUpPageState extends State<signUpPage> {
                       btnName: 'Sign Up',
                       backgroundColor: Colors.indigoAccent,
                       pressed: () {
-                        // user registration complete korle first time false kore deya hobe jeno next time login korte gele profile update page show na kore
-                        // loginNotifier.firstTime = !loginNotifier.firstTime;
 
                         if (signUpNotifier.validateFormAndSave()) {
                           // firstly check passowrd is strong or not

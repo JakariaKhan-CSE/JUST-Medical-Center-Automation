@@ -15,6 +15,7 @@ import 'package:just_medical_center_automation/screen/patient/patient_profile.da
 import 'package:just_medical_center_automation/screen/patient/update%20profile.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/patientController/imageProvider.dart';
 import '../common/prescriptiondesign.dart';
 import '../homepage.dart';
 class PatientScreen extends StatelessWidget {
@@ -67,6 +68,7 @@ class PatientDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);
     final loginNotifier = Provider.of<LoginNotifier>(context);
+    final imageNotifier = Provider.of<ImageUploader>(context);
 
     return Drawer(
       child: ListView(
@@ -155,6 +157,9 @@ class PatientDrawer extends StatelessWidget {
               onTap: (){
                 // before log out current index set 0 otherwise show (hibernate page)
                 indexChange.currentPageIndex = 0;
+                // also need clean image path
+                imageNotifier.imageUrl = null;
+                imageNotifier.publicID = null;
                 // trigger logout function
                 loginNotifier.logout();
                 Get.offAll(LoginPage());
