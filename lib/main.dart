@@ -12,6 +12,7 @@ import 'package:just_medical_center_automation/controller/prescriptionProvider.d
 import 'package:just_medical_center_automation/controller/signUpProvider.dart';
 import 'package:just_medical_center_automation/screen/auth/login_page.dart';
 import 'package:just_medical_center_automation/screen/main_screen.dart';
+import 'package:just_medical_center_automation/serviceDataAddFirebase.dart';
 import 'package:just_medical_center_automation/services/connectivity_service.dart';
 
 import 'package:provider/provider.dart';
@@ -76,7 +77,8 @@ User Experience: Users will see the connectivity status regardless of where they
     theme: ThemeData.light(),
     // home: PatientScreen()
     //home: PersonalDetails(),
-    home: defaultHome,
+    //home: defaultHome,
+    home: Servicedataaddfirebase(),
   ),
   ),
 
