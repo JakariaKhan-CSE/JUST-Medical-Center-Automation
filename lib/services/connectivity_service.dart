@@ -10,6 +10,11 @@ class ConnectivityService {
   static ConnectivityService get instance => _instance;
 
   final Connectivity _connectivity = Connectivity();
+  //Stream<List<ConnectivityResult>>: The stream now expects
+  // a list of ConnectivityResult objects. In the listener,
+  // you access the first item from the list (resultList.first)
+  // because the stream returns a list with one element representing
+  // the current connectivity status.
   late Stream<List<ConnectivityResult>> _connectivityStream;
 
   void initialize() {

@@ -52,6 +52,7 @@ dependencies:
   permission_handler:
   animate_do:
   rename:
+  cloudinary: ^1.2.0
 
 
 

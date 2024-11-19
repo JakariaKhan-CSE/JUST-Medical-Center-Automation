@@ -37,9 +37,9 @@ class PatientProfile extends StatelessWidget {
               // i use bottom nav bar. so, i can navigate another page(not used constructor)
               // so, i add and fetch data from profileNotifier
               profileNotifier.setUserData(userData!);
-
-              String imageUrl = '${Config.apiUrl}/${userData.user?.profile}';
-              // print(imageUrl);
+// dmpgw2hy1    // b3ncityp
+//               String imageUrl = '${Config.apiUrl}/${userData.user?.profile}';
+//               print(imageUrl);
              return SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                 child: Column(
@@ -54,7 +54,7 @@ class PatientProfile extends StatelessWidget {
                       // ),
                         child: CircleAvatar(
                           radius: 70,
-                          backgroundImage:userData?.user?.profile != null ? NetworkImage(imageUrl):
+                          backgroundImage:userData.user?.profile != null ? NetworkImage(userData.user!.profile!):
                           NetworkImage('https://thumbs.dreamstime.com/b/corporate-man-icon-circle-shape-flat-style-vector-eps-332592832.jpg')
                          ,
                         )

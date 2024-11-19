@@ -4,14 +4,14 @@ class ProfileEditModel{
   final int ID;
   final String phone;
   final int age;
-  // final String? profile;
+  final String? profile;
   final String gender;
 
 
   ProfileEditModel( {
     required this.ID, required this.age, required this.gender,
     required this.phone,
-    // this.profile,
+    this.profile,
   });
 
   factory ProfileEditModel.fromMap(Map<String,dynamic> json)
@@ -21,14 +21,14 @@ class ProfileEditModel{
         age: json['age'],
         gender: json['gender'],
         phone: json['phone'],
-        // profile: json['profile'],
+        profile: json['profile'],
 
     );
   }
   Map<String,dynamic> toMap()=>{
     "ID":ID,
     "phone" : phone,
-    // "profile": profile,
+    "profile": profile,
     "age": age,
     "gender" : gender
   };

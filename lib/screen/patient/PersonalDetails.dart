@@ -51,7 +51,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 60),
                 children: [
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -69,7 +69,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           } else {
 
                             // Delete image if it already exists
-                            await imageUploader.deleteImageFromServer();
+                            await imageUploader.deleteImageFromCloudinary(imageUploader.publicID!);
                           }
                         },
                         child: CircleAvatar(
@@ -110,27 +110,27 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       Row(
                         children: [
                           // group er je kono akta select hobe 1 (male) 2(female)
-                          Text('Gender: ',style: TextStyle(
+                          const Text('Gender: ',style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black
                           ),),
-                          Spacer(),
+                          const Spacer(),
                           Radio(value: 1, groupValue: _gender, onChanged: (gender) {
                             setState(() {
                               _gender = gender!;
                             });
                           },),
-                          SizedBox(width: 5,),
-                          Text('Male',style: TextStyle(
+                          const SizedBox(width: 5,),
+                          const Text('Male',style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w600, color: Colors.black
                           ),),
-                          SizedBox(width: 15,),
+                          const SizedBox(width: 15,),
                           Radio(value: 2, groupValue: _gender, onChanged: (gender) {
                             setState(() {
                               _gender = gender!;
                             });
                           },),
-                          SizedBox(width: 5,),
-                          Text('Female',style: TextStyle(
+                          const SizedBox(width: 5,),
+                          const Text('Female',style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w600, color: Colors.black
                           ),),
                         ],),
@@ -141,7 +141,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         return Align(
                           alignment: Alignment.center,
                           child: CustomButton(pressed: (){
-                            if(imageUploader.imagePath == null && imageUploader.imageUrl == null)
+                            if(imageUploader.imageUrl == null)
                             {
                               Get.snackbar("Image Missing", "Please upload an image to proceed",
                                   colorText: Colors.white,

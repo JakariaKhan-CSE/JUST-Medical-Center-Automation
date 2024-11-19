@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:just_medical_center_automation/controller/loginProvider.dart';
 import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/res/auth/profile%20response.dart';
@@ -100,7 +99,7 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                   } else {
 
                     // Delete image if it already exists
-                    await imageUploader.deleteImageFromServer();
+                    await imageUploader.deleteImageFromCloudinary(imageUploader.publicID!);
                   }
                 },
                 /*
@@ -220,7 +219,7 @@ To fix this, make sure to prepend the server URL to the image path when setting 
                     alignment: Alignment.center,
                     child: CustomButton(
                       pressed: () {
-                        if(imageUploader.imagePath == null && imageUploader.imageUrl == null)
+                        if(imageUploader.imageUrl == null)
                         {
                           Get.snackbar("Image Missing", "Please upload an image to proceed",
                               colorText: Colors.white,
@@ -233,7 +232,7 @@ To fix this, make sure to prepend the server URL to the image path when setting 
                             age: int.parse(age.text),
                             gender: _gender == 1 ? "male" : "female",
                             phone: phone.text,
-                            // profile: imageUploader.imageUrl,
+                            profile: imageUploader.imageUrl,
                           );
 
                           // call update profile function

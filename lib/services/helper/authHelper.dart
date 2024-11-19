@@ -153,7 +153,7 @@ class AuthHelper {
     }
 
     if (response!.statusCode == 200) {
-      //print('response coed is: ${response.statusCode}');
+      //print('response code is: ${response.statusCode}');
       return true;
     } else {
       //print('response code is: ${response.statusCode}');
