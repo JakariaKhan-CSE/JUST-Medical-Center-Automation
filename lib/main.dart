@@ -77,8 +77,8 @@ User Experience: Users will see the connectivity status regardless of where they
     theme: ThemeData.light(),
     // home: PatientScreen()
     //home: PersonalDetails(),
-    //home: defaultHome,
-    home: Servicedataaddfirebase(),
+    home: defaultHome,
+    // home: Servicedataaddfirebase(),
   ),
   ),
 

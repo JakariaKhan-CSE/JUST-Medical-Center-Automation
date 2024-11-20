@@ -13,20 +13,33 @@ import 'package:just_medical_center_automation/screen/patient/PatientPrescriptio
 import 'package:just_medical_center_automation/screen/patient/patient_home.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_profile.dart';
 import 'package:just_medical_center_automation/screen/patient/update%20profile.dart';
+import 'package:just_medical_center_automation/services/allDataService.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/patientController/imageProvider.dart';
 import '../common/prescriptiondesign.dart';
 import '../homepage.dart';
-class PatientScreen extends StatelessWidget {
+class PatientScreen extends StatefulWidget {
 
+
+  PatientScreen({super.key});
+
+  @override
+  State<PatientScreen> createState() => _PatientScreenState();
+}
+
+class _PatientScreenState extends State<PatientScreen> {
   // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
   List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(),
     const HomePage(), const PrescriptionDesign(),  AboutDeveloperPage(),
     const UpdatePatientProfile(), AmbulanceServicePage(), ShowAllServicesPage(),
   const PasswordChangeAllUser()];
-  PatientScreen({super.key});
-
+@override
+  void initState() {
+  // when app run get services data from firebase
+    AllDataServices().getDataFromFirebase();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);

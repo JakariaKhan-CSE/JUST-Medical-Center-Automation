@@ -1,66 +1,84 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/data/servicesData.dart';
 
+import '../../services/allDataService.dart';
+
 class ShowAllServicesPage extends StatelessWidget {
   const ShowAllServicesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: Text('All Services List',style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.bold),),
+    /*
+    In your PatientScreen's initState, you're fetching data but not waiting for it to complete. This may cause the data to not be available when the ShowAllServicesPage is displayed.
 
-            ),
-            const SizedBox(height: 30,),
-            Expanded(
-              child: ListView.builder(
-                itemCount: allServicesData.length+1,
-                itemBuilder: (context, index) {
-                  return Table(
-                    // defaultColumnWidth: IntrinsicColumnWidth(), //automatically adjust kore nibe but aktu elomelo hoyejabe
-                    //you can use a different width for each column.
-                    columnWidths: {  // very useful
-                      0: FlexColumnWidth(2),
-                      1: FlexColumnWidth(4),
-                      2: FlexColumnWidth(2),
-                    },
-                    textDirection: TextDirection.ltr,
-                    border: TableBorder.all(color: Colors.black54, width: 1.0),
-                    children: [
-                      index==0?  const TableRow(
-                          children:[
-                            Heading(text: 'No',),
-                            Expanded(child: Heading(text: 'Test')),
-                            Heading(text: 'Rate')
-                          ]
-                      ):
-                      TableRow(
+Solution:
+
+Use a FutureBuilder in the ShowAllServicesPage to wait for data to load.
+     */
+    return FutureBuilder(
+      future: AllDataServices().getDataFromFirebase(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        }
+else{
+
+          final servicesData = AllDataServices.servicesData;
+
+          return Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      'All Services List',
+                      style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: servicesData.length + 1,
+                      itemBuilder: (context, index) {
+                        return Table(
+                          columnWidths: {
+                            0: FlexColumnWidth(2),
+                            1: FlexColumnWidth(4),
+                            2: FlexColumnWidth(2),
+                          },
+                          border: TableBorder.all(color: Colors.black54, width: 1.0),
                           children: [
-                            Data(text: (index).toString()),
-                            Expanded(child: Data(text: allServicesData[index-1].testName)) ,
-                            Data(text: '${allServicesData[index-1].rate.toString()}/-')
-                          ]
-                      )
-                      ,
-
-
-                    ],
-                  );
-                },
+                            index == 0
+                                ? const TableRow(children: [
+                              Heading(text: 'No'),
+                              Heading(text: 'Test'),
+                              Heading(text: 'Rate'),
+                            ])
+                                : TableRow(children: [
+                              Data(text: index.toString()),
+                              Data(text: servicesData[index - 1].testName),
+                              Data(text: '${servicesData[index - 1].rate}/-'),
+                            ]),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
-            )
-          ],
-        ),
-      ),
+            ),
+          );
+        }
+      },
     );
   }
 }
+
 
 class Heading extends StatelessWidget {
   final String text;
