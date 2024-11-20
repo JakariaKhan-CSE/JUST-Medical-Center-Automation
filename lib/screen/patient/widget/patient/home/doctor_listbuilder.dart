@@ -22,7 +22,7 @@ class doctorListbuilder extends StatelessWidget {
           return Center(
             child: Text(
               'No Doctors Found',
-              style: Theme.of(context).textTheme.displaySmall,
+              style: Theme.of(context).textTheme.labelLarge,
             ),
           );
         }

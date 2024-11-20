@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# key.properties hide
+/android/key.properties
+/android/app/upload-keystore.jks
 # Symbolication related
 app.*.symbols
 

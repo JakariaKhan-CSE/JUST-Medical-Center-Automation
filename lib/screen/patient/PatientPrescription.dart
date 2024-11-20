@@ -26,7 +26,7 @@ class PatientPrescription extends StatelessWidget {
             return Center(
               child: Text(
                 'No Prescriptions Found',
-                style: Theme.of(context).textTheme.displaySmall,
+                style: Theme.of(context).textTheme.labelLarge,
               ),
             );
           }

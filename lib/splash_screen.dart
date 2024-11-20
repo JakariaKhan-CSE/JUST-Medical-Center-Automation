@@ -67,14 +67,17 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               SizedBox(height: 30,),
              // inherits the delay & duration from move
-              Text("JUST Medical Center",
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    fontWeight: FontWeight.w800,
-                  letterSpacing: 1.8,
-                  color: Colors.white
-            ),).animate()
-                  .fade(duration: 2500.ms)
-                  .scale(delay: 500.ms) ,// runs after fade.
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("JUST Medical Center",
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      fontWeight: FontWeight.w800,
+                    letterSpacing: 1.6,
+                    color: Colors.white
+                            ),).animate()
+                    .fade(duration: 2500.ms)
+                    .scale(delay: 500.ms),
+              ) ,// runs after fade.
               // SizedBox(height: 30,),
               // CircularProgressIndicator(
               //   color: Theme.of(context).primaryColor,
