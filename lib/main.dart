@@ -14,6 +14,7 @@ import 'package:just_medical_center_automation/screen/auth/login_page.dart';
 import 'package:just_medical_center_automation/screen/main_screen.dart';
 import 'package:just_medical_center_automation/serviceDataAddFirebase.dart';
 import 'package:just_medical_center_automation/services/connectivity_service.dart';
+import 'package:just_medical_center_automation/splash_screen.dart';
 
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
@@ -47,17 +48,17 @@ User Experience: Users will see the connectivity status regardless of where they
   {
     print('error is: $e');
   }
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  // final entrypoint = prefs.getBool('entrypoint')??false;  // this is useful when use onBoarding Screen
-  final loggedIn = prefs.getBool('loggedIn')??false;
-  final role = prefs.getString('role')??'patient';
-  if(loggedIn)
-  {
-    defaultHome =  MainScreen(role: role,); // local storage e loggedIn true thakle bar bar app open korar somoi login screen show korbe na. MainScreen a cole jabe
-  }
-  else{
-    defaultHome = const LoginPage();
-  }
+  // final SharedPreferences prefs = await SharedPreferences.getInstance();
+  // // final entrypoint = prefs.getBool('entrypoint')??false;  // this is useful when use onBoarding Screen
+  // final loggedIn = prefs.getBool('loggedIn')??false;
+  // final role = prefs.getString('role')??'patient';
+  // if(loggedIn)
+  // {
+  //   defaultHome =  MainScreen(role: role,); // local storage e loggedIn true thakle bar bar app open korar somoi login screen show korbe na. MainScreen a cole jabe
+  // }
+  // else{
+  //   defaultHome = const LoginPage();
+  // }
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => IndexChangeProvider(),),
     ChangeNotifierProvider(create: (context) => AdminController(),),
@@ -75,10 +76,9 @@ User Experience: Users will see the connectivity status regardless of where they
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    // home: PatientScreen()
-    //home: PersonalDetails(),
-    home: defaultHome,
-    // home: Servicedataaddfirebase(),
+
+    home: SplashScreen(),
+
   ),
   ),
 

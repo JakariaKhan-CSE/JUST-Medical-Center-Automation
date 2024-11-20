@@ -9,7 +9,8 @@ class Servicedataaddfirebase extends StatefulWidget {
   @override
   State<Servicedataaddfirebase> createState() => _ServicedataaddfirebaseState();
 }
-
+// i create this class so that easily add services data in firestore
+// after add data this class is not required
 class _ServicedataaddfirebaseState extends State<Servicedataaddfirebase> {
 
   Future<void> serviceDataAddFirebase()

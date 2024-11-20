@@ -19,55 +19,59 @@ import 'package:provider/provider.dart';
 import '../../controller/patientController/imageProvider.dart';
 import '../common/prescriptiondesign.dart';
 import '../homepage.dart';
-class PatientScreen extends StatefulWidget {
 
-
+class PatientScreen extends StatelessWidget {
   PatientScreen({super.key});
 
-  @override
-  State<PatientScreen> createState() => _PatientScreenState();
-}
-
-class _PatientScreenState extends State<PatientScreen> {
   // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
-  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(),
-    const HomePage(), const PrescriptionDesign(),  AboutDeveloperPage(),
-    const UpdatePatientProfile(), AmbulanceServicePage(), ShowAllServicesPage(),
-  const PasswordChangeAllUser()];
-@override
-  void initState() {
-  // when app run get services data from firebase
-    AllDataServices().getDataFromFirebase();
-    super.initState();
-  }
+  List Screen = [
+    const PatientHome(),
+    PatientPrescription(),
+    const PatientProfile(),
+    const HomePage(),
+    const PrescriptionDesign(),
+    AboutDeveloperPage(),
+    const UpdatePatientProfile(),
+    AmbulanceServicePage(),
+    ShowAllServicesPage(),
+    const PasswordChangeAllUser()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);
+    final indexChange = Provider.of<IndexChangeProvider>(context, listen: true);
     return Scaffold(
-    appBar: AppBar(
+      appBar: AppBar(
         title: const Text('JUST Medical Center'),
         centerTitle: true,
         elevation: 2.5,
         shadowColor: Colors.yellowAccent,
       ),
       drawer: PatientDrawer(),
-      body: Screen[indexChange.currentPageIndex], // change page using Screen List(which contain home and profile page)
+      body: Screen[indexChange
+          .currentPageIndex], // change page using Screen List(which contain home and profile page)
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (index) {
           // using state management. currentPageIndex = index
           indexChange.ChangeIndexValue(index);
-
         },
-        indicatorColor: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? Colors.amber : Colors.grey.withOpacity(0.1),
+        indicatorColor: indexChange.currentPageIndex >= 0 &&
+                indexChange.currentPageIndex <= 2
+            ? Colors.amber
+            : Colors.grey.withOpacity(0.1),
         // if user select any item from drawer 0 index mark(bottom nav bar)
-        selectedIndex: indexChange.currentPageIndex>=0 && indexChange.currentPageIndex<=2 ? indexChange.currentPageIndex: 0,
+        selectedIndex: indexChange.currentPageIndex >= 0 &&
+                indexChange.currentPageIndex <= 2
+            ? indexChange.currentPageIndex
+            : 0,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.document_scanner_sharp), label: 'Prescription History'),
+          NavigationDestination(
+              icon: Icon(Icons.document_scanner_sharp),
+              label: 'Prescription History'),
           NavigationDestination(icon: Icon(Icons.person_pin), label: 'Profile'),
         ],
       ),
-
     );
   }
 }
@@ -79,32 +83,41 @@ class PatientDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);
+    final indexChange = Provider.of<IndexChangeProvider>(context, listen: true);
     final loginNotifier = Provider.of<LoginNotifier>(context);
     final imageNotifier = Provider.of<ImageUploader>(context);
 
     return Drawer(
       child: ListView(
         children: [
-          DrawerHeader(child: SingleChildScrollView(
+          DrawerHeader(
+              child: SingleChildScrollView(
             child: Column(
               children: [
                 Center(
-                  child: Image.asset('images/just logo.jpg',height: 90,),
+                  child: Image.asset(
+                    'images/just_logo.jpg',
+                    height: 90,
+                  ),
                 ),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 const Center(
-                  child: Text("JUST Medical Center",style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.4
-                  ),),
+                  child: Text(
+                    "JUST Medical Center",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.4),
+                  ),
                 )
               ],
             ),
           )),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               // not use navigator.push. If you use remove bottom navigationbar to get new page
               // Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const HomePage()));
               //  List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile(), const HomePage()];
@@ -113,7 +126,6 @@ class PatientDrawer extends StatelessWidget {
               Scaffold.of(context).closeDrawer(); // close drawer
             },
             child: const Card(
-
               child: ListTile(
                 title: Text('DashBoard'),
                 trailing: Icon(Icons.arrow_forward_sharp),
@@ -122,7 +134,7 @@ class PatientDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: (){
+              onTap: () {
                 // go to my all service page
                 indexChange.ChangeIndexValue(8); //Screen[8]
                 Scaffold.of(context).closeDrawer();
@@ -133,7 +145,7 @@ class PatientDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: (){
+              onTap: () {
                 // go to my ambulance service page
                 indexChange.ChangeIndexValue(7); //Screen[7]
                 Scaffold.of(context).closeDrawer();
@@ -144,7 +156,7 @@ class PatientDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: (){
+              onTap: () {
                 // go to my change password page
                 indexChange.ChangeIndexValue(9); //Screen[9]
                 Scaffold.of(context).closeDrawer();
@@ -153,9 +165,9 @@ class PatientDrawer extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),
-           Card(
+          Card(
             child: ListTile(
-              onTap: (){
+              onTap: () {
                 // go to my developer page
                 indexChange.ChangeIndexValue(5); //Screen[5]
                 Scaffold.of(context).closeDrawer();
@@ -164,10 +176,9 @@ class PatientDrawer extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),
-
           Card(
             child: ListTile(
-              onTap: (){
+              onTap: () {
                 // before log out current index set 0 otherwise show (hibernate page)
                 indexChange.currentPageIndex = 0;
                 // also need clean image path
@@ -176,13 +187,11 @@ class PatientDrawer extends StatelessWidget {
                 // trigger logout function
                 loginNotifier.logout();
                 Get.offAll(LoginPage());
-
               },
               title: Text('Log out'),
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),
-
         ],
       ),
     );

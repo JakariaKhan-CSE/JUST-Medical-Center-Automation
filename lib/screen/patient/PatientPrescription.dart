@@ -39,7 +39,7 @@ class PatientPrescription extends StatelessWidget {
                 children: [
                   Text('Total Prescription: ${prescriptions?.length}',style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                   const SizedBox(height: 30,),
-                  prescriptions?.length ==0 ? Center(child: Text('No Prescription',style: Theme.of(context).textTheme.titleMedium,))
+                  prescriptions?.length ==0 ? Center(child: Text('No Prescription',style: Theme.of(context).textTheme.displaySmall,))
                  : Expanded(
                       child: GridView.builder(
                         itemCount: prescriptions?.length,

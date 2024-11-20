@@ -53,6 +53,7 @@ dependencies:
   animate_do:
   rename:
   cloudinary: ^1.2.0
+  flutter_launcher_icons: ^0.14.1
 
 
 

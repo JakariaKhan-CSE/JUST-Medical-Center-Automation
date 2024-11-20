@@ -4,9 +4,9 @@
         android:name="android.hardware.telephony"
         android:required="false" />
     <application
-        android:label="just_medical_center_automation"
+        android:label="JUST Medical Center Automation"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         <activity
             android:name=".MainActivity"
