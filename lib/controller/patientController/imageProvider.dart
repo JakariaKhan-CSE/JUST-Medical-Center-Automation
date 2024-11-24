@@ -78,8 +78,10 @@ class ImageUploader extends ChangeNotifier {
 print(response.isSuccessful);
       if (response.isSuccessful) {
         print('Image deleted successfully');
-        imageUrl = '';
-        publicID = '';
+        imageUrl = null;
+        publicID = null;
+        // imageUrl = '';
+        // publicID = '';
         notifyListeners();
       } else {
         print('Failed to delete image: ${response.error}');

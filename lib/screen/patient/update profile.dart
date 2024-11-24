@@ -97,7 +97,7 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                     print('working delete');
 print(imageUploader.publicID);
                     // Delete image if it already exists
-                    if (imageUploader.publicID != '')
+                    if (imageUploader.publicID != null)
                       await imageUploader
                           .deleteImageFromCloudinary(imageUploader.publicID!);
                     // imageUploader.imageUrl = '';
@@ -233,7 +233,7 @@ To fix this, make sure to prepend the server URL to the image path when setting 
                               gender: _gender == 1 ? "male" : "female",
                               phone: phone.text,
                               profile: imageUploader.imageUrl,
-                              publicID: imageUploader.publicID);
+                              publicID: imageUploader.publicID); // store publicId in database for delete image later
 
                           // call update profile function
                           profileNotifier.editProfile(model);

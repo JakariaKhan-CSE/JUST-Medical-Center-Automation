@@ -8,11 +8,13 @@ class ProfileUpdateModel{
   final String gender;
   final String role;
   final bool isUpdatedProfile;
+  final String? publicID;
 
   ProfileUpdateModel( {required this.isUpdatedProfile, required this.role,
     required this.ID, required this.age, required this.gender,
     required this.phone,
     this.profile,
+    this.publicID,
     });
 
   factory ProfileUpdateModel.fromMap(Map<String,dynamic> json)
@@ -24,7 +26,8 @@ class ProfileUpdateModel{
         phone: json['phone'],
         profile: json['profile'],
         role: json['role'],
-        isUpdatedProfile: json['isUpdateProfile']
+        isUpdatedProfile: json['isUpdateProfile'],
+        publicID: json['publicId']
     );
   }
   Map<String,dynamic> toMap()=>{
@@ -34,7 +37,8 @@ class ProfileUpdateModel{
     "age": age,
     "gender" : gender,
     "role": role,
-    "isUpdateProfile": isUpdatedProfile
+    "isUpdateProfile": isUpdatedProfile,
+    "publicId": publicID
   };
 
   String toJson()=> jsonEncode(toMap());

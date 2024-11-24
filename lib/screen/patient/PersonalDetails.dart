@@ -77,7 +77,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           backgroundColor: Colors.lightBlue,
                           backgroundImage: imageUploader.imageUrl != null
                               ? NetworkImage(
-                              imageUploader.imageUrl!) // Show uploaded image
+                              imageUploader.imageUrl??'https://cdn-icons-png.flaticon.com/512/3135/3135715.png') // Show uploaded image
                               : null,
                           child: imageUploader.imageUrl == null
                               ? const Icon(Icons.photo_filter_rounded)
@@ -157,7 +157,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                     phone: phone.text,
                                     profile: imageUploader.imageUrl??"https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
                                     role: widget.role,
-                                  isUpdatedProfile: true
+                                  isUpdatedProfile: true,
+                                  publicID: imageUploader.publicID // store publicId for delete image later
                                 );
 
                                 // call update profile function
