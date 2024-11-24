@@ -54,38 +54,41 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Animate(
-                effects: const [
-                  FadeEffect(duration: Duration(milliseconds: 1500)),
-                  ScaleEffect(duration: Duration(milliseconds: 1500)),
-                ],
-                child: Image.asset('images/home picture.jpg',width: MediaQuery.of(context).size.width ), // 100% of screen width,
-              ),
-              SizedBox(height: 30,),
-             // inherits the delay & duration from move
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("JUST Medical Center",
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      fontWeight: FontWeight.w800,
-                    letterSpacing: 1.6,
-                    color: Colors.white
-                            ),).animate()
-                    .fade(duration: 2500.ms)
-                    .scale(delay: 500.ms),
-              ) ,// runs after fade.
-              // SizedBox(height: 30,),
-              // CircularProgressIndicator(
-              //   color: Theme.of(context).primaryColor,
-              //   strokeWidth: 2,
-              // ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Animate(
+                  effects: const [
+                    FadeEffect(duration: Duration(milliseconds: 1500)),
+                    ScaleEffect(duration: Duration(milliseconds: 1500)),
+                  ],
+                  child: Image.asset('images/home picture.jpg',width: MediaQuery.of(context).size.width ), // 100% of screen width,
+                ),
+                SizedBox(height: 30,),
+               // inherits the delay & duration from move
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("JUST Medical Center",
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        fontWeight: FontWeight.w800,
+                      letterSpacing: 1.6,
+                      color: Colors.white
+                              ),).animate()
+                      .fade(duration: 2500.ms)
+                      .scale(delay: 500.ms),
+                ) ,// runs after fade.
+                // SizedBox(height: 30,),
+                // CircularProgressIndicator(
+                //   color: Theme.of(context).primaryColor,
+                //   strokeWidth: 2,
+                // ),
 
 
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/patientController/imageProvider.dart';
 import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
 import 'package:just_medical_center_automation/screen/patient/widget/patient/profile/patient_profile_row.dart';
 import 'package:just_medical_center_automation/services/config.dart';
@@ -13,6 +14,7 @@ class PatientProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final indexChange = Provider.of<IndexChangeProvider>(context,listen: true);
+    final imageNotifier = Provider.of<ImageUploader>(context,listen: true);
     return Scaffold(
       body: Consumer<ProfileNotifier>(builder: (context, profileNotifier, child) {
         profileNotifier.getProfile();
@@ -37,6 +39,9 @@ class PatientProfile extends StatelessWidget {
               // i use bottom nav bar. so, i can navigate another page(not used constructor)
               // so, i add and fetch data from profileNotifier
               profileNotifier.setUserData(userData!);
+              // add image data on variable
+              imageNotifier.imageUrl = userData.user?.profile;
+              imageNotifier.publicID = userData.user?.publicID;
 // dmpgw2hy1    // b3ncityp
 //               String imageUrl = '${Config.apiUrl}/${userData.user?.profile}';
 //               print(imageUrl);
@@ -59,10 +64,7 @@ class PatientProfile extends StatelessWidget {
                          ,
                         )
                     ),
-                    // Center(
-                    //     child: TextButton(
-                    //         onPressed: () {}, child: const Text('Change Profile Picture'))
-                    // ),
+
                     const SizedBox(
                       height: 20,
                     ),

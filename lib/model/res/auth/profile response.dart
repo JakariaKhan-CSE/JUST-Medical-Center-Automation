@@ -37,6 +37,7 @@ class User {
   String? iD;
   int? age;
   String? phone;
+  String? publicID;
 
   User(
       {this.sId,
@@ -52,7 +53,9 @@ class User {
         this.iV,
         this.iD,
         this.age,
-        this.phone});
+        this.phone,
+        this.publicID,
+      });
 
   User.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -69,6 +72,7 @@ class User {
     iD = json['ID'];
     age = json['age'];
     phone = json['phone'];
+    publicID = json['publicId'];
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +91,7 @@ class User {
     data['ID'] = this.iD;
     data['age'] = this.age;
     data['phone'] = this.phone;
+    data['publicId'] = this.publicID;
     return data;
   }
 }

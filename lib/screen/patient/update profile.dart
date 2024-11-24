@@ -90,16 +90,18 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
                       fontWeight: FontWeight.bold)),
               GestureDetector(
                 onTap: () async {
-
                   if (imageUploader.imageUrl == null) {
-
                     // Pick and upload image if none exists
                     await imageUploader.pickImageAndUpload();
-
                   } else {
-
+                    print('working delete');
+print(imageUploader.publicID);
                     // Delete image if it already exists
-                    await imageUploader.deleteImageFromCloudinary(imageUploader.publicID!);
+                    if (imageUploader.publicID != '')
+                      await imageUploader
+                          .deleteImageFromCloudinary(imageUploader.publicID!);
+                    // imageUploader.imageUrl = '';
+                    // imageUploader.publicID = '';
                   }
                 },
                 /*
@@ -108,7 +110,6 @@ Provider.of<ProfileNotifier>(context, listen: false) provides access to profileN
 To fix this, make sure to prepend the server URL to the image path when setting NetworkImage in your Flutter code.
                  */
                 child: CircleAvatar(
-
                   radius: 40,
                   backgroundColor: Colors.lightBlue,
                   backgroundImage: imageUploader.imageUrl != null
@@ -219,27 +220,25 @@ To fix this, make sure to prepend the server URL to the image path when setting 
                     alignment: Alignment.center,
                     child: CustomButton(
                       pressed: () {
-                        if(imageUploader.imageUrl == null)
-                        {
-                          Get.snackbar("Image Missing", "Please upload an image to proceed",
+                        if (imageUploader.imageUrl == null) {
+                          Get.snackbar("Image Missing",
+                              "Please upload an image to proceed",
                               colorText: Colors.white,
                               backgroundColor: Colors.orange,
-                              icon: const Icon(Icons.add_alert)
-                          );
-                        }else if (profileNotifier.validateFormAndSave()) {
+                              icon: const Icon(Icons.add_alert));
+                        } else if (profileNotifier.validateFormAndSave()) {
                           ProfileEditModel model = ProfileEditModel(
-                            ID: int.parse(ID.text),
-                            age: int.parse(age.text),
-                            gender: _gender == 1 ? "male" : "female",
-                            phone: phone.text,
-                            profile: imageUploader.imageUrl,
-                          );
+                              ID: int.parse(ID.text),
+                              age: int.parse(age.text),
+                              gender: _gender == 1 ? "male" : "female",
+                              phone: phone.text,
+                              profile: imageUploader.imageUrl,
+                              publicID: imageUploader.publicID);
 
                           // call update profile function
                           profileNotifier.editProfile(model);
                         }
-                        },
-
+                      },
                       btnName: 'Update Profile',
                       backgroundColor: Colors.cyan,
                     ),

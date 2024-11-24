@@ -75,11 +75,11 @@ class ImageUploader extends ChangeNotifier {
         publicId, // Pass publicId as a positional argument
         resourceType: CloudinaryResourceType.image,
       );
-
+print(response.isSuccessful);
       if (response.isSuccessful) {
         print('Image deleted successfully');
-        imageUrl = null;
-        publicID = null;
+        imageUrl = '';
+        publicID = '';
         notifyListeners();
       } else {
         print('Failed to delete image: ${response.error}');

@@ -6,12 +6,14 @@ class ProfileEditModel{
   final int age;
   final String? profile;
   final String gender;
+  final String? publicID;
 
 
   ProfileEditModel( {
     required this.ID, required this.age, required this.gender,
     required this.phone,
     this.profile,
+    this.publicID
   });
 
   factory ProfileEditModel.fromMap(Map<String,dynamic> json)
@@ -22,6 +24,7 @@ class ProfileEditModel{
         gender: json['gender'],
         phone: json['phone'],
         profile: json['profile'],
+      publicID: json['publicId']??'',
 
     );
   }
@@ -30,7 +33,8 @@ class ProfileEditModel{
     "phone" : phone,
     "profile": profile,
     "age": age,
-    "gender" : gender
+    "gender" : gender,
+    "publicID": publicID??''
   };
 
   String toJson()=> jsonEncode(toMap());
