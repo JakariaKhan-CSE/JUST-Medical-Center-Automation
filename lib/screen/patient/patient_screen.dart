@@ -161,7 +161,7 @@ class PatientDrawer extends StatelessWidget {
                 indexChange.ChangeIndexValue(9); //Screen[9]
                 Scaffold.of(context).closeDrawer();
               },
-              title: Text('Change Passord'),
+              title: Text('Change Password'),
               trailing: Icon(Icons.arrow_forward_sharp),
             ),
           ),

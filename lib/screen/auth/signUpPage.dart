@@ -162,24 +162,32 @@ class _signUpPageState extends State<signUpPage> {
 
                           if (signUpNotifier.validateFormAndSave()) {
                             // firstly check passowrd is strong or not
-                            if(signUpNotifier.passwordValidator(password.text)){
-                              SignUpModel model = SignUpModel(
-                                  email: email.text,
-                                  password: password.text,
-                                  username: name.text,
-                                  role: 'patient');
+                            // if(signUpNotifier.passwordValidator(password.text)){
+                            //   SignUpModel model = SignUpModel(
+                            //       email: email.text,
+                            //       password: password.text,
+                            //       username: name.text,
+                            //       role: 'patient');
+                            //
+                            //   signUpNotifier.signUp(model);
+                            // }
+                            // else{
+                            //   Get.snackbar(
+                            //     "Weak Password",
+                            //     "Please use Strong password",
+                            //     colorText: Colors.white,
+                            //     backgroundColor: Colors.deepOrangeAccent,
+                            //     icon: const Icon(Icons.add_alert),
+                            //   );
+                            // }
+                            // remove strong password checker
+                            SignUpModel model = SignUpModel(
+                                email: email.text,
+                                password: password.text,
+                                username: name.text,
+                                role: 'patient');
 
-                              signUpNotifier.signUp(model);
-                            }
-                            else{
-                              Get.snackbar(
-                                "Weak Password",
-                                "Please use Strong password",
-                                colorText: Colors.white,
-                                backgroundColor: Colors.deepOrangeAccent,
-                                icon: const Icon(Icons.add_alert),
-                              );
-                            }
+                            signUpNotifier.signUp(model);
                           } else {
                             Get.snackbar(
                               "Sign up Failed",
