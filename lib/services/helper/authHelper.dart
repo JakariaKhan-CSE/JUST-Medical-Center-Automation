@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/res/auth/login%20response.dart';
@@ -163,6 +164,7 @@ class AuthHelper {
 
 // Get Profile
   static Future<ProfileResponse> getProfile() async {
+
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
     // String? userId = pref.getString('userId');

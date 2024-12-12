@@ -49,7 +49,7 @@ class prescription_right_side extends StatelessWidget {
                     children: [
                       const SizedBox(width: 10,),
                       Text(
-                        '1+0+10',
+                        '1+0+1',
                         style: const TextStyle(fontSize: 15),
                       ),
                       const SizedBox(

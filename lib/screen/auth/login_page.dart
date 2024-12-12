@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       label: "Password",
                       textInputType: TextInputType.text,
                       validator: (password){
-                        if(password!.isEmpty || password.length<6)  // email filed jodi empty hoi and @ na thake tahole invalid message return korbe
+                        if(password!.isEmpty || password.length<6)  // password field jodi empty hoi or length 6 er kom hole aita return korbe
                             {
 
                           return "Please enter at least 6 digit password";

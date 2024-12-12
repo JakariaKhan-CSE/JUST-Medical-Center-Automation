@@ -32,7 +32,7 @@ String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
           child: Column(
             children: [
               PrescriptionDesignContainer(
-                doctorName: prescription!.doctorId!.name ,
+                doctorName: prescription.doctorId!.name,
               date: formattedDate,),
               SizedBox(
                 height: 10,

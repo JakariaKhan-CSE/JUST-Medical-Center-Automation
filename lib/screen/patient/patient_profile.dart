@@ -79,7 +79,7 @@ class PatientProfile extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    PatientProfileRow(leading: 'Name',title: userData!.user!.name!,),  //userData!.user!.name! (be careful !) last one. If error show use this
+                    PatientProfileRow(leading: 'Name',title: userData.user!.name!,),  //userData!.user!.name! (be careful !) last one. If error show use this
                     const SizedBox(
                       height: 10,
                     ),

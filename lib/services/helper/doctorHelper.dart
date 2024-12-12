@@ -7,8 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../config.dart';
 
 class DoctorHelper {
-// Get Job
-// Onek gulo job thakbe tai akta List er vitor e job job return kora hosse
+
+  // get total doctor from backend
   static Future<List<TotalDoctors>> getDoctors() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");

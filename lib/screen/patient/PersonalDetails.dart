@@ -116,7 +116,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           const Spacer(),
                           Radio(value: 1, groupValue: _gender, onChanged: (gender) {
                             setState(() {
-                              _gender = gender!;
+                              _gender = gender!;   // value: 1, ai value ta assign hobe _gender er vitore
                             });
                           },),
                           const SizedBox(width: 5,),
@@ -126,7 +126,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           const SizedBox(width: 15,),
                           Radio(value: 2, groupValue: _gender, onChanged: (gender) {
                             setState(() {
-                              _gender = gender!;
+                              _gender = gender!;  // value: 2, ai value ta assign hobe _gender er vitore
                             });
                           },),
                           const SizedBox(width: 5,),

@@ -13,29 +13,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<void> _loadDatabase()async{
-    try{
-      await Firebase.initializeApp(
-
-          options: const FirebaseOptions(
-
-              apiKey: 'AIzaSyBdgtN-5WaNCWTh-TZKKp1Qy-srBRCm1PQ',
-              appId: '1:57891280768:android:dea5183bb6e86d2ea09365',
-              messagingSenderId: '57891280768',
-              projectId: 'just-medical-center'
-          )
-      );
-    }catch(e)
-    {
-      print('error is: $e');
-    }
-
-
-  }
+  // Future<void> _loadDatabase()async{
+  //   try{
+  //     await Firebase.initializeApp(
+  //
+  //         options: const FirebaseOptions(
+  //
+  //             apiKey: 'AIzaSyBdgtN-5WaNCWTh-TZKKp1Qy-srBRCm1PQ',
+  //             appId: '1:57891280768:android:dea5183bb6e86d2ea09365',
+  //             messagingSenderId: '57891280768',
+  //             projectId: 'just-medical-center'
+  //         )
+  //     );
+  //   }catch(e)
+  //   {
+  //     print('error is: $e');
+  //   }
+  //
+  //
+  // }
 
   @override
   void initState() {
-    _loadDatabase();
+    // _loadDatabase();
     super.initState();
   }
   List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile()];
