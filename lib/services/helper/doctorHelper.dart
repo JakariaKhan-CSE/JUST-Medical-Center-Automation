@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/res/patient/doctorResponse.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../model/res/doctor/AllPatient.dart';
 import '../config.dart';
 
 class DoctorHelper {
@@ -36,6 +37,36 @@ class DoctorHelper {
     }
     else {
       throw Exception('Failed to get doctorList');
+    }
+  }
+
+  // get total patient from backend
+  static Future<List<allPatient>> getAllPatient() async {
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+
+    };
+    try {
+      response = await http.get(Uri.parse('${Config.apiUrl}${Config.allpatienturl}'),
+          headers: requestHeaders);
+    } catch (e) {
+      //print('all patient api call error: $e');
+    }
+
+    if (response!.statusCode == 200) {
+      List<allPatient> patientList;
+      // all time compare response data to model data. If any variable miss make it nullable
+      // print(jsonDecode(response.body)); // this is helpful when not find proper error in response data
+
+
+      patientList = allPatientFromJson(response.body);
+
+      return patientList;
+    }
+    else {
+      throw Exception('Failed to get patientList');
     }
   }
 }

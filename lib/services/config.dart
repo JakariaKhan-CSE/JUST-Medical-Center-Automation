@@ -10,7 +10,7 @@ class Config{
   static const String changePasswordurl = "/api/user/change-password";
   static const String totalDoctorurl = "/api/user/total-doctors";
   static const String prescriptionurl = "/api/user/prescriptions";
-  static const String allpatienturl = "/api/admin/users/patient";
+  static const String allpatienturl = "/api/doctors/allpatient";
   // static const String jobs = "/api/jobs";
   // static const String search = "/api/jobs/search";
   // static const String profileUrl = "/api/users";

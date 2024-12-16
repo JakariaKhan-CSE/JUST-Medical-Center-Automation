@@ -10,7 +10,7 @@ class doctorListbuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Fetch prescriptions on first build
+    // Fetch doctorlist on first build
     final doctorNotifier = Provider.of<DoctorNotifier>(context, listen: false);
     doctorNotifier.getAllDoctorList();
 

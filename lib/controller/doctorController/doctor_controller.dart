@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:just_medical_center_automation/model/res/doctor/AllPatient.dart';
 
 import '../../data/diagnosticTestData.dart';
 import '../../data/patientData.dart';
@@ -11,15 +12,24 @@ class DoctorController extends ChangeNotifier{
   bool _oldPasswordSecure = true;
   bool _newPasswordSecure = true;
   bool _confirmPasswordSecure = true;
-  Patient? _patient;
+
   DiagonasticData? _labTestInfo;
 // for patient info
-Patient? get patient => _patient;
-void setPatientData(Patient data)
-{
-  _patient = data;
-  notifyListeners();
-}
+//   Patient? _patient;
+// Patient? get patient => _patient;
+// void setPatientData(Patient data)
+// {
+//   _patient = data;
+//   notifyListeners();
+// }
+
+  allPatient? _patient;
+  allPatient? get patient => _patient;
+  void setPatientData(allPatient data){
+    _patient = data;
+    notifyListeners();
+  }
+
 // for labTestReport info
   DiagonasticData? get diagonasticData => _labTestInfo;
   void setDiagonasticData(DiagonasticData data)

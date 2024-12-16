@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/model/res/doctor/AllPatient.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/component/doctorSeePatientLineInfo.dart';
 import 'package:just_medical_center_automation/widget/common/customButton.dart';
 import 'package:provider/provider.dart';
-import '../../data/patientData.dart';
 import '../../responsive.dart';
 
 class PatientDetailsPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
   @override
   Widget build(BuildContext context) {
     final _controller = Provider.of<DoctorController>(context,listen: false);
-    Patient? patient = _controller.patient;
+    allPatient? patient = _controller.patient;
     return Scaffold(
       appBar: AppBar(title: Text('Patient Details'),centerTitle: true,backgroundColor: Colors.cyanAccent.withOpacity(0.6),),
       backgroundColor: Colors.cyanAccent.withOpacity(0.6),
@@ -36,11 +36,12 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
                  children: [
                    doctorSeePatientLineInfo(name: "Patient Name",value: '${patient?.name}',),
                    SizedBox(height: 10,),
-                   doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.ID}',),
+                   doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.iD}',),
                    SizedBox(height: 10,),
                    doctorSeePatientLineInfo(name: "Patient age",value: '${patient?.age}',),
                    SizedBox(height: 10,),
-                   doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
+                 // later use this when update database for users(department)
+                 //  doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
 
                  ],
                ),
@@ -49,7 +50,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
                 Container(
                     height: 150,
                     width: 150,
-                    child: Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,))
+                    child: patient?.profile != null ? Image.network(patient!.profile!,fit: BoxFit.cover,) :Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,))
                 // patient picture here
               ],
             ):
@@ -60,17 +61,18 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
                 Container(
                     height: 150,
                     width: 150,
-                    child: Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,)),
+                    child: patient?.profile != null ? Image.network(patient!.profile!,fit: BoxFit.cover,) : Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,)),
                 SizedBox(height: 20,),
       Column(
                   children: [
                     doctorSeePatientLineInfo(name: "Patient Name",value: '${patient?.name}',),
                     SizedBox(height: 10,),
-                    doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.ID}',),
+                    doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.iD}',),
                     SizedBox(height: 10,),
                     doctorSeePatientLineInfo(name: "Patient age",value: '${patient?.age}',),
                     SizedBox(height: 10,),
-                    doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
+                  //later use this when update database users model(department)
+                  //  doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
 
                   ],
                 ),
