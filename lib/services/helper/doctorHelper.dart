@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/res/patient/doctorResponse.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../model/req/doctor/create_prescription.dart';
 import '../../model/res/doctor/AllPatient.dart';
 import '../config.dart';
 
@@ -67,6 +68,25 @@ class DoctorHelper {
     }
     else {
       throw Exception('Failed to get patientList');
+    }
+  }
+ static Future<bool> createPrescription(CreatePrescriptionRequest request) async {
+   final SharedPreferences pref = await SharedPreferences.getInstance();
+   String? token = pref.getString("token");
+    final response = await http.post(
+      Uri.parse('${Config.apiUrl}${Config.prescriptionurl}'),
+      headers: {'Content-Type': 'application/json',
+        "x-auth-token":'$token'},
+      body: jsonEncode(request.toJson()),
+    );
+
+    if (response.statusCode == 201) {
+      // Prescription created successfully
+      return true;
+    } else {
+      // Handle failure
+      print('Failed to create prescription: ${response.statusCode}');
+      return false;
     }
   }
 }

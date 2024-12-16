@@ -2,10 +2,13 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/model/res/doctor/AllPatient.dart';
+import 'package:just_medical_center_automation/services/helper/doctorHelper.dart';
 
 import '../../data/diagnosticTestData.dart';
 import '../../data/patientData.dart';
+import '../../model/req/doctor/create_prescription.dart';
 
 class DoctorController extends ChangeNotifier{
   int current_index = 0;
@@ -131,5 +134,43 @@ void removeAllTextField(){
     notifyListeners();
   }
 
+  // Method to create the prescription
+  Future<void> generatePrescription(BuildContext context) async {
+    // Prepare the data for the prescription
+    List<Medicine> medicinesList = [];
 
+    for (int i = 0; i < textEditingControllerList.length; i++) {
+      String medicineName = textEditingControllerList[i].text;
+      int quantity = int.tryParse(daysTextEditingControllerList[i].text) ?? 0;
+
+      // Only add valid medicines
+      if (medicineName.isNotEmpty && quantity > 0) {
+        medicinesList.add(Medicine(
+          name: medicineName,
+          quantity: quantity,
+        ));
+      }
+    }
+
+    if (medicinesList.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please add valid medicines')));
+      return;
+    }
+
+    // Create the request model
+    final prescriptionRequest = CreatePrescriptionRequest(
+      medicines: medicinesList,
+      patientId: patient?.sId ?? "", // Replace with actual patient ID
+    );
+
+    // Call the service to generate the prescription
+    bool success = await DoctorHelper.createPrescription(prescriptionRequest);
+
+    // Handle success or failure
+    if (success) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Prescription created successfully')));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to create prescription')));
+    }
+  }
 }
