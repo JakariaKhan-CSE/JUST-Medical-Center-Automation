@@ -169,6 +169,8 @@ void removeAllTextField(){
     // Handle success or failure
     if (success) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Prescription created successfully')));
+      // go to dashboard page
+      SetIndex(0);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to create prescription')));
     }

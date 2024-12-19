@@ -1,5 +1,6 @@
 class Config{
   //static const apiUrl = "http://10.0.0.100:5008";  // mess wifi
+  //static const apiUrl = "http://192.168.0.114:5008";    // office wifi
   //static const apiUrl = "http://192.168.1.105:5008";   // home wifi
   //static const apiUrl = "https://just-medical-center-automation-system.onrender.com";
   static const apiUrl = "https://backend-just-medical-production.up.railway.app";
@@ -11,6 +12,7 @@ class Config{
   static const String totalDoctorurl = "/api/user/total-doctors";
   static const String prescriptionurl = "/api/user/prescriptions";
   static const String allpatienturl = "/api/doctors/allpatient";
+  static const String createPrescriptionurl = "/api/doctors/prescription";
   // static const String jobs = "/api/jobs";
   // static const String search = "/api/jobs/search";
   // static const String profileUrl = "/api/users";

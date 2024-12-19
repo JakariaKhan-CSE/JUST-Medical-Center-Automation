@@ -73,8 +73,9 @@ class DoctorHelper {
  static Future<bool> createPrescription(CreatePrescriptionRequest request) async {
    final SharedPreferences pref = await SharedPreferences.getInstance();
    String? token = pref.getString("token");
+   print(request.toJson());
     final response = await http.post(
-      Uri.parse('${Config.apiUrl}${Config.prescriptionurl}'),
+      Uri.parse('${Config.apiUrl}${Config.createPrescriptionurl}'),
       headers: {'Content-Type': 'application/json',
         "x-auth-token":'$token'},
       body: jsonEncode(request.toJson()),
