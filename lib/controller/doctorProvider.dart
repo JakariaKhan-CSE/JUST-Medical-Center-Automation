@@ -37,4 +37,19 @@ class DoctorNotifier extends ChangeNotifier{
     }
   }
 
+
+  // search patient
+  allPatient? _patient;
+  allPatient? get patient => _patient;  // get patient data here
+
+  Future<void> searchPatient(int ID) async {
+
+    try {
+      _patient =await DoctorHelper.searchPatient(ID); // be careful to use await otherwise get error
+
+    } catch (e) {
+      debugPrint('Error fetching patient: $e');
+    }
+  }
+
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/doctorController/data_load.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/component/patient_history.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctorMiddlePartFeatures.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctor_sidebar.dart';
@@ -12,6 +13,12 @@ class DoctorScreen extends StatefulWidget {
 }
 
 class _DoctorScreenState extends State<DoctorScreen> {
+  DataLoadForDoctor dataLoadForDoctor = DataLoadForDoctor();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

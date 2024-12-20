@@ -90,4 +90,38 @@ class DoctorHelper {
       return false;
     }
   }
+
+  // search patient from backend
+  static Future<allPatient> searchPatient(int ID) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token":'$token'
+
+    };
+    try {
+      response = await http.get(Uri.parse('${Config.apiUrl}${Config.searchPatientUrl}?query=$ID'),
+          headers: requestHeaders,);
+    } catch (e) {
+      //print('search patient api call error: $e');
+    }
+
+    if (response!.statusCode == 200) {
+      allPatient patient;
+      // all time compare response data to model data. If any variable miss make it nullable
+      print(jsonDecode(response.body)); // this is helpful when not find proper error in response data
+
+
+      patient = allPatient.fromJson(jsonDecode(response.body));
+
+      return patient;
+    }
+    else {
+      throw Exception('Failed to search patient');
+    }
+  }
+
 }
