@@ -1,9 +1,10 @@
 class Config{
-  static const apiUrl = "http://10.0.0.101:5008";  // mess wifi
+  //static const apiUrl = "http://10.0.0.101:5008";  // mess wifi
+  //static const apiUrl = "http://192.168.9.169:5008";  // abdul khalek mess wifi
   //static const apiUrl = "http://192.168.0.114:5008";    // office wifi
   //static const apiUrl = "http://192.168.1.105:5008";   // home wifi
   //static const apiUrl = "https://just-medical-center-automation-system.onrender.com";
-  //static const apiUrl = "https://backend-just-medical-production.up.railway.app";
+  static const apiUrl = "https://backend-just-medical-production.up.railway.app";
   static const String loginUrl = "/api/auth/login";
   static const String signUpUrl = "/api/auth/register";
   static const String emailVerifyUrl = "/api/auth/verify-otp";

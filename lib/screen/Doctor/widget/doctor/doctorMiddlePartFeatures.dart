@@ -7,6 +7,7 @@ import 'package:just_medical_center_automation/screen/doctor/make_prescription.d
 import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_test_report.dart';
 import 'package:just_medical_center_automation/screen/doctor/previous_prescription.dart';
+import 'package:just_medical_center_automation/screen/doctor/search_patient_screen.dart';
 import 'package:just_medical_center_automation/screen/doctor/updateprofile_page.dart';
 import 'package:just_medical_center_automation/widget/common/seeAllPatient.dart';
 import 'package:provider/provider.dart';
@@ -44,6 +45,8 @@ class DoctorMiddlePartFeature extends StatelessWidget {
       return PrescriptionDesign();
     else if(_pageController.current_index == 10)
       return LabTestReportPage();
+    else if(_pageController.current_index == 11)
+      return SearchPatientScreen();
     else
       return DashBoardDoctor();
   }

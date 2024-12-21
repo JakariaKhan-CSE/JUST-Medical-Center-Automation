@@ -39,7 +39,7 @@ class _DashBoardDoctorState extends State<DashBoardDoctor> {
               controller: patientSearch,
               onTap: (){
               if(patientSearch.text.isNotEmpty)
-              doctorNotifier.searchPatient(int.parse(patientSearch.text));
+              doctorNotifier.searchPatient(int.parse(patientSearch.text),context);
               else
                 Get.snackbar("Search Field Empty","Please search by patient ID",
                 backgroundColor: Colors.pink);
