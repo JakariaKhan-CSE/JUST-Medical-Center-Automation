@@ -191,7 +191,9 @@ Use this when you only need to access the object once (e.g., calling a function)
             alignment: Alignment.center,
             child: CustomButton(
               pressed: () {
+
                 if (_key.currentState!.validate()) {
+
                   loginNotifier.changePassword(context,
                       oldPassword.text.trim(), newPassword.text.trim());
                   oldPassword.clear();

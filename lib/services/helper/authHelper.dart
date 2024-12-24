@@ -220,7 +220,7 @@ class AuthHelper {
       print('change password api call error: $e');
     }
 
-    if (response!.statusCode == 200) {
+    if (response?.statusCode == 200) {
       //print('response coed is: ${response.statusCode}');
       return true;
     } else {

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/screen/Lab%20Technician/dashboard_labTech.dart';
 import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
-import 'package:just_medical_center_automation/screen/doctor/doctor_password_change.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_test_report.dart';
@@ -13,6 +11,7 @@ import 'package:just_medical_center_automation/widget/common/seeAllPatient.dart'
 import 'package:provider/provider.dart';
 
 import '../../../common/labTestReportPage.dart';
+import '../../../common/password_change_allUser.dart';
 import 'component/dashboardDoctor.dart';
 
 
@@ -30,7 +29,7 @@ class DoctorMiddlePartFeature extends StatelessWidget {
     else if(_pageController.current_index == 2)
       return UpdateProfilePage();
     else if(_pageController.current_index == 3)
-      return DoctorPasswordChange();
+      return PasswordChangeAllUser();
     else if(_pageController.current_index == 4)
       return DashBoardDoctor(); // this is for logout functionalities
     else if(_pageController.current_index == 5)
