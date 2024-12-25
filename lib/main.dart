@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
 import 'package:just_medical_center_automation/controller/common_controller.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
 import 'package:just_medical_center_automation/controller/doctorProvider.dart';
 import 'package:just_medical_center_automation/controller/labTechController/labTechnicianController.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
@@ -72,6 +73,7 @@ User Experience: Users will see the connectivity status regardless of where they
     ChangeNotifierProvider(create: (context) => ProfileNotifier(),),
     ChangeNotifierProvider(create: (context) => DoctorNotifier(),),
     ChangeNotifierProvider(create: (context) => PrescriptionNotifier(),),
+    ChangeNotifierProvider(create: (context) => ImageUploaderDoctor(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,

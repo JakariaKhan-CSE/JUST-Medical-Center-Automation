@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/req/auth/loginModel.dart';
 import '../model/req/auth/profileUpdateModel.dart';
+import '../screen/Doctor/firsttimeupdateprofile_page.dart';
 import '../screen/main_screen.dart';
 import '../screen/patient/PersonalDetails.dart';
 import '../services/helper/authHelper.dart';
@@ -92,9 +93,13 @@ class LoginNotifier extends ChangeNotifier{
       // user er profile information update na thakle personal details page a niye jabe
       else if(response[0] & !response[1])
       {
-
+        if(response[2].toString().toLowerCase() == 'patient')
         Get.off(PersonalDetails(role: response[2]));
+        // doctor er profile information update na thakle personal details page a niye jabe
+        if(response[2].toString().toLowerCase() == 'doctor')
+          Get.off(FirstTimeUpdateProfilePage(role: response[2]));
       }
+
       // first time na hole mainscreen a cole jabe
       else if(response[0] && response[1])
       {
