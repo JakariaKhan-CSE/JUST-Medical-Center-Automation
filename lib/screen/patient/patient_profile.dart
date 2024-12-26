@@ -94,7 +94,7 @@ class PatientProfile extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    PatientProfileRow(leading: 'Student ID', title: (userData.user!.iD!).toString()),
+                    PatientProfileRow(leading: 'Student ID', title: (userData.user!.sId!).toString()),
                     PatientProfileRow(leading: 'Age', title: (userData.user!.age!).toString(),),
                     PatientProfileRow(leading: 'E-mail', title: userData.user!.email!,),
                     PatientProfileRow(leading: 'Phone Number', title: userData.user!.phone!,),

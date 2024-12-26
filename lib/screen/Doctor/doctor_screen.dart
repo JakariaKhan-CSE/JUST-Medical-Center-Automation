@@ -3,6 +3,8 @@ import 'package:just_medical_center_automation/controller/doctorController/data_
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/component/patient_history.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctorMiddlePartFeatures.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctor_sidebar.dart';
+import 'package:provider/provider.dart';
+import '../../controller/patientController/profileProvider.dart';
 import '../../responsive.dart';
 
 class DoctorScreen extends StatefulWidget {
@@ -21,6 +23,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final profileNotifier = Provider.of<ProfileNotifier>(context);
+    profileNotifier.getProfile();
     return Scaffold(
       appBar: Responsive.isDesktop(context) ? null: AppBar(
           leading: Builder(builder: (context) => IconButton(onPressed: (){

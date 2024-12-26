@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
+import 'package:just_medical_center_automation/model/res/auth/profile%20response.dart';
 import 'package:just_medical_center_automation/widget/common/customButton.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/patientController/profileProvider.dart';
 import '../../responsive.dart';
 
 class UpdateProfilePage extends StatefulWidget {
@@ -13,17 +17,36 @@ class UpdateProfilePage extends StatefulWidget {
 
 class _UpdateProfilePageState extends State<UpdateProfilePage> {
   final _key = GlobalKey<FormState>();
+  ProfileResponse? doctorData;
 
-  final TextEditingController name = TextEditingController();
+  TextEditingController name = TextEditingController();
 
-  final TextEditingController email = TextEditingController();
+  TextEditingController specialist = TextEditingController();
 
-  final TextEditingController specialist = TextEditingController();
+  TextEditingController description = TextEditingController();
 
-  final TextEditingController description = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      final profileNotifier =
+      Provider.of<ProfileNotifier>(context, listen: false);
+      setState(() {
+        doctorData = profileNotifier.getUserData();
+        name.text = doctorData?.user?.name??'';
+        specialist.text = doctorData?.user?.specialist??'';
+        description.text = doctorData?.user?.description??'';
+
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final profileNotifier = Provider.of<ProfileNotifier>(context);
+    final imageUploader = Provider.of<ImageUploaderDoctor>(context);
+    doctorData = profileNotifier.getUserData();
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.lightGreenAccent.withOpacity(0.3),
@@ -81,29 +104,7 @@ body: Center(
                     ),
                   ),
                 ),
-            SizedBox(height: 15,),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text('Email: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),),
-                ),
-                SizedBox(height: 5,),
-                Center(
-                  child: SizedBox(
-                    width: Responsive.isDesktop(context) ? size.width/2.5 :size.width/1.1,
-                    child: TextFormField(
-                      validator: (val){
-                        if(val!.isEmpty){
-                          return "Enter your email";
-                        }
-                        return null;
-                      },
-                  controller: email,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder()
-                      ),
-                    ),
-                  ),
-                ),
+
                 SizedBox(height: 15,),
                 Padding(
                   padding: const EdgeInsets.only(left: 10),

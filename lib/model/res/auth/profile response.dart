@@ -1,6 +1,3 @@
-// before make Profile Response model
-// Use POST Man then call get profile(also use token) http.get request
-// copy response then Json to Dart Convert
 class ProfileResponse {
   String? message;
   User? user;
@@ -9,11 +6,11 @@ class ProfileResponse {
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['message'] = this.message;
     if (this.user != null) {
       data['user'] = this.user!.toJson();
@@ -38,24 +35,32 @@ class User {
   int? age;
   String? phone;
   String? publicID;
+  String? description;
+  String? signature;
+  String? specialist;
+  String? publicId2;
 
-  User(
-      {this.sId,
-        this.name,
-        this.gender,
-        this.role,
-        this.email,
-        this.profile,
-        this.isVerified,
-        this.isUpdateProfile,
-        this.createdAt,
-        this.updatedAt,
-        this.iV,
-        this.iD,
-        this.age,
-        this.phone,
-        this.publicID,
-      });
+  User({
+    this.sId,
+    this.name,
+    this.gender,
+    this.role,
+    this.email,
+    this.profile,
+    this.isVerified,
+    this.isUpdateProfile,
+    this.createdAt,
+    this.updatedAt,
+    this.iV,
+    this.iD,
+    this.age,
+    this.phone,
+    this.publicID,
+    this.description,
+    this.signature,
+    this.specialist,
+    this.publicId2,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -73,10 +78,14 @@ class User {
     age = json['age'];
     phone = json['phone'];
     publicID = json['publicId'];
+    description = json['description'];
+    signature = json['signature'];
+    specialist = json['specialist'];
+    publicId2 = json['publicId2'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['_id'] = this.sId;
     data['name'] = this.name;
     data['gender'] = this.gender;
@@ -92,7 +101,10 @@ class User {
     data['age'] = this.age;
     data['phone'] = this.phone;
     data['publicId'] = this.publicID;
+    data['description'] = this.description;
+    data['signature'] = this.signature;
+    data['specialist'] = this.specialist;
+    data['publicId2'] = this.publicId2;
     return data;
   }
 }
-
