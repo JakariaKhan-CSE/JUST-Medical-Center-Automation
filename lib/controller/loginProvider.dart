@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
+import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -123,6 +124,37 @@ class LoginNotifier extends ChangeNotifier{
     // String? userId = prefs.getString('userId');
     // print('userId is: $userId');
     AuthHelper.updateProfile(model).then((response){
+      // user resgistration korle first time take update profile page niye jawa hobe
+      if(response)
+      {
+        Get.snackbar("profile update", "Enjoy your search",
+            colorText: Colors.white,
+            backgroundColor: Colors.blue,
+            icon: const Icon(Icons.add_alert)
+        );
+        // 3 second delay kore mainscreen a niye jabe
+        Future.delayed(const Duration(seconds: 1)).then((value){
+          // Get.offAll deya hoese jeno r back na hoi
+          Get.offAll( MainScreen(role: model.role,));
+        });
+      }
+      else {
+        Get.snackbar("Updating Failed", "Please try again",
+            colorText: Colors.white,
+            backgroundColor: Colors.orange,
+            icon: const Icon(Icons.add_alert)
+        );
+      }
+    });
+  }
+
+  //doctor profile update (first time login)
+  updateDoctorProfile(DoctorProfileUpdateModel model)async
+  {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? userId = prefs.getString('userId');
+    // print('userId is: $userId');
+    AuthHelper.updateDoctorProfile(model).then((response){
       // user resgistration korle first time take update profile page niye jawa hobe
       if(response)
       {

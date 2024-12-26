@@ -3,7 +3,7 @@ import 'dart:convert';
 class DoctorProfileUpdateModel{
   // final int ID;
   final String name;
-  final String email;
+  // final String email;
   final String specialist;
   final String? description;
   final String? profile;
@@ -11,40 +11,43 @@ class DoctorProfileUpdateModel{
   // final String gender;
   final String role;
   final bool isUpdatedProfile;
-  final String? publicID;
+  final String? profilePublicID;
+  final String? signaturePublicID;
 
-  DoctorProfileUpdateModel( { required this.name, required this.email,
+  DoctorProfileUpdateModel( { required this.name,
     required this.specialist, this.description, this.signature,
     required this.isUpdatedProfile, required this.role,
     this.profile,
-    this.publicID,
-    });
+    this.profilePublicID, this.signaturePublicID,
+  });
 
   factory DoctorProfileUpdateModel.fromMap(Map<String,dynamic> json)
   {
     return DoctorProfileUpdateModel(
         // ID: json['ID'],
         name: json['name'],
-        email: json['email'],
+
         specialist: json['specialist'],
         description: json['description']??'',
         profile: json['profile'],
         signature: json['signature'],
         role: json['role'],
         isUpdatedProfile: json['isUpdateProfile'],
-        publicID: json['publicId']
+        profilePublicID: json['profilePublicId'],
+      signaturePublicID: json['signaturePublicId']
     );
   }
   Map<String,dynamic> toMap()=>{
     "name" : name,
-    "email" : email,
+
     "specialist" : specialist,
     'description': description??'',
     "profile": profile??'',
     "signature": signature??'',
     "role": role,
     "isUpdateProfile": isUpdatedProfile,
-    "publicId": publicID
+    "profilePublicId": profilePublicID,
+    'signaturePublicId': signaturePublicID
   };
 
   String toJson()=> jsonEncode(toMap());

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
+import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
 import 'package:just_medical_center_automation/model/res/auth/login%20response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -131,6 +132,37 @@ class AuthHelper {
       return false;
     }
   }
+
+  // update doctor profile (first time login)
+  static Future<bool> updateDoctorProfile(DoctorProfileUpdateModel model) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+    http.Response? response;
+
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token":
+      '$token' // this is x-auth-token same as backend req.header("x-auth-token");
+    };
+    try {
+      response = await http.put(
+          Uri.parse('${Config.apiUrl}${Config.doctorProfileurl}'),
+          body: model
+              .toJson(), // body ta jsonEncode kora hosse toJson() call kore
+          headers: requestHeaders);
+    } catch (e) {
+      print('doctor update profile api call error: $e');
+    }
+
+    if (response!.statusCode == 200) {
+      //print('response coed is: ${response.statusCode}');
+      return true;
+    } else {
+      //print('response code is: ${response.statusCode}');
+      return false;
+    }
+  }
+
 
   // edit user profile (anytime)
   static Future<bool> editProfile(ProfileEditModel model) async {
