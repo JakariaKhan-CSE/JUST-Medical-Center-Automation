@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
@@ -146,7 +145,7 @@ class AuthHelper {
     };
     try {
       response = await http.put(
-          Uri.parse('${Config.apiUrl}${Config.doctorProfileurl}'),
+          Uri.parse('${Config.apiUrl}${Config.updateDoctorProfileurl}'),
           body: model
               .toJson(), // body ta jsonEncode kora hosse toJson() call kore
           headers: requestHeaders);

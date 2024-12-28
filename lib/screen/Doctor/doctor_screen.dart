@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/data_load.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/component/patient_history.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctorMiddlePartFeatures.dart';
 import 'package:just_medical_center_automation/screen/doctor/widget/doctor/doctor_sidebar.dart';
@@ -15,7 +14,7 @@ class DoctorScreen extends StatefulWidget {
 }
 
 class _DoctorScreenState extends State<DoctorScreen> {
-  DataLoadForDoctor dataLoadForDoctor = DataLoadForDoctor();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -23,8 +22,18 @@ class _DoctorScreenState extends State<DoctorScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    final profileNotifier = Provider.of<ProfileNotifier>(context);
-    profileNotifier.getProfile();
+
+    // see carefully if return type not Future not work .then()
+    final profileNotifier = Provider.of<ProfileNotifier>(context,listen: false);
+profileNotifier.getDoctorProfile().then((profileData){
+
+  if(profileData != null){
+
+    profileNotifier.setUserData(profileData);
+  }
+
+});
+   // profileNotifier.setUserData( profileNotifier.getProfile());
     return Scaffold(
       appBar: Responsive.isDesktop(context) ? null: AppBar(
           leading: Builder(builder: (context) => IconButton(onPressed: (){

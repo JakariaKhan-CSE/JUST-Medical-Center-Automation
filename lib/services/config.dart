@@ -9,7 +9,7 @@ class Config{
   static const String signUpUrl = "/api/auth/register";
   static const String emailVerifyUrl = "/api/auth/verify-otp";
   static const String profileurl = "/api/user/profile";
-  static const String doctorProfileurl = "/api/user/doctor-profile";
+  static const String updateDoctorProfileurl = "/api/user/doctor-profile";
   static const String changePasswordurl = "/api/user/change-password";
   static const String totalDoctorurl = "/api/user/total-doctors";
   static const String prescriptionurl = "/api/user/prescriptions";

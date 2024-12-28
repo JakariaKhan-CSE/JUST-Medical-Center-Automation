@@ -25,13 +25,22 @@ class ProfileNotifier extends ChangeNotifier {
     }
   }
 
+  // doctor profile
+  Future<ProfileResponse?> getDoctorProfile() async {
+    final fetchedProfile = await AuthHelper.getProfile();
+    return fetchedProfile;
+  }
+
+
   // see carefully. This is used instead of constructor
   ProfileResponse? _userData;
   ProfileResponse? getUserData() {
+
     return _userData;
   }
 
   void setUserData(ProfileResponse data) {
+
     _userData = data;
 
   }

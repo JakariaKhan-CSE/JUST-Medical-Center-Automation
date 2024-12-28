@@ -16,6 +16,7 @@ class UpdateProfilePage extends StatefulWidget {
 }
 
 class _UpdateProfilePageState extends State<UpdateProfilePage> {
+  bool isLoading = true;
   final _key = GlobalKey<FormState>();
   ProfileResponse? doctorData;
 
@@ -33,10 +34,13 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
       final profileNotifier =
       Provider.of<ProfileNotifier>(context, listen: false);
       setState(() {
+
         doctorData = profileNotifier.getUserData();
         name.text = doctorData?.user?.name??'';
         specialist.text = doctorData?.user?.specialist??'';
         description.text = doctorData?.user?.description??'';
+        isLoading = false; // Stop loading
+
 
       });
     });
@@ -46,8 +50,12 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
   Widget build(BuildContext context) {
     final profileNotifier = Provider.of<ProfileNotifier>(context);
     final imageUploader = Provider.of<ImageUploaderDoctor>(context);
+
     doctorData = profileNotifier.getUserData();
     final size = MediaQuery.of(context).size;
+    if(isLoading){
+      return Center(child: CircularProgressIndicator(),);
+    }
     return Scaffold(
       backgroundColor: Colors.lightGreenAccent.withOpacity(0.3),
 body: Center(
