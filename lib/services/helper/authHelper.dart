@@ -193,6 +193,36 @@ class AuthHelper {
     }
   }
 
+  // edit doctor profile (anytime)
+  static Future<bool> editDoctorProfile(DoctorProfileUpdateModel model) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+    http.Response? response;
+
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token":
+      '$token' // this is x-auth-token same as backend req.header("x-auth-token");
+    };
+    try {
+      response = await http.put(
+          Uri.parse('${Config.apiUrl}${Config.updateDoctorProfileurl}'),
+          body: model
+              .toJson(), // body ta jsonEncode kora hosse toJson() call kore
+          headers: requestHeaders);
+    } catch (e) {
+      print('doctor edit profile api call error: $e');
+    }
+
+    if (response!.statusCode == 200) {
+      //print('response code is: ${response.statusCode}');
+      return true;
+    } else {
+      //print('response code is: ${response.statusCode}');
+      return false;
+    }
+  }
+
 // Get Profile
   static Future<ProfileResponse> getProfile() async {
 

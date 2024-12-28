@@ -166,7 +166,7 @@ class LoginNotifier extends ChangeNotifier{
         // 3 second delay kore mainscreen a niye jabe
         Future.delayed(const Duration(seconds: 1)).then((value){
           // Get.offAll deya hoese jeno r back na hoi
-          Get.offAll( MainScreen(role: model.role,));
+          Get.offAll( MainScreen(role: model.role!,));
         });
       }
       else {

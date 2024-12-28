@@ -9,14 +9,14 @@ class DoctorProfileUpdateModel{
   final String? profile;
   final String? signature;
   // final String gender;
-  final String role;
-  final bool isUpdatedProfile;
+  final String? role;
+  final bool? isUpdatedProfile;
   final String? profilePublicID;
   final String? signaturePublicID;
 
   DoctorProfileUpdateModel( { required this.name,
     required this.specialist, this.description, this.signature,
-    required this.isUpdatedProfile, required this.role,
+    this.isUpdatedProfile, this.role,
     this.profile,
     this.profilePublicID, this.signaturePublicID,
   });

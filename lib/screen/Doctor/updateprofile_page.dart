@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
+import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
 import 'package:just_medical_center_automation/model/res/auth/profile%20response.dart';
 import 'package:just_medical_center_automation/widget/common/customButton.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +53,13 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
     final imageUploader = Provider.of<ImageUploaderDoctor>(context);
 
     doctorData = profileNotifier.getUserData();
+    // picture link get
+    // profile
+    imageUploader.profileImageUrl = doctorData?.user?.profile;
+    imageUploader.profilePublicID = doctorData?.user?.publicID;
+    // signature
+    imageUploader.SignatureImageUrl = doctorData?.user?.signature;
+    imageUploader.signaturePublicID = doctorData?.user?.publicId2;
     final size = MediaQuery.of(context).size;
     if(isLoading){
       return Center(child: CircularProgressIndicator(),);
@@ -71,16 +79,43 @@ body: Center(
     child: Divider(height: 2,color: Colors.black,),
     ),
         SizedBox(height: 30,),
-        CircleAvatar(
-          radius: 50,
-          backgroundImage: AssetImage('images/doctor2.jpg'),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: IconButton(onPressed: (){
-              // go to file manager to pickup image
-            }, icon: Icon(Icons.camera_alt_outlined)),
+        GestureDetector(
+          onTap: () async {
+            if (imageUploader.profileImageUrl == null) {
+              // Pick and upload image if none exists
+              await imageUploader.pickProfileImageAndUpload();
+            } else {
+              print('working delete');
+              // print(imageUploader.profilePublicID);
+              // // Delete image if it already exists
+              // if (imageUploader.profilePublicID != null)
+              //   await imageUploader
+              //       .deleteProfileImageFromCloudinary(imageUploader.profilePublicID!);
+
+            }
+          },
+          child: CircleAvatar(
+            radius: 50,
+            backgroundColor: Colors.lightBlue,
+            backgroundImage: imageUploader.profileImageUrl != null
+                ? NetworkImage(
+                imageUploader.profileImageUrl!) // Show uploaded image
+                : null,
+            child: imageUploader.profileImageUrl == null
+                ? const Icon(Icons.photo_filter_rounded)
+                : null,
           ),
         ),
+        // CircleAvatar(
+        //   radius: 50,
+        //   backgroundImage: AssetImage('images/doctor2.jpg'),
+        //   child: Align(
+        //     alignment: Alignment.bottomCenter,
+        //     child: IconButton(onPressed: (){
+        //       // go to file manager to pickup image
+        //     }, icon: Icon(Icons.camera_alt_outlined)),
+        //   ),
+        // ),
         SizedBox(height: 20,),
         Padding(
           padding: Responsive.isDesktop(context) ?  EdgeInsets.symmetric(horizontal: 150) :
@@ -167,7 +202,11 @@ body: Center(
                    Container(
                      height: 60,
                      width: 200,
-                     child: Image.asset('images/signature.jpg', fit: BoxFit.cover,),
+                    child: imageUploader.SignatureImageUrl != null
+                        ? Image.network(
+                        imageUploader.SignatureImageUrl!) // Show uploaded image
+                        : Icon(Icons.photo_filter_rounded),
+                    // child: Image.asset('images/signature.jpg', fit: BoxFit.cover,),
                    ),
                    Positioned(
                      bottom: 0,
@@ -175,8 +214,20 @@ body: Center(
                        height: 30,
                        width: 200,
                        color: Colors.grey.withOpacity(0.8),
-                       child: IconButton(onPressed: (){
+                       child: IconButton(onPressed: ()async{
                          // go to file manager to pickup signature image
+                         if (imageUploader.SignatureImageUrl == null) {
+                           // Pick and upload image if none exists
+                           await imageUploader.pickSignatureImageAndUpload();
+                         } else {
+                           print('working delete');
+                           // print(imageUploader.signaturePublicID);
+                           // // Delete image if it already exists
+                           // if (imageUploader.signaturePublicID != null)
+                           //   await imageUploader
+                           //     .deleteSignatureImageFromCloudinary(imageUploader.signaturePublicID!);
+
+                         }
                        }, icon: Icon(Icons.camera_alt_outlined)),
                      ),
                    )
@@ -186,9 +237,22 @@ body: Center(
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(pressed: (){
+
                    if(_key.currentState!.validate())
                      {
                        // call update doctor profile functionalities
+                       DoctorProfileUpdateModel model = DoctorProfileUpdateModel(
+                           name: name.text,
+                           specialist: specialist.text,
+                         description: description.text,
+                         profile: imageUploader.profileImageUrl,
+                         signature: imageUploader.SignatureImageUrl,
+                         signaturePublicID: imageUploader.signaturePublicID,
+                         profilePublicID: imageUploader.profilePublicID
+                           );
+                       // call update profile function
+                       profileNotifier.editDoctorProfile(model);
+
                      }
 
                   }, btnName: "Update Profile",
