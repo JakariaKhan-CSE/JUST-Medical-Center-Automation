@@ -49,8 +49,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final profileNotifier = Provider.of<ProfileNotifier>(context);
-    final imageUploader = Provider.of<ImageUploaderDoctor>(context);
+    final profileNotifier = Provider.of<ProfileNotifier>(context, listen: true);
+    final imageUploader = Provider.of<ImageUploaderDoctor>(context,listen: true);
 
     doctorData = profileNotifier.getUserData();
     // picture link get
@@ -86,8 +86,9 @@ body: Center(
               await imageUploader.pickProfileImageAndUpload();
             } else {
               print('working delete');
-              // print(imageUploader.profilePublicID);
-              // // Delete image if it already exists
+imageUploader.deleteProfileImageLink();
+              print(imageUploader.profilePublicID);
+              // Delete image if it already exists
               // if (imageUploader.profilePublicID != null)
               //   await imageUploader
               //       .deleteProfileImageFromCloudinary(imageUploader.profilePublicID!);
@@ -221,8 +222,9 @@ body: Center(
                            await imageUploader.pickSignatureImageAndUpload();
                          } else {
                            print('working delete');
-                           // print(imageUploader.signaturePublicID);
-                           // // Delete image if it already exists
+                           imageUploader.deleteSignatureImageLink();
+                           print(imageUploader.signaturePublicID);
+                           // Delete image if it already exists
                            // if (imageUploader.signaturePublicID != null)
                            //   await imageUploader
                            //     .deleteSignatureImageFromCloudinary(imageUploader.signaturePublicID!);
@@ -245,13 +247,14 @@ body: Center(
                            name: name.text,
                            specialist: specialist.text,
                          description: description.text,
-                         profile: imageUploader.profileImageUrl,
-                         signature: imageUploader.SignatureImageUrl,
+                         profile: imageUploader.profileImageUrl??'',
+                         signature: imageUploader.SignatureImageUrl??'',
                          signaturePublicID: imageUploader.signaturePublicID,
-                         profilePublicID: imageUploader.profilePublicID
+                         profilePublicID: imageUploader.profilePublicID,
+                         isUpdatedProfile: true
                            );
                        // call update profile function
-                       profileNotifier.editDoctorProfile(model);
+                       profileNotifier.editDoctorProfile(model,context);
 
                      }
 

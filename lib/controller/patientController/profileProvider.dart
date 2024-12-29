@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
+import 'package:just_medical_center_automation/screen/Doctor/widget/doctor/component/dashboardDoctor.dart';
 import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/res/auth/profile response.dart';
 import '../../services/helper/authHelper.dart';
+import '../doctorController/doctor_controller.dart';
 import 'indexChange.dart';
 
 class ProfileNotifier extends ChangeNotifier {
@@ -83,7 +85,7 @@ class ProfileNotifier extends ChangeNotifier {
   }
 
   //doctor profile edit(anytime)
-  editDoctorProfile(DoctorProfileUpdateModel model)async
+  editDoctorProfile(DoctorProfileUpdateModel model,BuildContext context)async
   {
     // print(model.toJson());
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -97,12 +99,13 @@ class ProfileNotifier extends ChangeNotifier {
             backgroundColor: Colors.blue,
             icon: const Icon(Icons.add_alert)
         );
-        // very useful beauty of getX( Get.context)
-        // Update index to navigate to the  dashboard after success
-        final indexChange = Provider.of<IndexChangeProvider>(Get.context!, listen: false);
-        indexChange.ChangeIndexValue(0); // `0` for dashboard
 
-        Get.back(); // Close the drawer if it's open, and show updated screen
+
+        // Update index to navigate to the  dashboard after success
+        final indexChange = Provider.of<DoctorController>(context, listen: false);
+        indexChange.SetIndex(0); // `0` for dashboard
+
+      // Get.back(); // Close the drawer if it's open, and show updated screen
       }
       else {
         Get.snackbar("Updating Failed", "Please try again",

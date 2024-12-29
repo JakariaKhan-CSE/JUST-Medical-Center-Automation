@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/controller/doctorProvider.dart';
+import 'package:just_medical_center_automation/screen/Doctor/widget/doctor/doctor_sidebar.dart';
 import 'package:just_medical_center_automation/screen/common/searchBarRoleWised.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../controller/patientController/profileProvider.dart';
 import '../../../../../responsive.dart';
 class DashBoardDoctor extends StatefulWidget {
   const DashBoardDoctor({
@@ -18,9 +20,20 @@ class DashBoardDoctor extends StatefulWidget {
 
 class _DashBoardDoctorState extends State<DashBoardDoctor> {
   final TextEditingController patientSearch = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final DoctorNotifier doctorNotifier = Provider.of<DoctorNotifier>(context);
+    final profileNotifier = Provider.of<ProfileNotifier>(context,listen: false);
+    profileNotifier.getDoctorProfile().then((profileData){
+
+      if(profileData != null){
+
+        profileNotifier.setUserData(profileData);
+      }
+
+    });
+
     return Container(
       color: Colors.grey.withOpacity(0.4),
 
@@ -49,6 +62,7 @@ class _DashBoardDoctorState extends State<DashBoardDoctor> {
         ],
       ),
     );
+
   }
 }
 

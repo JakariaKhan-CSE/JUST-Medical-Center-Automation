@@ -70,18 +70,24 @@ class ImageUploaderDoctor extends ChangeNotifier{
   // delete image
   Future<void> deleteProfileImageFromCloudinary(String publicId) async {
     try {
+      profileImageUrl = null;
+      profilePublicID = null;
+      // imageUrl = '';
+      // publicID = '';
+      notifyListeners();
       final response = await cloudinary.destroy(
         publicId, // Pass publicId as a positional argument
         resourceType: CloudinaryResourceType.image,
       );
+
       print(response.isSuccessful);
       if (response.isSuccessful) {
         print('Image deleted successfully');
-        profileImageUrl = null;
-        profilePublicID = null;
-        // imageUrl = '';
-        // publicID = '';
-        notifyListeners();
+        // profileImageUrl = null;
+        // profilePublicID = null;
+        // // imageUrl = '';
+        // // publicID = '';
+        // notifyListeners();
       } else {
         print('Failed to delete image: ${response.error}');
       }
@@ -139,24 +145,44 @@ class ImageUploaderDoctor extends ChangeNotifier{
   // delete signature image
   Future<void> deleteSignatureImageFromCloudinary(String publicId) async {
     try {
+      SignatureImageUrl = null;
+      signaturePublicID = null;
+      // imageUrl = '';
+      // publicID = '';
+      notifyListeners();
       final response = await cloudinary.destroy(
         publicId, // Pass publicId as a positional argument
         resourceType: CloudinaryResourceType.image,
       );
+
       print(response.isSuccessful);
       if (response.isSuccessful) {
         print('Image deleted successfully');
-        SignatureImageUrl = null;
-        signaturePublicID = null;
-        // imageUrl = '';
-        // publicID = '';
-        notifyListeners();
+        // SignatureImageUrl = null;
+        // signaturePublicID = null;
+        // // imageUrl = '';
+        // // publicID = '';
+        // notifyListeners();
       } else {
         print('Failed to delete image: ${response.error}');
       }
     } catch (e) {
       print('Error deleting image: $e');
     }
+  }
+
+  // remove profile and signature picture locally(i mean, link)
+Future<void> deleteProfileImageLink()async{
+    print('call to delete profile link');
+    profileImageUrl = null;
+    profilePublicID = null;
+    notifyListeners();
+}
+  Future<void> deleteSignatureImageLink()async{
+    print('call to delete signature link');
+    SignatureImageUrl = null;
+    signaturePublicID = null;
+    notifyListeners();
   }
 
 }
