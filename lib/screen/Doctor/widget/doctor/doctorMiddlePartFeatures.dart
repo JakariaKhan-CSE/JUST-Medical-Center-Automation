@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
+import 'package:just_medical_center_automation/screen/Doctor/lab_test_dropDown.dart';
 import 'package:just_medical_center_automation/screen/common/prescriptiondesign.dart';
 import 'package:just_medical_center_automation/screen/doctor/make_prescription.dart';
 import 'package:just_medical_center_automation/screen/doctor/patient_details_page.dart';
@@ -46,6 +47,8 @@ class DoctorMiddlePartFeature extends StatelessWidget {
       return LabTestReportPage();
     else if(_pageController.current_index == 11)
       return SearchPatientScreen();
+    else if(_pageController.current_index == 12)
+      return LabTestDropdown();
     else
       return DashBoardDoctor();
   }

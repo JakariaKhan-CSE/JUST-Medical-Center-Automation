@@ -21,6 +21,7 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'controller/doctorController/dataController.dart';
 import 'controller/patientController/imageProvider.dart';
 import 'controller/loginProvider.dart';
 import 'firebase_options.dart';
@@ -74,6 +75,7 @@ User Experience: Users will see the connectivity status regardless of where they
     ChangeNotifierProvider(create: (context) => DoctorNotifier(),),
     ChangeNotifierProvider(create: (context) => PrescriptionNotifier(),),
     ChangeNotifierProvider(create: (context) => ImageUploaderDoctor(),),
+    ChangeNotifierProvider(create: (context) => DoctorDataController(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,
