@@ -9,6 +9,7 @@ import 'package:just_medical_center_automation/services/helper/doctorHelper.dart
 import '../../data/diagnosticTestData.dart';
 import '../../data/patientData.dart';
 import '../../model/req/doctor/create_prescription.dart';
+import '../../model/res/common/PatientPrescriptionHistory.dart';
 
 class DoctorController extends ChangeNotifier{
   int current_index = 0;
@@ -180,6 +181,12 @@ void removeAllTextField(){
         SnackBar(content: Text('Failed to create prescription')),
       );
     }
+  }
+
+  // patient history
+  Future<List<Prescriptions>>? patientHistory;
+  getPatientHistory()async{
+    patientHistory = DoctorHelper.patientHistory(patient!.sId??'');
   }
 
   // Method to create the prescription

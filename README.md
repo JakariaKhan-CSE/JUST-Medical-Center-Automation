@@ -1,5 +1,9 @@
 # just_medical_center_automation
 
+## App WorkFlow
+provider use for state manegement
+model -> Helper(communicate model) -> controller(called helper) -> UI(called controller)
+
 A new Flutter project.
 
 ## Getting Started

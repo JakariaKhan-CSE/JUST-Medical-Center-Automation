@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:just_medical_center_automation/model/res/common/PatientPrescriptionHistory.dart';
 import 'package:just_medical_center_automation/model/res/patient/doctorResponse.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -142,5 +144,49 @@ class DoctorHelper {
     }
   }
 
+  // patient previous history
+  static Future<List<Prescriptions>> patientHistory(String patientObjId) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+print('patient Object Id: $patientObjId');
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token',
+    };
+
+    try {
+      response = await http.get(
+        Uri.parse('${Config.apiUrl}${Config.patientHistoryUrl}/$patientObjId'),
+        headers: requestHeaders,
+      );
+    } catch (e) {
+      throw Exception('Network error occurred: $e');
+    }
+print(response.statusCode);
+    if (response.statusCode == 200) {
+      try {
+        // Decode the response body
+        final decodedResponse = jsonDecode(response.body);
+        debugPrint('Decoded Response: $decodedResponse');
+
+        // Access the prescriptions key from the decoded response
+        List<Prescriptions> prescriptions = List<Prescriptions>.from(
+          decodedResponse['prescriptions'].map((x) => Prescriptions.fromJson(x)),
+        );
+
+        return prescriptions; // Return the list of prescriptions
+      } catch (e) {
+        throw Exception('Error parsing patient history data: $e');
+      }
+
+
+
+    } else if (response.statusCode == 401) {
+      throw Exception('Unauthorized access. Please check your token.');
+    } else {
+      throw Exception('Failed to fetch patient history: ${response.statusCode}');
+    }
+  }
 
 }
