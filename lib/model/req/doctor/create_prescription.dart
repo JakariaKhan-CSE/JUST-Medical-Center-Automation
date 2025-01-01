@@ -1,5 +1,6 @@
-import 'dart:convert';
+import 'package:flutter/material.dart';
 
+// this model specially design for post request(send data to backend)
 // CreatePrescriptionRequest model
 class CreatePrescriptionRequest {
   final List<Medicine> medicines;
@@ -10,23 +11,14 @@ class CreatePrescriptionRequest {
     required this.patientId,
   });
 
-  // Convert the model to JSON
+  // Convert the request object to JSON
   Map<String, dynamic> toJson() {
+    // 'medicines',
+    //       'patientId'     same as backend otherwise get error
     return {
       'medicines': medicines.map((medicine) => medicine.toJson()).toList(),
       'patientId': patientId,
     };
-  }
-
-  // Create the model from JSON (for response parsing if necessary)
-  factory CreatePrescriptionRequest.fromJson(Map<String, dynamic> json) {
-    var list = json['medicines'] as List;
-    List<Medicine> medicinesList = list.map((i) => Medicine.fromJson(i)).toList();
-
-    return CreatePrescriptionRequest(
-      medicines: medicinesList,
-      patientId: json['patientId'],
-    );
   }
 }
 
@@ -34,10 +26,18 @@ class CreatePrescriptionRequest {
 class Medicine {
   final String name;
   final int quantity;
+  final bool morning;
+  final bool lunch;
+  final bool dinner;
+  final bool beforeMeal; // true for before meal, false for after meal
 
   Medicine({
     required this.name,
     required this.quantity,
+    this.morning = false,
+    this.lunch = false,
+    this.dinner = false,
+    this.beforeMeal = false,
   });
 
   // Convert the Medicine object to JSON
@@ -45,6 +45,10 @@ class Medicine {
     return {
       'name': name,
       'quantity': quantity,
+      'morning': morning,
+      'lunch': lunch,
+      'dinner': dinner,
+      'beforeMeal': beforeMeal,
     };
   }
 
@@ -53,6 +57,11 @@ class Medicine {
     return Medicine(
       name: json['name'],
       quantity: json['quantity'],
+      morning: json['morning'] ?? false,
+      lunch: json['lunch'] ?? false,
+      dinner: json['dinner'] ?? false,
+      beforeMeal: json['beforeMeal'] ?? false,
     );
   }
 }
+

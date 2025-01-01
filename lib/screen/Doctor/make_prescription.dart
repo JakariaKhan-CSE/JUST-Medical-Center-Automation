@@ -67,9 +67,11 @@ class _MakePrescriptionState extends State<MakePrescription> {
               CustomButton(
                 pressed: () {
                   // generate prescription
-                  // doctorNotifier.generatePrescription(context);
+                  doctorNotifier.generatePrescription(context);
                   print('click prescription generate button ');
-                  doctorNotifier.SetIndex(12);
+                  // this diagnostic lab test drop down(which data fetch from firebase)
+                  // enable this feature for future release
+                 // doctorNotifier.SetIndex(12);
                 },
                 btnName: "Generate Prescription",
                 backgroundColor: Colors.lime,
