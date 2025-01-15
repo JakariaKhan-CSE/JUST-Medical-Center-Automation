@@ -90,6 +90,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
 
             }, btnName: 'Make Prescription',backgroundColor: Colors.lightGreenAccent,),
             Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
+            if(Responsive.isDesktop(context))
             CustomButton(pressed: (){
               // patient previous prescription name like(ID-prescription 1,2,..)
               // set controller value
