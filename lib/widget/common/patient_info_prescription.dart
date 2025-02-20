@@ -24,7 +24,7 @@ class patient_info_prescription extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         ),
         Text(
-          patientName!,
+          patientName??'',
           style: TextStyle(fontSize: 13),
 
         ),
@@ -36,7 +36,7 @@ class patient_info_prescription extends StatelessWidget {
         ),
         if(Responsive.isDesktop(context))
         Text(
-          gender!,
+          gender??'',
           style: TextStyle(fontSize: 13),
         ),
         Spacer(),

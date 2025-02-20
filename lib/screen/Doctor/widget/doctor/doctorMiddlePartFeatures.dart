@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 
 import '../../../common/labTestReportPage.dart';
 import '../../../common/password_change_allUser.dart';
+import '../../../patient/PatientPrescription.dart';
 import 'component/dashboardDoctor.dart';
 
 
@@ -42,6 +43,7 @@ class DoctorMiddlePartFeature extends StatelessWidget {
     else if(_pageController.current_index == 8)
       return PatientTestReport();
     else if(_pageController.current_index == 9)
+      //return PatientPrescription();
       return PrescriptionDesign();
     else if(_pageController.current_index == 10)
       return LabTestReportPage();

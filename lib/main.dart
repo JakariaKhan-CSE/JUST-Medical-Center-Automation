@@ -12,15 +12,10 @@ import 'package:just_medical_center_automation/controller/pharmacistController/p
 import 'package:just_medical_center_automation/controller/prescriptionProvider.dart';
 import 'package:just_medical_center_automation/controller/signUpProvider.dart';
 import 'package:just_medical_center_automation/screen/auth/login_page.dart';
-import 'package:just_medical_center_automation/screen/main_screen.dart';
-import 'package:just_medical_center_automation/serviceDataAddFirebase.dart';
 import 'package:just_medical_center_automation/services/connectivity_service.dart';
 import 'package:just_medical_center_automation/splash_screen.dart';
-
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'controller/doctorController/dataController.dart';
 import 'controller/patientController/imageProvider.dart';
 import 'controller/loginProvider.dart';
