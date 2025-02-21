@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
-import 'package:just_medical_center_automation/screen/Doctor/widget/doctor/component/dashboardDoctor.dart';
-import 'package:just_medical_center_automation/screen/patient/patient_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

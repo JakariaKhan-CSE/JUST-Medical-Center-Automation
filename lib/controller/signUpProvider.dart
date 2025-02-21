@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:just_medical_center_automation/screen/auth/otp_verification.dart';
 import '../model/req/auth/signUpModel.dart';
-import '../screen/auth/login_page.dart';
 import '../services/helper/authHelper.dart';
+import '../view/auth/login_page.dart';
+import '../view/auth/otp_verification.dart';
 
 class SignUpNotifier extends ChangeNotifier {
   bool _obsecureText = true;

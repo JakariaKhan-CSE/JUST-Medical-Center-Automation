@@ -1,25 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
-import 'package:just_medical_center_automation/controller/common_controller.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
-import 'package:just_medical_center_automation/controller/doctorProvider.dart';
-import 'package:just_medical_center_automation/controller/labTechController/labTechnicianController.dart';
-import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
-import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
-import 'package:just_medical_center_automation/controller/pharmacistController/pharmacistController.dart';
-import 'package:just_medical_center_automation/controller/prescriptionProvider.dart';
-import 'package:just_medical_center_automation/controller/signUpProvider.dart';
-import 'package:just_medical_center_automation/screen/auth/login_page.dart';
-import 'package:just_medical_center_automation/services/connectivity_service.dart';
-import 'package:just_medical_center_automation/splash_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:get/get.dart';
-import 'controller/doctorController/dataController.dart';
-import 'controller/patientController/imageProvider.dart';
-import 'controller/loginProvider.dart';
-import 'firebase_options.dart';
+import 'exports.dart';
 /*
 In your main.dart file, initialize the ConnectivityService before
 running the app. This will ensure that connectivity checking

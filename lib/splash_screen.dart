@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:just_medical_center_automation/view/auth/login_page.dart';
+import 'package:just_medical_center_automation/view/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:just_medical_center_automation/screen/auth/login_page.dart';
-import 'package:just_medical_center_automation/screen/main_screen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

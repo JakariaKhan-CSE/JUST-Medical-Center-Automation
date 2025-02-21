@@ -7,10 +7,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/req/auth/loginModel.dart';
 import '../model/req/auth/profileUpdateModel.dart';
-import '../screen/Doctor/firsttimeupdateprofile_page.dart';
-import '../screen/main_screen.dart';
-import '../screen/patient/PersonalDetails.dart';
 import '../services/helper/authHelper.dart';
+import '../view/doctor/firsttimeupdateprofile_page.dart';
+import '../view/main_screen.dart';
+import '../view/patient/PersonalDetails.dart';
 
 
 class LoginNotifier extends ChangeNotifier{

@@ -1,5 +1,7 @@
 # just_medical_center_automation
 
+MVC design pattern and Provider for state management
+
 ## App WorkFlow
 provider use for state manegement
 model -> Helper(communicate model) -> controller(called helper) -> UI(called controller)
