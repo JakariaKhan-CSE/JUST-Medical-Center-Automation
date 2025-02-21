@@ -1,13 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
-import 'package:just_medical_center_automation/controller/loginProvider.dart';
-import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
-import 'package:just_medical_center_automation/widget/common/customButton.dart';
-import 'package:provider/provider.dart';
 
+
+import '../../exports.dart';
+import '../../model/req/doctor/doctorProfileUpdateModel.dart';
 import '../../responsive.dart';
+import '../../widget/common/customButton.dart';
 
 class FirstTimeUpdateProfilePage extends StatefulWidget {
   final String role;

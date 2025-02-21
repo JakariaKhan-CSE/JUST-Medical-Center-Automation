@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
-import 'package:provider/provider.dart';
-
-import '../../responsive.dart';
-import '../../widget/common/customButton.dart';
-import '../../widget/common/customTextField.dart';
-
+import 'export.dart';
 class AddPharmacistPage extends StatefulWidget {
 
 

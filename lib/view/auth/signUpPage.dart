@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-import '../../controller/signUpProvider.dart';
-import '../../model/req/auth/signUpModel.dart';
-import '../../widget/common/customButton.dart';
-import '../../widget/common/customTextField.dart';
-import 'login_page.dart';
+import 'export.dart';
 
 class signUpPage extends StatefulWidget {
   const signUpPage({super.key});

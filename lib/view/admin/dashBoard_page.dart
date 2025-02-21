@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
-import 'package:just_medical_center_automation/data/doctorData.dart';
-import 'package:just_medical_center_automation/view/admin/widget/admin/component/allDoctorList.dart';
-import 'package:just_medical_center_automation/view/admin/widget/admin/component/doctorListText.dart';
-import 'package:just_medical_center_automation/view/admin/widget/totalQuantityShow.dart';
-import 'package:provider/provider.dart';
-
-import '../common/searchBarRoleWised.dart';
-
+import 'export.dart';
 
 class DashboardPage extends StatelessWidget {
   final width = Get.width;

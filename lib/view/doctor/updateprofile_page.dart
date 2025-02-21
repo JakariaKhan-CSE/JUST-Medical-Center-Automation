@@ -1,12 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_image_provider.dart';
-import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
-import 'package:just_medical_center_automation/model/res/auth/profile%20response.dart';
-import 'package:just_medical_center_automation/widget/common/customButton.dart';
-import 'package:provider/provider.dart';
 
-import '../../controller/patientController/profileProvider.dart';
+
+import '../../exports.dart';
+import '../../model/req/doctor/doctorProfileUpdateModel.dart';
+import '../../model/res/auth/profile response.dart';
 import '../../responsive.dart';
+import '../../widget/common/customButton.dart';
 
 class UpdateProfilePage extends StatefulWidget {
 

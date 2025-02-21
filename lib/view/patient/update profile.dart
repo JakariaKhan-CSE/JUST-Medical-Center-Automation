@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:just_medical_center_automation/controller/patientController/profileProvider.dart';
-import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
-import 'package:just_medical_center_automation/model/res/auth/profile%20response.dart';
-import 'package:provider/provider.dart';
-import '../../controller/patientController/imageProvider.dart';
+
+import '../../exports.dart';
+import '../../model/req/auth/profileEditModel.dart';
+import '../../model/res/auth/profile response.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';
 

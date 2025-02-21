@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/model/res/doctor/AllPatient.dart';
+
 import 'package:just_medical_center_automation/view/doctor/widget/doctor/component/doctorSeePatientLineInfo.dart';
-import 'package:just_medical_center_automation/widget/common/customButton.dart';
-import 'package:provider/provider.dart';
+
+import '../../exports.dart';
+import '../../model/res/doctor/AllPatient.dart';
 import '../../responsive.dart';
+import '../../widget/common/customButton.dart';
 
 class PatientDetailsPage extends StatefulWidget {
 

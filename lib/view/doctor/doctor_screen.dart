@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/dataController.dart';
+
 import 'package:just_medical_center_automation/view/doctor/widget/doctor/doctorMiddlePartFeatures.dart';
 import 'package:just_medical_center_automation/view/doctor/widget/doctor/doctor_sidebar.dart';
-import 'package:provider/provider.dart';
-import '../../controller/patientController/profileProvider.dart';
+
+import '../../exports.dart';
 import '../../responsive.dart';
 
 class DoctorScreen extends StatefulWidget {

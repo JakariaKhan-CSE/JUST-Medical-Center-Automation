@@ -1,11 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:provider/provider.dart';
-
-import '../../responsive.dart';
-import '../../widget/common/customButton.dart';
-
+import '../../exports.dart';
+import 'export.dart';
 class DoctorPasswordChange extends StatefulWidget {
   const DoctorPasswordChange({super.key});
 

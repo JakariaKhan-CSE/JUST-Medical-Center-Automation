@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:just_medical_center_automation/controller/prescriptionProvider.dart';
-import 'package:just_medical_center_automation/model/res/patient/prescriptionResponse.dart';
-import 'package:just_medical_center_automation/widget/common/prescription_right_side.dart';
-import 'package:just_medical_center_automation/widget/common/patient_info_prescription.dart';
-import 'package:just_medical_center_automation/widget/common/prescription_design_head.dart';
-import 'package:just_medical_center_automation/widget/common/prescription_left_side.dart';
-import 'package:provider/provider.dart';
 
+import 'export.dart';
 class PrescriptionDesign extends StatelessWidget {
   // final DoctorModel doctorinfo; // get doctor which doctor write prescription for patient
   // final Patient patientInfo; // use this data for patient info field

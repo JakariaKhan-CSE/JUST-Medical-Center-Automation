@@ -1,17 +1,11 @@
 // this is patient home page and target design is mobile
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:just_medical_center_automation/controller/loginProvider.dart';
-import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
-import 'package:just_medical_center_automation/services/allDataService.dart';
+
+
 import 'package:just_medical_center_automation/view/patient/patient_home.dart';
 import 'package:just_medical_center_automation/view/patient/patient_profile.dart';
 import 'package:just_medical_center_automation/view/patient/update%20profile.dart';
-import 'package:provider/provider.dart';
 
-import '../../controller/patientController/imageProvider.dart';
-import '../auth/login_page.dart';
+import '../../exports.dart';
 import '../common/about_developer.dart';
 import '../common/ambulance_service_page.dart';
 import '../common/password_change_allUser.dart';

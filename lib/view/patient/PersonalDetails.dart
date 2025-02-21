@@ -1,11 +1,5 @@
-import 'dart:io';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-
-import '../../controller/patientController/imageProvider.dart';
-import '../../controller/loginProvider.dart';
+import '../../exports.dart';
 import '../../model/req/auth/profileUpdateModel.dart';
 import '../../widget/common/customButton.dart';
 import '../../widget/common/customTextField.dart';

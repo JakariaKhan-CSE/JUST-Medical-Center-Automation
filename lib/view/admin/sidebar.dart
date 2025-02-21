@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
-import 'package:just_medical_center_automation/controller/loginProvider.dart';
-import 'package:just_medical_center_automation/view/admin/widget/admin/adminPicture.dart';
-import 'package:just_medical_center_automation/view/admin/widget/admin/featureItemButton.dart';
-import 'package:provider/provider.dart';
-
-import '../auth/login_page.dart';
-
+import 'export.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({

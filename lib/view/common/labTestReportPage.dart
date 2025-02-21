@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:provider/provider.dart';
-
-import '../../data/diagnosticTestData.dart';
-
+import 'export.dart';
 class LabTestReportPage extends StatelessWidget {
 
   const LabTestReportPage({super.key});

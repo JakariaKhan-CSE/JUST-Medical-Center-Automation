@@ -1,13 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/controller/loginProvider.dart';
-import 'package:just_medical_center_automation/controller/patientController/indexChange.dart';
-import 'package:provider/provider.dart';
 
-import '../../responsive.dart';
-import '../../widget/common/customButton.dart';
-
+import 'export.dart';
 class PasswordChangeAllUser extends StatefulWidget {
   const PasswordChangeAllUser({super.key});
 

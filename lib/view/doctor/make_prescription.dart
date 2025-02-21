@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
-import 'package:just_medical_center_automation/widget/common/customButton.dart';
-import 'package:just_medical_center_automation/widget/common/customTextField.dart';
-import 'package:provider/provider.dart';
 
+
+import '../../exports.dart';
 import '../../responsive.dart';
+import '../../widget/common/customButton.dart';
+import '../../widget/common/customTextField.dart';
 
 class MakePrescription extends StatefulWidget {
   const MakePrescription({super.key});

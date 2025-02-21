@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:just_medical_center_automation/data/servicesData.dart';
-
 import '../../services/allDataService.dart';
 
 class ShowAllServicesPage extends StatelessWidget {

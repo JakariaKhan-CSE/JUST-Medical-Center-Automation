@@ -1,12 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:just_medical_center_automation/view/auth/signUpPage.dart';
-import 'package:provider/provider.dart';
+import 'export.dart';
 
-import '../../controller/loginProvider.dart';
-import '../../model/req/auth/loginModel.dart';
-import '../../widget/common/customButton.dart';
-import '../../widget/common/customTextField.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
