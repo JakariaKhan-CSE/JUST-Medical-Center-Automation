@@ -10,7 +10,7 @@ Future<void> main()async{
   WidgetsFlutterBinding.ensureInitialized();
   // prottek page a internet connection check kora lagbe na
   // ai main function theke alltime monitoring korbe
-  ConnectivityService.instance.initialize();
+  ConnectivityService.instance.initialize();  // void initialize() call hosse
   /*
   Centralized: The connectivity check and alert are handled in one place, reducing the need to add code on every page.
 Performance: With this setup, there’s no need to create multiple connectivity listeners across different pages.
