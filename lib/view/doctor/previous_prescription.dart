@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:just_medical_center_automation/controller/doctorController/doctor_controller.dart';
 import 'package:just_medical_center_automation/data/prescriptionData.dart';
 import 'package:just_medical_center_automation/model/res/common/PatientPrescriptionHistory.dart';
@@ -29,10 +30,17 @@ class PreviousPrescription extends StatelessWidget {
               );
             } else {
               var prescriptionList = snapshot.data;
+              // very important useful this
+              // Sort the list by timestamp in descending order
+              prescriptionList?.sort((a, b) {
+                // Parse the timestamps and compare them
+                return DateTime.parse(b.timestamp!).compareTo(DateTime.parse(a.timestamp!));
+              });
               return ListView.builder(
                 itemCount: prescriptionList?.length,
                 itemBuilder: (context, index) {
                   Prescriptions? prescriptions = prescriptionList?[index];
+                  print(prescriptions?.timestamp);
                   return Padding(
                     padding: const EdgeInsets.all(6.0),
                     child: Card(
@@ -47,8 +55,9 @@ class PreviousPrescription extends StatelessWidget {
 
                         },
 
-                        title: Text(prescriptions!.timestamp??"",style: TextStyle(fontWeight: FontWeight.w700),),
-                        subtitle: Text(prescriptions.doctorId!.name??''),
+                        title: Text(DateFormat('d MMMM y').format(DateTime.parse(prescriptions?.timestamp??DateTime.now().toIso8601String())),
+                          style: TextStyle(fontWeight: FontWeight.w700),),
+                        subtitle: Text(prescriptions?.doctorId!.name??''),
                         trailing: Icon(Icons.arrow_forward_ios_outlined,size: 20,),
                       ),
                     ),
