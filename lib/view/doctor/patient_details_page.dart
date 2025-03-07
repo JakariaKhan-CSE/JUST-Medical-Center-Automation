@@ -103,12 +103,12 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
             }, btnName: 'Make Prescription',backgroundColor: Colors.lightGreenAccent,),
             Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
             //if(Responsive.isDesktop(context))
-            CustomButton(pressed: (){
-              // patient previous prescription name like(ID-prescription 1,2,..)
-              // set controller value
-              _controller.SetIndex(7);
-            }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
-            Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
+            // CustomButton(pressed: (){
+            //   // patient previous prescription name like(ID-prescription 1,2,..)
+            //   // set controller value
+            //   _controller.SetIndex(7);
+            // }, btnName: 'Previous Prescription',backgroundColor: Colors.deepOrangeAccent,),
+            // Responsive.isDesktop(context) ? SizedBox(height: 30,):SizedBox(height: 15,),
             // add this feature future
             // CustomButton(pressed: (){
             //   // go to patient previous test report
