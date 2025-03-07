@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_medical_center_automation/model/req/auth/profileEditModel.dart';
 import 'package:just_medical_center_automation/model/req/doctor/doctorProfileUpdateModel.dart';
@@ -241,7 +242,7 @@ class AuthHelper {
           Uri.parse('${Config.apiUrl}${Config.profileurl}'),
           headers: requestHeaders);
     } catch (e) {
-      //print('update profile api call error: $e');
+      debugPrint('get profile api call error: $e');
     }
 
     if (response!.statusCode == 200) {

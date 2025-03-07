@@ -27,9 +27,9 @@ class DoctorController extends ChangeNotifier{
 //   notifyListeners();
 // }
 
-  allPatient? _patient;
-  allPatient? get patient => _patient;
-  void setPatientData(allPatient data){
+  AllPatient? _patient;
+  AllPatient? get patient => _patient;
+  void setPatientData(AllPatient data){
     _patient = data;
     notifyListeners();
   }

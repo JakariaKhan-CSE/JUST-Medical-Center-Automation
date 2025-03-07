@@ -32,7 +32,7 @@ class SearchBarRoleWise extends StatelessWidget {
               ),
               controller: controller,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 7),
+                  contentPadding: EdgeInsets.only(left: 10),
                   hintText: hintText,
                   hintStyle: const TextStyle(
                       fontWeight: FontWeight.w300, color: Colors.white),

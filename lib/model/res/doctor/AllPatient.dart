@@ -1,10 +1,10 @@
 
 import 'dart:convert';
 
-List<allPatient> allPatientFromJson(String str) =>
-    List<allPatient>.from(json.decode(str).map((x) => allPatient.fromJson(x)));
+List<AllPatient> allPatientFromJson(String str) =>
+    List<AllPatient>.from(json.decode(str).map((x) => AllPatient.fromJson(x)));
 
-class allPatient {
+class AllPatient {
   String? sId;
   String? name;
   String? gender;
@@ -12,10 +12,10 @@ class allPatient {
   String? iD;
   int? age;
 
-  allPatient(
+  AllPatient(
       {this.sId, this.name, this.gender, this.profile, this.iD, this.age});
 
-  allPatient.fromJson(Map<String, dynamic> json) {
+  AllPatient.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     name = json['name'];
     gender = json['gender'];

@@ -22,16 +22,16 @@ class SearchPatientScreen extends StatelessWidget {
             contentPadding: EdgeInsets.all(12),
             onTap: (){
               //when click go to patient details page amd make prescription option
-              _controller.setPatientData(_doctorNotifier.patient!);
+              _controller.setPatientData(patient);
               _controller.SetIndex(6);
 
             },
             leading: CircleAvatar(
                 radius: 60,
-                child: _doctorNotifier.patient?.profile != null ? Image.network(_doctorNotifier.patient!.profile! ) : Image.network('https://cdn-icons-png.flaticon.com/512/1533/1533506.png',fit: BoxFit.cover,)
+                child: patient.profile != null ? Image.network(patient.profile??'' ) : Image.network('https://cdn-icons-png.flaticon.com/512/1533/1533506.png',fit: BoxFit.cover,)
             ),
-            title: Text(_doctorNotifier.patient!.name!,style: TextStyle(fontWeight: FontWeight.w700),),
-            subtitle: Text(_doctorNotifier.patient!.iD.toString()),
+            title: Text(patient.name!,style: TextStyle(fontWeight: FontWeight.w700),),
+            subtitle: Text(patient.iD.toString()),
             trailing: Icon(Icons.arrow_forward_ios_outlined,size: 20,),
           ),
         ):Center(child: Text('No Patient Found',style: Theme.of(context).textTheme.displaySmall,),),

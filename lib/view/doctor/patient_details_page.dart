@@ -18,9 +18,9 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
   @override
   Widget build(BuildContext context) {
     final _controller = Provider.of<DoctorController>(context,listen: false);
-    allPatient? patient = _controller.patient;
+    AllPatient? patient = _controller.patient;
     return Scaffold(
-      appBar: AppBar(title: Text('Patient Details'),centerTitle: true,backgroundColor: Colors.cyanAccent.withOpacity(0.6),),
+      appBar: AppBar(title: Text('Patient Details'),centerTitle: true,backgroundColor: Colors.transparent,),
       backgroundColor: Colors.cyanAccent.withOpacity(0.6),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
@@ -59,23 +59,35 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
               children: [
                 // use patient picture here
                 Container(
+                  padding: EdgeInsets.all(5),
                     height: 150,
                     width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(3)
+                    ),
                     child: patient?.profile != null ? Image.network(patient!.profile!,fit: BoxFit.cover,) : Image.network('https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=',fit: BoxFit.cover,)),
                 SizedBox(height: 20,),
-      Column(
-                  children: [
-                    doctorSeePatientLineInfo(name: "Patient Name",value: '${patient?.name}',),
-                    SizedBox(height: 10,),
-                    doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.iD}',),
-                    SizedBox(height: 10,),
-                    doctorSeePatientLineInfo(name: "Patient age",value: '${patient?.age}',),
-                    SizedBox(height: 10,),
-                  //later use this when update database users model(department)
-                  //  doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
+      Card(
+        elevation: 5,
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+                      children: [
+                        doctorSeePatientLineInfo(name: "Patient Name",value: '${patient?.name}',),
+                        SizedBox(height: 10,),
+                        doctorSeePatientLineInfo(name: "Patient ID",value: '${patient?.iD}',),
+                        SizedBox(height: 10,),
+                        doctorSeePatientLineInfo(name: "Patient age",value: '${patient?.age}',),
+                        SizedBox(height: 10,),
+                      //later use this when update database users model(department)
+                      //  doctorSeePatientLineInfo(name: "Patient Department",value: '${patient?.department}',),
 
-                  ],
-                ),
+                      ],
+                    ),
+        ),
+      ),
 
 
                 // patient picture here

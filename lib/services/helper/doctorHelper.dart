@@ -44,7 +44,7 @@ class DoctorHelper {
   }
 
   // get total patient from backend
-  static Future<List<allPatient>> getAllPatient() async {
+  static Future<List<AllPatient>> getAllPatient() async {
 
     http.Response? response;
     Map<String, String> requestHeaders = {
@@ -59,7 +59,7 @@ class DoctorHelper {
     }
 
     if (response!.statusCode == 200) {
-      List<allPatient> patientList;
+      List<AllPatient> patientList;
       // all time compare response data to model data. If any variable miss make it nullable
       // print(jsonDecode(response.body)); // this is helpful when not find proper error in response data
 
@@ -75,7 +75,7 @@ class DoctorHelper {
  static Future<bool> createPrescription(CreatePrescriptionRequest request) async {
    final SharedPreferences pref = await SharedPreferences.getInstance();
    String? token = pref.getString("token");
-   print(request.toJson());
+  // print(request.toJson());
     final response = await http.post(
       Uri.parse('${Config.apiUrl}${Config.createPrescriptionurl}'),
       headers: {'Content-Type': 'application/json',
@@ -128,9 +128,9 @@ class DoctorHelper {
 // list kina check kora hosse
         if (responseData is List) {
           // Assuming the first item is the desired patient
-          return [true,allPatient.fromJson(responseData.first)];
+          return [true,AllPatient.fromJson(responseData.first)];
         } else if (responseData is Map<String, dynamic>) {
-          return [true,allPatient.fromJson(responseData)];
+          return [true,AllPatient.fromJson(responseData)];
         } else {
           return [false];
          // throw Exception('Unexpected response format');

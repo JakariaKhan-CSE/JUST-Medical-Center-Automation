@@ -26,10 +26,10 @@ class DoctorNotifier extends ChangeNotifier{
   }
 
   // get all patient
-  List<allPatient> _patientList = [];
+  List<AllPatient> _patientList = [];
   bool _isLoadedPatient = false; // To ensure data is only fetched once
 
-  List<allPatient> get patientList => _patientList;
+  List<AllPatient> get patientList => _patientList;
 
   Future<void> getAllPatientList() async {
     if (_isLoadedPatient) return; // Prevent re-fetching
@@ -44,8 +44,8 @@ class DoctorNotifier extends ChangeNotifier{
 
 
   // search patient
-  allPatient? _patient;
-  allPatient? get patient => _patient;  // get patient data here
+  AllPatient? _patient;
+  AllPatient? get patient => _patient;  // get patient data here
 
   Future<void> searchPatient(int ID, BuildContext context) async {
 final _doctorController = Provider.of<DoctorController>(context,listen: false);
