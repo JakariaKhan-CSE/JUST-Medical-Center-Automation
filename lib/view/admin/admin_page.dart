@@ -13,7 +13,8 @@ class AdminPage extends StatelessWidget {
       appBar: Responsive.isDesktop(context) ? null: AppBar(
           leading: Builder(builder: (context) => IconButton(onPressed: (){
             Scaffold.of(context).openDrawer();
-          }, icon: const Icon(Icons.menu)),)
+          }, icon: const Icon(Icons.menu)),),
+        title: Text('Admin'),centerTitle: true,
       ),
       drawer: SideBar(),
       body: Row(
