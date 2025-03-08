@@ -50,9 +50,9 @@ class DashboardPage extends StatelessWidget {
                   controller.SetIndex(4);
                 },
               ),
-              SizedBox(
+              Responsive.isDesktop(context)? SizedBox(
                 height: 20,
-              ),
+              ): SizedBox(height: 10,),
               allHorizontalList(
                 data: DoctorData.data,
               ),

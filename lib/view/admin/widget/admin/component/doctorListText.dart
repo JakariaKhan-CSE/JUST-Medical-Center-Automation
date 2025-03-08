@@ -27,7 +27,7 @@ class listText extends StatelessWidget {
                   .copyWith(fontWeight: FontWeight.w600)
               : Theme.of(context)
                   .textTheme
-                  .headlineSmall!
+                  .titleMedium!
                   .copyWith(fontWeight: FontWeight.w400),
         ),
         InkWell(
@@ -36,7 +36,7 @@ class listText extends StatelessWidget {
               'See all',
               style: Responsive.isDesktop(context)
                   ? TextStyle(color: Colors.blue, fontSize: 26)
-                  : TextStyle(color: Colors.blue, fontSize: 16),
+                  : TextStyle(color: Colors.blue, fontSize: 14),
             ))
       ],
     );

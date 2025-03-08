@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../../../responsive.dart';
 class itemView extends StatelessWidget {
   final String imagePath;
   final String name;
@@ -12,10 +14,10 @@ class itemView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
-        width: 400,
+        width:Responsive.isDesktop(context)? 400:250,
        decoration: BoxDecoration(
-         color: Colors.blueGrey,
-         borderRadius: BorderRadius.circular(15)
+         color: Colors.blueGrey.withAlpha(100),
+         borderRadius: BorderRadius.circular(10)
        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -23,27 +25,37 @@ class itemView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
+                flex: 2,
                 child: ClipRRect(
                   child: Image.asset(
                     imagePath,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+              Responsive.isDesktop(context)?
               SizedBox(
                 width: 10,
+              ): SizedBox(
+                width: 5,
               ),
               Expanded(
+                flex: 5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(name,style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                      Text(name,style:Responsive.isDesktop(context)?
+                      TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700):
+                      TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                      if(Responsive.isDesktop(context))
                       SizedBox(
                         height: 5,
                       ),
-                      Text(degree??'',style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),maxLines: 2,overflow: TextOverflow.ellipsis,)
+                      Text(degree??'',style: Responsive.isDesktop(context)?
+                      TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500):
+                      TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400),maxLines: 2,overflow: TextOverflow.ellipsis,)
                     ],
                   ))
             ],
