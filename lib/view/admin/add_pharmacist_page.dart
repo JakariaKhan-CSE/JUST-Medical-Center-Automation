@@ -30,9 +30,10 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
           child: Form(
             key: _formkey,
             child: Padding(
-              padding: const EdgeInsets.only(top: 80),
+              padding: Responsive.isDesktop(context) ? const EdgeInsets.only(top: 80):EdgeInsets.all(10),
               child: Row(
                 children: [
+                  if(Responsive.isDesktop(context))
                   Spacer(),
                   Column(
                     children: [
@@ -48,6 +49,14 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                         label: 'Pharmacist Name',
                         fieldController: nameController,
                         textInputType: TextInputType.name,
+                        validator: (val) {
+                          if(val!.isEmpty)
+                          {
+                            return "Enter Pharmacist Name";
+                          }
+                          else
+                            return null;
+                        },
                       ),
                       SizedBox(
                         height: 20,
@@ -56,6 +65,14 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                         fieldController: emailController,
                         label: 'Email',
                         textInputType: TextInputType.emailAddress,
+                        validator: (val) {
+                          if(val!.isEmpty)
+                          {
+                            return "Enter Pharmacist Email";
+                          }
+                          else
+                            return null;
+                        },
                       ),
                       SizedBox(
                         height: 20,
@@ -79,7 +96,7 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                                   controller.setPharSecure();
                                 },
                                 icon: controller.isPharSecure
-                                    ? Icon(Icons.remove_red_eye_outlined)
+                                    ? Icon(Icons.visibility_off_outlined)
                                     : Icon(Icons.remove_red_eye),
                               ),
                               label: Text(
@@ -119,7 +136,7 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                                   controller.setPharConfirmSecure();
                                 },
                                 icon: controller.isPharConfirmSecure
-                                    ? Icon(Icons.remove_red_eye_outlined)
+                                    ? Icon(Icons.visibility_off_outlined)
                                     : Icon(Icons.remove_red_eye),
                               ),
                               label: Text(
@@ -136,6 +153,17 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                       SizedBox(
                         height: 40,
                       ),
+                      if(Responsive.isMobile(context))
+                        ElevatedButton(style: ElevatedButton.styleFrom(
+
+                            backgroundColor: Colors.deepOrange, foregroundColor: Colors.white
+                        ),onPressed: (){
+                          if (_formkey.currentState!.validate()) {
+                            print('form is valid');
+                            print(nameController.text);
+                          }
+                        }, child: Text('Submit')),
+                      if(Responsive.isDesktop(context))
                       CustomButton(
                         btnName: 'Submit',
                         pressed: () {
