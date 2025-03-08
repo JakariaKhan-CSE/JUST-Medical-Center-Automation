@@ -25,6 +25,6 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: pressed,
         child: Text(btnName,style: Responsive.isDesktop(context) ? TextStyle(fontSize: 20, fontWeight: FontWeight.w700):
-        TextStyle(fontSize: 19, fontWeight: FontWeight.w600),));
+        TextStyle(fontSize: 14, fontWeight: FontWeight.w400),));
   }
 }

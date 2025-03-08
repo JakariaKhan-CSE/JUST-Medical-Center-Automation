@@ -73,9 +73,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("JUST Medical Center",
-                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w800,
-                      letterSpacing: 1.1,
+
                       color: Colors.white
                               ),).animate()
                       .fade(duration: 2500.ms)

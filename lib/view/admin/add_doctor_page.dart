@@ -22,6 +22,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     final controller = Provider.of<AdminController>(context, listen: true);
 
     return Scaffold(
@@ -30,9 +31,10 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
       child: Form(
         key: _formkey,
         child: Padding(
-          padding: const EdgeInsets.only(top: 80),
+          padding: Responsive.isDesktop(context) ? const EdgeInsets.only(top: 80): EdgeInsets.all(14),
           child: Row(
             children: [
+              if(Responsive.isDesktop(context))
               Spacer(),
               Column(
                 children: [
@@ -48,6 +50,14 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                     label: 'Doctor Name',
                     fieldController: nameController,
                     textInputType: TextInputType.name,
+                    validator: (val) {
+                      if(val!.isEmpty)
+                        {
+                          return "Enter Doctor Name";
+                        }
+                      else
+                        return null;
+                    },
                   ),
                   SizedBox(
                     height: 20,
@@ -56,6 +66,14 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                     fieldController: emailController,
                     label: 'Email',
                     textInputType: TextInputType.emailAddress,
+                    validator: (val) {
+                      if(val!.isEmpty)
+                      {
+                        return "Enter Doctor Email";
+                      }
+                      else
+                        return null;
+                    },
                   ),
                   SizedBox(
                     height: 20,
@@ -72,6 +90,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                         if (value!.isEmpty) {
                           return "Password is required";
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                           suffixIcon: IconButton(
@@ -79,7 +98,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                               controller.setSecure();
                             },
                             icon: controller.isSecure
-                                ? Icon(Icons.remove_red_eye_outlined)
+                                ? Icon(Icons.visibility_off)
                                 : Icon(Icons.remove_red_eye),
                           ),
                           label: Text(
@@ -112,6 +131,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                           {
                             return "Password are not same";
                           }
+                        return null;
                       },
                       decoration: InputDecoration(
                           suffixIcon: IconButton(
@@ -119,7 +139,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                               controller.setConfirmSecure();
                             },
                             icon: controller.isConfirmSecure
-                                ? Icon(Icons.remove_red_eye_outlined)
+                                ? Icon(Icons.visibility_off_outlined)
                                 : Icon(Icons.remove_red_eye),
                           ),
                           label: Text(
@@ -136,6 +156,17 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                   SizedBox(
                     height: 40,
                   ),
+                  if(Responsive.isMobile(context))
+                 ElevatedButton(style: ElevatedButton.styleFrom(
+
+                   backgroundColor: Colors.deepOrange, foregroundColor: Colors.white
+                 ),onPressed: (){
+                   if (_formkey.currentState!.validate()) {
+                     print('form is valid');
+                     print(nameController.text);
+                   }
+                 }, child: Text('Submit')),
+                  if(Responsive.isDesktop(context))
                   CustomButton(
                     btnName: 'Submit',
                     pressed: () {
