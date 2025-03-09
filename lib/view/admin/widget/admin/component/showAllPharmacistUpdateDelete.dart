@@ -27,7 +27,7 @@ class _ShowAllPharmacistUpdateDeleteState
         itemBuilder: (context, index) {
           final data = DoctorData.dataPharmacist[index];
           return AspectRatio(
-            aspectRatio: Responsive.isDesktop(context) ? 3: 2.5,
+            aspectRatio: Responsive.isDesktop(context) ? 3: 2.9,
             child: Container(
               height: Height*0.3,
               width: double.infinity,
@@ -42,7 +42,10 @@ class _ShowAllPharmacistUpdateDeleteState
                 children: [
                   Row(
                     children: [
-                      Image.asset(data['img'],fit: BoxFit.cover,height:Responsive.isDesktop(context) ? Height*0.3:55,width: Responsive.isDesktop(context) ? Width*0.15:55,),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(data['img'],fit: BoxFit.cover,height:Responsive.isDesktop(context) ? Height*0.3:55,width: Responsive.isDesktop(context) ? Width*0.15:55,),
+                      ),
                       Responsive.isDesktop(context) ? SizedBox(width: 20,):SizedBox(width: 5,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,18 +66,40 @@ class _ShowAllPharmacistUpdateDeleteState
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomButton(pressed: (){
-                          //write update database code
-                        }, btnName: 'Update'),
-                        Responsive.isDesktop(context) ? SizedBox(height: 20,):SizedBox(height: 5,),
-                        CustomButton(pressed: (){
-                          //write delete database code
-                        }, btnName: 'Delete'),
-                      ],
+                    child: FittedBox(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (Responsive.isMobile(context))
+                            IconButton(onPressed: () {
+                              // doctor edit function here
+                            }, icon: Icon(Icons.edit_calendar,size: 22,color: Colors.orangeAccent,)),
+                          if (Responsive.isMobile(context))
+                            IconButton(onPressed: () {
+                              // doctor delete
+                            }, icon: Icon(Icons.delete, color: Colors.deepOrange,size: 22,)),
+                          if (Responsive.isDesktop(context))
+                            CustomButton(
+                                pressed: () {
+                                  //write update database code
+                                },
+                                btnName: 'Update'),
+                          Responsive.isDesktop(context)
+                              ? SizedBox(
+                            height: 20,
+                          )
+                              : SizedBox(
+                            height: 5,
+                          ),
+                          if (Responsive.isDesktop(context))
+                            CustomButton(
+                                pressed: () {
+                                  //write delete database code
+                                },
+                                btnName: 'Delete'),
+                        ],
+                      ),
                     ),
                   )
                 ],
