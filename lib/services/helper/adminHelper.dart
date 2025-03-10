@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 import '../../model/res/admin/every_role_response.dart';
 import '../config.dart';
-class AdminHelper{
+
+class AdminHelper {
   static Future<List<dynamic>> searchEveryRole(int ID) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
@@ -39,9 +41,15 @@ class AdminHelper{
 // list kina check kora hosse
         if (responseData is List) {
           // Assuming the first item is the desired patient
-          return [true,EveryRoleRes.fromJson(responseData.first)]; // response data ta list tai tar first ta nissi
+          return [
+            true,
+            EveryRoleRes.fromJson(responseData.first)
+          ]; // response data ta list tai tar first ta nissi
         } else if (responseData is Map<String, dynamic>) {
-          return [true,EveryRoleRes.fromJson(responseData)]; // response jodi list na hoye map hoi tahole aita nissi
+          return [
+            true,
+            EveryRoleRes.fromJson(responseData)
+          ]; // response jodi list na hoye map hoi tahole aita nissi
         } else {
           return [false];
           // throw Exception('Unexpected response format');
@@ -52,6 +60,36 @@ class AdminHelper{
       }
     } else {
       throw Exception('Failed to search every role: ${response.statusCode}');
+    }
+  }
+
+  // Add Doctor
+  static Future<bool> AddDoctorHelper(AddDoctorReq model) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    print(model.toJson());
+    String? token = pref.getString("token");
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token'
+    };
+    try {
+      response = await http.post(
+          Uri.parse('${Config.apiUrl}${Config.addRole}'),
+
+          body: jsonEncode(model.toJson()),
+          headers: requestHeaders);
+    } catch (e) {
+      print('add user based on role api call error: $e');
+    }
+// print(response?.statusCode);
+//     print(jsonDecode(response?.body??''));
+    if (response?.statusCode == 201) {
+      return true;
+    }
+
+    else {
+      return false;
     }
   }
 }

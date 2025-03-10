@@ -1,4 +1,5 @@
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
+import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
 import 'package:just_medical_center_automation/model/res/admin/every_role_response.dart';
 import 'package:just_medical_center_automation/services/helper/adminHelper.dart';
 import 'package:just_medical_center_automation/view/patient/export.dart';
@@ -28,4 +29,30 @@ class AdminDataNotifier extends ChangeNotifier{
       }
     });
   }
+
+  addRolebasedUser(AddDoctorReq model, BuildContext context)
+  {
+    final controller = Provider.of<AdminController>(context, listen: false);
+
+    AdminHelper.AddDoctorHelper(model).then((response){
+
+      if(!response)
+      {
+        Get.snackbar("Failed to Add User", "Please try again",
+            colorText: Colors.white,
+            backgroundColor: Colors.red,
+            icon: const Icon(Icons.add_alert)
+        );
+      }
+      // user er profile information update na thakle personal details page a niye jabe
+      else if(response)
+      {
+        // go to dashboard
+        controller.SetIndex(0);
+      }
+
+    }
+    );
+  }
+
 }

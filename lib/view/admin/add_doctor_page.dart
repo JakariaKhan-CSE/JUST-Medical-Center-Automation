@@ -1,3 +1,6 @@
+import 'package:just_medical_center_automation/controller/adminController/adminDataController.dart';
+import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
+
 import 'export.dart';
 class AddDoctorPage extends StatefulWidget {
 
@@ -24,6 +27,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
   Widget build(BuildContext context) {
     
     final controller = Provider.of<AdminController>(context, listen: true);
+    final adminDatacontroller = Provider.of<AdminDataNotifier>(context, listen: false);
 
     return Scaffold(
         //backgroundColor: Colors.deepPurple.withOpacity(0.1),
@@ -164,6 +168,13 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                    if (_formkey.currentState!.validate()) {
                      print('form is valid');
                      print(nameController.text);
+                     AddDoctorReq model = AddDoctorReq(
+                       name: nameController.text,
+                       email: emailController.text,
+                       password: passwordController.text,
+                       role: 'doctor'
+                     );
+                     adminDatacontroller.addRolebasedUser(model, context);
                    }
                  }, child: Text('Submit')),
                   if(Responsive.isDesktop(context))
@@ -171,8 +182,13 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                     btnName: 'Submit',
                     pressed: () {
                       if (_formkey.currentState!.validate()) {
-                        print('form is valid');
-                        print(nameController.text);
+                        AddDoctorReq model = AddDoctorReq(
+                            name: nameController.text,
+                            email: emailController.text,
+                            password: passwordController.text,
+                            role: 'doctor'
+                        );
+                        adminDatacontroller.addRolebasedUser(model, context);
                       }
                     },
                   ),

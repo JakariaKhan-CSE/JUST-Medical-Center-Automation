@@ -7,6 +7,7 @@ class Config{
   //static const apiUrl = "https://backend-just-medical-production.up.railway.app";
   static const String loginUrl = "/api/auth/login";
   static const String signUpUrl = "/api/auth/register";
+  static const String addRole = "/api/admin/create";
   static const String emailVerifyUrl = "/api/auth/verify-otp";
   static const String profileurl = "/api/user/profile";
   static const String updateDoctorProfileurl = "/api/user/doctor-profile";
