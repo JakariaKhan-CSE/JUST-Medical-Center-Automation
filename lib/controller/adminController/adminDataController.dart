@@ -47,6 +47,11 @@ class AdminDataNotifier extends ChangeNotifier{
       // user er profile information update na thakle personal details page a niye jabe
       else if(response)
       {
+        Get.snackbar("Successful", "Successfully Added User",
+            colorText: Colors.white,
+            backgroundColor: Colors.green,
+            icon: const Icon(Icons.add_alert)
+        );
         // go to dashboard
         controller.SetIndex(0);
       }
