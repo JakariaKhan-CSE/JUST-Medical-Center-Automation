@@ -16,6 +16,7 @@ class Config{
   static const String allpatienturl = "/api/doctors/allpatient";
   static const String createPrescriptionurl = "/api/doctors/prescription";
   static const String searchPatientUrl = "/api/doctors/search";
+  static const String searchAnyUsertUrl = "/api/admin/search";
   static const String patientHistoryUrl = "/api/doctors/history";
   // static const String jobs = "/api/jobs";
   // static const String search = "/api/jobs/search";

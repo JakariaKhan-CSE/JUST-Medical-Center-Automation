@@ -1,3 +1,5 @@
+import 'package:just_medical_center_automation/controller/adminController/adminDataController.dart';
+
 import 'exports.dart';
 /*
 In your main.dart file, initialize the ConnectivityService before
@@ -50,6 +52,7 @@ User Experience: Users will see the connectivity status regardless of where they
     ChangeNotifierProvider(create: (context) => PrescriptionNotifier(),),
     ChangeNotifierProvider(create: (context) => ImageUploaderDoctor(),),
     ChangeNotifierProvider(create: (context) => DoctorDataController(),),
+    ChangeNotifierProvider(create: (context) => AdminDataNotifier(),),
   ],
   child: GetMaterialApp(
     debugShowCheckedModeBanner: false,

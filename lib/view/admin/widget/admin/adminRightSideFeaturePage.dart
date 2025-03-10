@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_medical_center_automation/controller/adminController/adminController.dart';
+import 'package:just_medical_center_automation/view/admin/search_user_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../common/show_all_medicine_page.dart';
 import '../../add_doctor_page.dart';
@@ -29,6 +30,8 @@ class Adminrightsidefeaturepage extends StatelessWidget {
       return ShowAllPharmacistUpdateDelete();
     else if(_pageController.current_index == 6)
       return MonthlyRecord();
+    else if(_pageController.current_index == 7)
+      return SearchUserScreen();
     else
       return DashboardPage();
   }

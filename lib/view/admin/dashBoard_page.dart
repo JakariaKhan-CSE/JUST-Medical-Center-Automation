@@ -1,6 +1,9 @@
+import 'package:just_medical_center_automation/controller/adminController/adminDataController.dart';
+
 import 'export.dart';
 
 class DashboardPage extends StatelessWidget {
+  final TextEditingController searchController = TextEditingController();
   final width = Get.width;
   final height = Get.height;
   DashboardPage({super.key});
@@ -8,6 +11,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<AdminController>(context, listen: true);
+    final adminDataController = Provider.of<AdminDataNotifier>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.deepPurple.withOpacity(0.1),
       body: SingleChildScrollView(
@@ -30,8 +34,16 @@ class DashboardPage extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: SearchBarRoleWise(hintText: "Search user",onTap: (){
+                child: SearchBarRoleWise(
+                  controller: searchController,
+                  hintText: "Search user",onTap: (){
                   // admin search all user
+                  if(searchController.text.isNotEmpty)
+                    adminDataController.searchAnyRole(int.tryParse(searchController.text)??0, context);
+                    //doctorNotifier.searchPatient(int.parse(patientSearch.text),context);
+                  else
+                    Get.snackbar("Search Field Empty","Please search by User ID",
+                        backgroundColor: Colors.pink);
                 },),
               ),
               SizedBox(
