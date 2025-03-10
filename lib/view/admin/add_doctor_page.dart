@@ -174,7 +174,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                        password: passwordController.text,
                        role: 'doctor'
                      );
-                     adminDatacontroller.addRolebasedUser(model, context);
+                     adminDatacontroller.addDoctorRole(model, context);
                    }
                  }, child: Text('Submit')),
                   if(Responsive.isDesktop(context))
@@ -188,7 +188,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                             password: passwordController.text,
                             role: 'doctor'
                         );
-                        adminDatacontroller.addRolebasedUser(model, context);
+                        adminDatacontroller.addDoctorRole(model, context);
                       }
                     },
                   ),

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
+import 'package:just_medical_center_automation/model/req/admin/add_pharmacist_req.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -65,6 +66,36 @@ class AdminHelper {
 
   // Add Doctor
   static Future<bool> AddDoctorHelper(AddDoctorReq model) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    print(model.toJson());
+    String? token = pref.getString("token");
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token'
+    };
+    try {
+      response = await http.post(
+          Uri.parse('${Config.apiUrl}${Config.addRole}'),
+
+          body: jsonEncode(model.toJson()),
+          headers: requestHeaders);
+    } catch (e) {
+      print('add user based on role api call error: $e');
+    }
+// print(response?.statusCode);
+//     print(jsonDecode(response?.body??''));
+    if (response?.statusCode == 201) {
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  }
+
+  // Add Pharmacist
+  static Future<bool> AddPharmacistHelper(AddPharmaReq model) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     print(model.toJson());
     String? token = pref.getString("token");

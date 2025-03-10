@@ -1,3 +1,6 @@
+import 'package:just_medical_center_automation/model/req/admin/add_pharmacist_req.dart';
+
+import '../../controller/adminController/adminDataController.dart';
 import 'export.dart';
 class AddPharmacistPage extends StatefulWidget {
 
@@ -23,6 +26,7 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<AdminController>(context, listen: true);
+    final adminDatacontroller = Provider.of<AdminDataNotifier>(context, listen: false);
 
     return Scaffold(
       //backgroundColor: Colors.deepPurple.withOpacity(0.1),
@@ -159,8 +163,14 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                             backgroundColor: Colors.deepOrange, foregroundColor: Colors.white
                         ),onPressed: (){
                           if (_formkey.currentState!.validate()) {
-                            print('form is valid');
-                            print(nameController.text);
+
+                            AddPharmaReq model = AddPharmaReq(
+                                name: nameController.text,
+                                email: emailController.text,
+                                password: passwordController.text,
+                                role: 'pharmacist'
+                            );
+                            adminDatacontroller.addPharmaRole(model, context);
                           }
                         }, child: Text('Submit')),
                       if(Responsive.isDesktop(context))
@@ -168,8 +178,13 @@ class _AddPharmacistPageState extends State<AddPharmacistPage> {
                         btnName: 'Submit',
                         pressed: () {
                           if (_formkey.currentState!.validate()) {
-                            print('form is valid');
-                            print(nameController.text);
+                            AddPharmaReq model = AddPharmaReq(
+                                name: nameController.text,
+                                email: emailController.text,
+                                password: passwordController.text,
+                                role: 'pharmacist'
+                            );
+                            adminDatacontroller.addPharmaRole(model, context);
                           }
                         },
                       ),
