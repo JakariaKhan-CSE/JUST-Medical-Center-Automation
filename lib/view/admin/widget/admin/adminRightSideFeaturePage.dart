@@ -28,8 +28,8 @@ class Adminrightsidefeaturepage extends StatelessWidget {
       return Showalldoctorwithupdatedelte();
     else if(_pageController.current_index == 5)
       return ShowAllPharmacistUpdateDelete();
-    else if(_pageController.current_index == 6)
-      return MonthlyRecord();
+    // else if(_pageController.current_index == 6)
+    //   return MonthlyRecord();
     else if(_pageController.current_index == 7)
       return SearchUserScreen();
     else

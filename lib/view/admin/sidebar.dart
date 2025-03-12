@@ -39,11 +39,11 @@ class SideBar extends StatelessWidget {
               Scaffold.of(context).closeDrawer();
             },),
             const SizedBox(height: 15,),
-            featureItem(featureName: "See Monthly Record",onTap: (){
-              _pageController.SetIndex(6);
-              Scaffold.of(context).closeDrawer();
-            },),
-            const SizedBox(height: 15,),
+            // featureItem(featureName: "See Monthly Record",onTap: (){
+            //   _pageController.SetIndex(6);
+            //   Scaffold.of(context).closeDrawer();
+            // },),
+            // const SizedBox(height: 15,),
             featureItem(featureName: "Log Out",onTap: (){
               Get.offAll(LoginPage());
               loginNotifier.logout();
