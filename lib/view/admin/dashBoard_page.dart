@@ -15,19 +15,21 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final TextEditingController searchController = TextEditingController();
-  late AdminDataNotifier adminDataController;
+//  late AdminDataNotifier adminDataController;
   final width = Get.width;
 
   final height = Get.height;
-@override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    adminDataController = Provider.of<AdminDataNotifier>(context, listen: false);
-    adminDataController.fetchTotalCounts();
-  }
+// @override
+//   void initState() {
+//     // TODO: implement initState
+//     super.initState();
+//
+//     // adminDataController.fetchTotalCounts();
+//   }
   @override
   Widget build(BuildContext context) {
+    // if get any error using Consumer instead controller in build
+   final  adminDataController = Provider.of<AdminDataNotifier>(context, listen: true);
     final controller = Provider.of<AdminController>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.deepPurple.withOpacity(0.1),

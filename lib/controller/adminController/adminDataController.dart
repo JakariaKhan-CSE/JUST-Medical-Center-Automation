@@ -114,6 +114,7 @@ class AdminDataNotifier extends ChangeNotifier{
   int get totalPatient => _totalPatient;
 
   Future<void> fetchTotalCounts() async {
+    print('fetch Total Call');
     // Fetch all doctors and pharmacists
     final doctors = await AdminHelper.getAllDoctor();
     final pharmacists = await AdminHelper.getAllPharmacist();

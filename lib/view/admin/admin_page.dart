@@ -17,14 +17,14 @@ class _AdminPageState extends State<AdminPage> {
 
 
   @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-    final adminDataController =
-    Provider.of<AdminDataNotifier>(context, listen: true);
-// get Doctor call
+  void initState() {
+    super.initState();
+    // Initialize the AdminDataNotifier
+    final adminDataController = Provider.of<AdminDataNotifier>(context, listen: false);
+    // Fetch data only once
     adminDataController.getAllDoctor();
-    adminDataController.getAllPharmacist(); // pharmacist api call
+    adminDataController.getAllPharmacist();
+adminDataController.fetchTotalCounts();
   }
   @override
   Widget build(BuildContext context) {
