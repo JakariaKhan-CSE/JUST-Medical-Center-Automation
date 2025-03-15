@@ -27,7 +27,7 @@ class itemView extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: ClipRRect(
-                  child: Image.asset(
+                  child: Image.network(
                     imagePath,
                     fit: BoxFit.contain,
                   ),

@@ -1,5 +1,6 @@
 class Config{
-  static const apiUrl = "http://10.0.0.101:5008";  // mess wifi
+  //static const apiUrl = "http://10.0.0.101:5008";  // mess wifi
+  static const apiUrl = "http://172.31.16.1:5008";  // home wifi
   //static const apiUrl = "http://192.168.9.169:5008";  // abdul khalek mess wifi
   //static const apiUrl = "http://192.168.0.114:5008";    // office wifi
   //static const apiUrl = "http://192.168.1.105:5008";   // home wifi

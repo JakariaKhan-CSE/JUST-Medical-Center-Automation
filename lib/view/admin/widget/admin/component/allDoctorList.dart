@@ -25,6 +25,7 @@ class allHorizontalList extends StatelessWidget {
           itemBuilder: (context, index) {
             final singleData = data[index];
            return itemView(
+
               imagePath: singleData.profile??'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
               name: singleData.name??'Unknown',
               degree: 'MBBS',

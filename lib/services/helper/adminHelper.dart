@@ -147,7 +147,7 @@ class AdminHelper {
      // List<EveryRoleRes> allDoctor;
       // Decode the response body
       final decodedResponse = jsonDecode(response.body);
-
+// print(decodedResponse);
       //allDoctor = EveryRoleRes.fromJson(jsonDecode(response.body));
       List<EveryRoleRes> alldoctor = List<EveryRoleRes>.from(
           decodedResponse.map((x) => EveryRoleRes.fromJson(x)));

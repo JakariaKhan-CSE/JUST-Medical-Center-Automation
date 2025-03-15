@@ -30,7 +30,7 @@ class AuthHelper {
       print('login api call error: $e');
     }
 
-    if (response!.statusCode == 200) {
+    if (response?.statusCode == 200) {
       final SharedPreferences pref = await SharedPreferences.getInstance();
 // print('res body is: ${response.body}');
 
@@ -39,7 +39,7 @@ class AuthHelper {
       // var responseBody = jsonDecode(response.body);
 // print(responseBody); // see the response then go to website json to dart converter to make login response model
       LoginResponse loginResponse =
-          LoginResponse.fromJson(jsonDecode(response.body));
+          LoginResponse.fromJson(jsonDecode(response?.body??''));
       String? token = loginResponse.token;
       String? userId = loginResponse.others?.sId;
       String? profile = loginResponse.others?.profile;
