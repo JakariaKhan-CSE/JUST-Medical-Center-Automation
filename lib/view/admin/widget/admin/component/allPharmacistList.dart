@@ -29,7 +29,7 @@ class allHorizontalPharmacistList extends StatelessWidget {
 
               imagePath: singleData.profile??'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
               name: singleData.name??'Unknown',
-              degree: 'MBBS',
+              degree: '',
             );
           },
         ),
