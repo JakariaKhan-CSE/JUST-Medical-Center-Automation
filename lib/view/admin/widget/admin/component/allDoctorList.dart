@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:just_medical_center_automation/model/res/admin/every_role_response.dart';
 
 
 import '../../../../../responsive.dart';
 import 'itemView.dart';
 
 class allHorizontalList extends StatelessWidget {
-  final List<Map<String, dynamic>> data;
+  // final List<Map<String, dynamic>> data;
+  final List<EveryRoleRes> data;
   const allHorizontalList({
     super.key, required this.data,
   });
@@ -20,11 +22,14 @@ class allHorizontalList extends StatelessWidget {
           physics: AlwaysScrollableScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: data.length,
-          itemBuilder: (context, index) => itemView(
-            imagePath: data[index]['img'],
-            name: data[index]['name'],
-            degree: data[index]['department'] ?? '',
-          ),
+          itemBuilder: (context, index) {
+            final singleData = data[index];
+           return itemView(
+              imagePath: singleData.profile??'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
+              name: singleData.name??'Unknown',
+              degree: 'MBBS',
+            );
+          },
         ),
       ),
     );

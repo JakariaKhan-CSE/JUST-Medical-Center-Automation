@@ -90,5 +90,11 @@ class AdminDataNotifier extends ChangeNotifier{
     }
     );
   }
+  
+  // for all doctor
+  Future<List<EveryRoleRes>>? allDoctor;
+  getAllDoctor()async{
+    allDoctor =  AdminHelper.getAllDoctor();
+  }
 
 }

@@ -123,4 +123,40 @@ class AdminHelper {
       return false;
     }
   }
+
+  static Future<List<EveryRoleRes>> getAllDoctor() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token',
+    };
+
+    try {
+      response = await http.get(
+        Uri.parse('${Config.apiUrl}${Config.getAllDoctor}'),
+        headers: requestHeaders,
+      );
+    } catch (e) {
+      throw Exception('Network error occurred: $e');
+    }
+
+    if (response.statusCode == 200) {
+     // List<EveryRoleRes> allDoctor;
+      // Decode the response body
+      final decodedResponse = jsonDecode(response.body);
+
+      //allDoctor = EveryRoleRes.fromJson(jsonDecode(response.body));
+      List<EveryRoleRes> alldoctor = List<EveryRoleRes>.from(
+          decodedResponse.map((x) => EveryRoleRes.fromJson(x)));
+
+      return alldoctor;
+    } else {
+      throw Exception('Failed to search every role: ${response.statusCode}');
+
+    }
+  }
+
 }
