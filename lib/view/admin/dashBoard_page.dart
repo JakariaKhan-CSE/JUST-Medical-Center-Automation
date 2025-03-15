@@ -5,17 +5,30 @@ import 'package:just_medical_center_automation/view/admin/widget/admin/component
 
 import 'export.dart';
 
-class DashboardPage extends StatelessWidget {
-  final TextEditingController searchController = TextEditingController();
-  final width = Get.width;
-  final height = Get.height;
+class DashboardPage extends StatefulWidget {
+
   DashboardPage({super.key});
 
   @override
+  State<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  final TextEditingController searchController = TextEditingController();
+  late AdminDataNotifier adminDataController;
+  final width = Get.width;
+
+  final height = Get.height;
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    adminDataController = Provider.of<AdminDataNotifier>(context, listen: false);
+    adminDataController.fetchTotalCounts();
+  }
+  @override
   Widget build(BuildContext context) {
     final controller = Provider.of<AdminController>(context, listen: true);
-    final adminDataController =
-        Provider.of<AdminDataNotifier>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.deepPurple.withOpacity(0.1),
       body: SingleChildScrollView(
@@ -60,10 +73,10 @@ class DashboardPage extends StatelessWidget {
               TotalNumberAllElement(
                 height: height,
                 width: width,
-                doctor: 5,
-                pharmacist: 2,
+                doctor: adminDataController.totalDoctors,
+                pharmacist: adminDataController.totalPharmacists,
                 medicine: 200000,
-                patient: 8000,
+                patient: adminDataController.totalPatient,
               ),
 
               SizedBox(

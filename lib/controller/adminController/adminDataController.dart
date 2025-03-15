@@ -104,4 +104,28 @@ class AdminDataNotifier extends ChangeNotifier{
     allPharmacist =  AdminHelper.getAllPharmacist();
   }
 
+  int _totalDoctors = 0;
+  int get totalDoctors => _totalDoctors;
+
+  int _totalPharmacists = 0;
+  int get totalPharmacists => _totalPharmacists;
+
+  int _totalPatient = 0;
+  int get totalPatient => _totalPatient;
+
+  Future<void> fetchTotalCounts() async {
+    // Fetch all doctors and pharmacists
+    final doctors = await AdminHelper.getAllDoctor();
+    final pharmacists = await AdminHelper.getAllPharmacist();
+    final patient = await AdminHelper.getAllPatient();
+
+    // Update the counts
+    _totalDoctors = doctors.length;
+    _totalPharmacists = pharmacists.length;
+    _totalPatient = patient.length;
+
+    // Notify listeners
+    notifyListeners();
+  }
+
 }

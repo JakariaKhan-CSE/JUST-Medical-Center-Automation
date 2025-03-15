@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
 import 'package:just_medical_center_automation/model/req/admin/add_pharmacist_req.dart';
+import 'package:just_medical_center_automation/model/res/admin/patient_res.dart';
 import 'package:just_medical_center_automation/model/res/admin/pharmacist_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -193,6 +194,42 @@ class AdminHelper {
       return allpharmacist;
     } else {
       throw Exception('Failed to get pharmacist role: ${response.statusCode}');
+
+    }
+  }
+
+  // get all patient
+  static Future<List<PatientRes>> getAllPatient() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token',
+    };
+
+    try {
+      response = await http.get(
+        Uri.parse('${Config.apiUrl}${Config.getAllPatient}'),
+        headers: requestHeaders,
+      );
+    } catch (e) {
+      throw Exception('Network error occurred: $e');
+    }
+
+    if (response.statusCode == 200) {
+      // List<EveryRoleRes> allDoctor;
+      // Decode the response body
+      final decodedResponse = jsonDecode(response.body);
+// print(decodedResponse);
+      //allDoctor = EveryRoleRes.fromJson(jsonDecode(response.body));
+      List<PatientRes> allPatient = List<PatientRes>.from(
+          decodedResponse.map((x) => PatientRes.fromJson(x)));
+
+      return allPatient;
+    } else {
+      throw Exception('Failed to get patient: ${response.statusCode}');
 
     }
   }

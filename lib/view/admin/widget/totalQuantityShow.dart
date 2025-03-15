@@ -20,6 +20,7 @@ class TotalNumberAllElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
           children: [
@@ -32,14 +33,20 @@ class TotalNumberAllElement extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            // total medicine of month
-
             EachPartCard(
               height: height,
               width: width,
-              text: 'Total Medicine',
-              number: medicine.toString(),
+              text: 'Total Doctor',
+              number: doctor.toString(),
             ),
+            // total medicine of month
+
+            // EachPartCard(
+            //   height: height,
+            //   width: width,
+            //   text: 'Total Medicine',
+            //   number: medicine.toString(),
+            // ),
           ],
         ),
         SizedBox(
@@ -48,15 +55,10 @@ class TotalNumberAllElement extends StatelessWidget {
         // total medicine of month
         Column(
           children: [
-            EachPartCard(
-              height: height,
-              width: width,
-              text: 'Total Doctor',
-              number: doctor.toString(),
-            ),
-            SizedBox(
-              height: 20,
-            ),
+
+            // SizedBox(
+            //   height: 20,
+            // ),
             EachPartCard(
               height: height,
               width: width,
