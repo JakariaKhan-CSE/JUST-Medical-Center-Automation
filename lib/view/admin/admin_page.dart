@@ -22,8 +22,9 @@ class _AdminPageState extends State<AdminPage> {
     super.didChangeDependencies();
     final adminDataController =
     Provider.of<AdminDataNotifier>(context, listen: true);
-
+// get Doctor call
     adminDataController.getAllDoctor();
+    adminDataController.getAllPharmacist(); // pharmacist api call
   }
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,7 @@
 import 'package:just_medical_center_automation/controller/adminController/adminDataController.dart';
 import 'package:just_medical_center_automation/model/res/admin/every_role_response.dart';
+import 'package:just_medical_center_automation/model/res/admin/pharmacist_response.dart';
+import 'package:just_medical_center_automation/view/admin/widget/admin/component/allPharmacistList.dart';
 
 import 'export.dart';
 
@@ -112,7 +114,23 @@ class DashboardPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              //allHorizontalList(data: DoctorData.dataPharmacist)
+              FutureBuilder<List<PharmacistRes>>(
+                  future: adminDataController.allPharmacist,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Error ${snapshot.error}'),
+                      );
+                    } else {
+                      final allPharmacistData = snapshot.data;
+                      return allHorizontalPharmacistList(data: allPharmacistData??[]);
+                    }
+                  }),
+
             ],
           ),
         ),

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:just_medical_center_automation/model/res/admin/every_role_response.dart';
+import 'package:just_medical_center_automation/model/res/admin/pharmacist_response.dart';
 
 
 import '../../../../../responsive.dart';
 import 'itemView.dart';
 
-class allHorizontalList extends StatelessWidget {
+class allHorizontalPharmacistList extends StatelessWidget {
   // final List<Map<String, dynamic>> data;
-  final List<EveryRoleRes> data;
-  const allHorizontalList({
+  final List<PharmacistRes> data;
+  const allHorizontalPharmacistList({
     super.key, required this.data,
   });
 
@@ -24,7 +25,7 @@ class allHorizontalList extends StatelessWidget {
           itemCount: data.length,
           itemBuilder: (context, index) {
             final singleData = data[index];
-           return itemView(
+            return itemView(
 
               imagePath: singleData.profile??'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
               name: singleData.name??'Unknown',

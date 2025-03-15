@@ -2,6 +2,7 @@ import 'package:just_medical_center_automation/controller/adminController/adminC
 import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
 import 'package:just_medical_center_automation/model/req/admin/add_pharmacist_req.dart';
 import 'package:just_medical_center_automation/model/res/admin/every_role_response.dart';
+import 'package:just_medical_center_automation/model/res/admin/pharmacist_response.dart';
 import 'package:just_medical_center_automation/services/helper/adminHelper.dart';
 import 'package:just_medical_center_automation/view/patient/export.dart';
 
@@ -95,6 +96,12 @@ class AdminDataNotifier extends ChangeNotifier{
   Future<List<EveryRoleRes>>? allDoctor;
   getAllDoctor()async{
     allDoctor =  AdminHelper.getAllDoctor();
+  }
+
+  // for all pharmacist
+  Future<List<PharmacistRes>>? allPharmacist;
+  getAllPharmacist()async{
+    allPharmacist =  AdminHelper.getAllPharmacist();
   }
 
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:just_medical_center_automation/model/req/admin/add_doctor_res.dart';
 import 'package:just_medical_center_automation/model/req/admin/add_pharmacist_req.dart';
+import 'package:just_medical_center_automation/model/res/admin/pharmacist_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -124,6 +125,7 @@ class AdminHelper {
     }
   }
 
+  // get all doctor
   static Future<List<EveryRoleRes>> getAllDoctor() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
@@ -154,7 +156,43 @@ class AdminHelper {
 
       return alldoctor;
     } else {
-      throw Exception('Failed to search every role: ${response.statusCode}');
+      throw Exception('Failed to get doctor role: ${response.statusCode}');
+
+    }
+  }
+
+  // get all pharmacist
+  static Future<List<PharmacistRes>> getAllPharmacist() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String? token = pref.getString("token");
+
+    http.Response? response;
+    Map<String, String> requestHeaders = {
+      "Content-Type": "application/json",
+      "x-auth-token": '$token',
+    };
+
+    try {
+      response = await http.get(
+        Uri.parse('${Config.apiUrl}${Config.getAllPharmacist}'),
+        headers: requestHeaders,
+      );
+    } catch (e) {
+      throw Exception('Network error occurred: $e');
+    }
+
+    if (response.statusCode == 200) {
+      // List<EveryRoleRes> allDoctor;
+      // Decode the response body
+      final decodedResponse = jsonDecode(response.body);
+// print(decodedResponse);
+      //allDoctor = EveryRoleRes.fromJson(jsonDecode(response.body));
+      List<PharmacistRes> allpharmacist = List<PharmacistRes>.from(
+          decodedResponse.map((x) => PharmacistRes.fromJson(x)));
+
+      return allpharmacist;
+    } else {
+      throw Exception('Failed to get pharmacist role: ${response.statusCode}');
 
     }
   }
