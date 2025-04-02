@@ -26,7 +26,7 @@ class PatientHome extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            PatientHomeSearch(),
+            // PatientHomeSearch(),
             SizedBox(
               height: 20,
             ),

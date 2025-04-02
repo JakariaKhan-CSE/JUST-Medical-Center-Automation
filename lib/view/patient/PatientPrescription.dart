@@ -87,7 +87,7 @@ class PatientPrescription extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('${prescription.doctorId?.name}',style: const TextStyle(color: Colors.white,fontSize: 15),),
+                                  Text('${prescription.doctorId?.name}',overflow: TextOverflow.ellipsis,style: const TextStyle(color: Colors.white,fontSize: 15),),
                                   const Text('For: Myself',style: TextStyle(color: Colors.white,fontSize: 15),),
                                   Text('$formattedDate - $formattedTime',style: const TextStyle(color: Colors.white,fontSize: 12),)
                                 ],

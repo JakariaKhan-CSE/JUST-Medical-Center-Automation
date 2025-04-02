@@ -18,6 +18,7 @@ class AuthHelper {
 
   // login function
   static Future<List<dynamic>> login(LoginModel model) async {
+    print('login api call');
     http.Response? response;
     Map<String, String> requestHeaders = {"Content-Type": "application/json"};
     try {
@@ -29,6 +30,8 @@ class AuthHelper {
     } catch (e) {
       print('login api call error: $e');
     }
+    print('${Config.apiUrl}');
+print(response?.statusCode);
 
     if (response?.statusCode == 200) {
       final SharedPreferences pref = await SharedPreferences.getInstance();
