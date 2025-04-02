@@ -6,7 +6,6 @@ import 'package:just_medical_center_automation/view/admin/widget/admin/component
 import 'export.dart';
 
 class DashboardPage extends StatefulWidget {
-
   DashboardPage({super.key});
 
   @override
@@ -29,7 +28,8 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     // if get any error using Consumer instead controller in build
-   final  adminDataController = Provider.of<AdminDataNotifier>(context, listen: true);
+    final adminDataController =
+        Provider.of<AdminDataNotifier>(context, listen: true);
     final controller = Provider.of<AdminController>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.deepPurple.withOpacity(0.1),
@@ -113,7 +113,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       );
                     } else {
                       final allDoctorData = snapshot.data;
-                      return allHorizontalList(data: allDoctorData??[]);
+                      return allHorizontalList(data: allDoctorData ?? []);
                     }
                   }),
 
@@ -142,10 +142,10 @@ class _DashboardPageState extends State<DashboardPage> {
                       );
                     } else {
                       final allPharmacistData = snapshot.data;
-                      return allHorizontalPharmacistList(data: allPharmacistData??[]);
+                      return allHorizontalPharmacistList(
+                          data: allPharmacistData ?? []);
                     }
                   }),
-
             ],
           ),
         ),
