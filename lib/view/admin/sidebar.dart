@@ -33,11 +33,11 @@ class SideBar extends StatelessWidget {
               _pageController.SetIndex(2);
               Scaffold.of(context).closeDrawer();
             },),
-            const SizedBox(height: 15,),
-            featureItem(featureName: "See all Medicine",onTap: (){
-              _pageController.SetIndex(3);
-              Scaffold.of(context).closeDrawer();
-            },),
+            // const SizedBox(height: 15,),
+            // featureItem(featureName: "See all Medicine",onTap: (){
+            //   _pageController.SetIndex(3);
+            //   Scaffold.of(context).closeDrawer();
+            // },),
             const SizedBox(height: 15,),
             // featureItem(featureName: "See Monthly Record",onTap: (){
             //   _pageController.SetIndex(6);
