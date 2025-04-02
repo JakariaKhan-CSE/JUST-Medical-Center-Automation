@@ -31,7 +31,7 @@ class AuthHelper {
       print('login api call error: $e');
     }
     print('${Config.apiUrl}');
-print(response?.statusCode);
+    print(response?.statusCode);
 
     if (response?.statusCode == 200) {
       final SharedPreferences pref = await SharedPreferences.getInstance();
@@ -42,7 +42,7 @@ print(response?.statusCode);
       // var responseBody = jsonDecode(response.body);
 // print(responseBody); // see the response then go to website json to dart converter to make login response model
       LoginResponse loginResponse =
-          LoginResponse.fromJson(jsonDecode(response?.body??''));
+          LoginResponse.fromJson(jsonDecode(response?.body ?? ''));
       String? token = loginResponse.token;
       String? userId = loginResponse.others?.sId;
       String? profile = loginResponse.others?.profile;
@@ -137,7 +137,8 @@ print(response?.statusCode);
   }
 
   // update doctor profile (first time login)
-  static Future<bool> updateDoctorProfile(DoctorProfileUpdateModel model) async {
+  static Future<bool> updateDoctorProfile(
+      DoctorProfileUpdateModel model) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
     http.Response? response;
@@ -145,7 +146,7 @@ print(response?.statusCode);
     Map<String, String> requestHeaders = {
       "Content-Type": "application/json",
       "x-auth-token":
-      '$token' // this is x-auth-token same as backend req.header("x-auth-token");
+          '$token' // this is x-auth-token same as backend req.header("x-auth-token");
     };
     try {
       response = await http.put(
@@ -165,7 +166,6 @@ print(response?.statusCode);
       return false;
     }
   }
-
 
   // edit user profile (anytime)
   static Future<bool> editProfile(ProfileEditModel model) async {
@@ -206,7 +206,7 @@ print(response?.statusCode);
     Map<String, String> requestHeaders = {
       "Content-Type": "application/json",
       "x-auth-token":
-      '$token' // this is x-auth-token same as backend req.header("x-auth-token");
+          '$token' // this is x-auth-token same as backend req.header("x-auth-token");
     };
     try {
       response = await http.put(
@@ -229,7 +229,6 @@ print(response?.statusCode);
 
 // Get Profile
   static Future<ProfileResponse> getProfile() async {
-
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
     // String? userId = pref.getString('userId');

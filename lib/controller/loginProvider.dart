@@ -99,6 +99,8 @@ class LoginNotifier extends ChangeNotifier{
         // doctor er profile information update na thakle personal details page a niye jabe
         if(response[2].toString().toLowerCase() == 'doctor')
           Get.off(FirstTimeUpdateProfilePage(role: response[2]));
+        if(response[2].toString().toLowerCase() == 'admin')
+          Get.off(MainScreen(role: response[2]));
       }
 
       // first time na hole mainscreen a cole jabe
