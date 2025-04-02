@@ -14,9 +14,37 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  Future<bool> _onWillPop() async {
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Exit App"),
+        content: const Text("Are you sure you want to exit?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text("No"),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text("Yes"),
+          ),
+        ],
+      ),
+    ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    switch(widget.role){
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: _getScreenForRole(widget.role),
+    );
+  }
+
+  Widget _getScreenForRole(String role) {
+    switch (role) {
       case 'patient':
         return PatientScreen();
       case 'admin':
@@ -27,7 +55,6 @@ class _MainScreenState extends State<MainScreen> {
         return PharmacistScreen();
       default:
         return PatientScreen();
-
     }
   }
 }
