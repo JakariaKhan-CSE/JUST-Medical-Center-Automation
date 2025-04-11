@@ -64,4 +64,29 @@ notifyListeners();
 
   }
 
+  deletePharmacist(String pharmacistID, BuildContext context){
+    AdminHelper.deletePharmacist(pharmacistID).then((response){
+      // success hole 0 index a true and failed hole false
+      if(response){
+
+        Get.snackbar("Pharmacist Successfully Deleted", "Please Check your Pharmacist List",
+            colorText: Colors.white,
+            backgroundColor: Colors.green,
+            icon: const Icon(Icons.bookmark_add)
+        );
+        Provider.of<AdminController>(context, listen: true).SetIndex(0);
+        notifyListeners();
+      }else if(!response){
+        Get.snackbar("Failed to delete Pharmacist", "Please try again",
+            colorText: Colors.white,
+            backgroundColor: Colors.red,
+            icon: const Icon(Icons.bookmark_add)
+        );
+      }
+    });
+
+
+
+  }
+
 }
