@@ -19,6 +19,12 @@ class Showalldoctorwithupdatedelte extends StatefulWidget {
 class _ShowalldoctorwithupdatedelteState
     extends State<Showalldoctorwithupdatedelte> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<AdminDataNotifier>(context, listen: false).getAllDoctor();
+  }
+  @override
   Widget build(BuildContext context) {
     final adminDataController =
     Provider.of<AdminDataNotifier>(context, listen: true);
@@ -132,7 +138,8 @@ class _ShowalldoctorwithupdatedelteState
                                             Navigator.of(context).pop();
                                           }, child: Text('Cancel')),
                                           TextButton(onPressed: (){
-                                            adminController.deleteDoctor(data?.sId??'');
+                                            adminController.deleteDoctor(data?.sId??'', context);
+
                                             Navigator.of(context).pop();
                                           }, child: Text('Delete'))
                                         ],

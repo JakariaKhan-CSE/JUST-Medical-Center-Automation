@@ -40,15 +40,17 @@ class AdminController extends ChangeNotifier{
     notifyListeners();
   }
 
-  deleteDoctor(String doctorID){
+  deleteDoctor(String doctorID, BuildContext context){
     AdminHelper.deleteDoctor(doctorID).then((response){
       // success hole 0 index a true and failed hole false
       if(response){
+
         Get.snackbar("Doctor Successfully Deleted", "Please Check your Doctor List",
             colorText: Colors.white,
-            backgroundColor: Colors.orangeAccent,
+            backgroundColor: Colors.green,
             icon: const Icon(Icons.bookmark_add)
         );
+        Provider.of<AdminController>(context, listen: true).SetIndex(0);
       }else if(!response){
         Get.snackbar("Failed to delete Doctor", "Please try again",
             colorText: Colors.white,
@@ -57,6 +59,8 @@ class AdminController extends ChangeNotifier{
         );
       }
     });
+
+notifyListeners();
 
   }
 
