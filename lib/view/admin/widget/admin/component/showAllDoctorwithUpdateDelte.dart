@@ -22,6 +22,7 @@ class _ShowalldoctorwithupdatedelteState
   Widget build(BuildContext context) {
     final adminDataController =
     Provider.of<AdminDataNotifier>(context, listen: true);
+    final adminController = Provider.of<AdminController>(context, listen: true);
     final Height = MediaQuery.of(context).size.height;
     final Width = MediaQuery.of(context).size.width;
     return Padding(
@@ -123,6 +124,20 @@ class _ShowalldoctorwithupdatedelteState
                                   if (Responsive.isMobile(context))
                                     IconButton(onPressed: () {
                                       // doctor delete
+                                      showDialog(context: context, builder: (context) => AlertDialog(
+                                        title: Text('Confirm Delete'),
+                                        content: Text('Are you sure you want to delete?'),
+                                        actions: [
+                                          TextButton(onPressed: (){
+                                            Navigator.of(context).pop();
+                                          }, child: Text('Cancel')),
+                                          TextButton(onPressed: (){
+                                            adminController.deleteDoctor(data?.sId??'');
+                                            Navigator.of(context).pop();
+                                          }, child: Text('Delete'))
+                                        ],
+                                      ),);
+
                                     }, icon: Icon(Icons.delete, color: Colors.deepOrange,size: 22,)),
                                   if (Responsive.isDesktop(context))
                                     CustomButton(
