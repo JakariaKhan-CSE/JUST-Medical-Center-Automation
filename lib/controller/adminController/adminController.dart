@@ -1,4 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:just_medical_center_automation/services/helper/adminHelper.dart';
+
+import '../../exports.dart';
 
 class AdminController extends ChangeNotifier{
   int current_index = 0;
@@ -33,6 +38,26 @@ class AdminController extends ChangeNotifier{
   {
     current_index = index;
     notifyListeners();
+  }
+
+  deleteDoctor(String doctorID){
+    AdminHelper.deleteDoctor(doctorID).then((response){
+      // success hole 0 index a true and failed hole false
+      if(response){
+        Get.snackbar("Doctor Successfully Deleted", "Please Check your Doctor List",
+            colorText: Colors.white,
+            backgroundColor: Colors.orangeAccent,
+            icon: const Icon(Icons.bookmark_add)
+        );
+      }else if(!response){
+        Get.snackbar("Failed to delete Doctor", "Please try again",
+            colorText: Colors.white,
+            backgroundColor: Colors.red,
+            icon: const Icon(Icons.bookmark_add)
+        );
+      }
+    });
+
   }
 
 }

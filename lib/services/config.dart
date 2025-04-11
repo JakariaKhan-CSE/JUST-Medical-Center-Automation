@@ -25,6 +25,8 @@ class Config{
   static const String getAllPharmacist = "/api/admin/users/pharmacist";
   static const String getAllPatient = "/api/admin/users/patient";
   static const String patientHistoryUrl = "/api/doctors/history";
+  static const String deleteDoctorUrl = "/api/admin/doctor";
+  static const String deletePharmacistUrl = "/api/admin/pharmacist";
   // static const String jobs = "/api/jobs";
   // static const String search = "/api/jobs/search";
   // static const String profileUrl = "/api/users";

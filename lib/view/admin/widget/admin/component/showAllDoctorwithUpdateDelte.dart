@@ -116,10 +116,10 @@ class _ShowalldoctorwithupdatedelteState
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if (Responsive.isMobile(context))
-                                    IconButton(onPressed: () {
-                                      // doctor edit function here
-                                    }, icon: Icon(Icons.edit_calendar,size: 22,color: Colors.orangeAccent,)),
+                                  // if (Responsive.isMobile(context))
+                                  //   IconButton(onPressed: () {
+                                  //     // doctor edit function here
+                                  //   }, icon: Icon(Icons.edit_calendar,size: 22,color: Colors.orangeAccent,)),
                                   if (Responsive.isMobile(context))
                                     IconButton(onPressed: () {
                                       // doctor delete
