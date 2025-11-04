@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:convert'; // Import to handle JSON decoding
 import 'package:cloudinary/cloudinary.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -25,9 +27,17 @@ class ImageUploader extends ChangeNotifier {
 
   // write Future<void> instead void. I get long time error here
   Future<void> pickImageAndUpload() async {
-    XFile? imageFile = await _picker.pickImage(source: ImageSource.gallery);
+    XFile? imageFile = await _picker.pickImage(source: ImageSource.gallery,);
 
     if (imageFile != null) {
+      String extension = imageFile.path.split('.').last.toLowerCase();
+      List<String> allowedExtensions = ['png', 'jpg', 'jpeg', 'webp'];
+
+      if (!allowedExtensions.contains(extension)) {
+        // Show error to user
+        Get.snackbar('Invalid Image Format','Please select only PNG, JPG, or WEBP images');
+        return;
+      }
       File file = File(imageFile.path); // Convert XFile to File
       imageFil.add(file.path);
       // Call upload function to store image on the cloudinary

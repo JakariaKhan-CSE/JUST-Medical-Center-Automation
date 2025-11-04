@@ -77,6 +77,7 @@ class AuthHelper {
     } catch (e) {
       //print('login api call error: $e');
     }
+    //print(response?.statusCode);
 // go to OTP verification page
     if (response!.statusCode == 201) {
       return [true, true];

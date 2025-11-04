@@ -60,7 +60,11 @@ class SignUpNotifier extends ChangeNotifier {
       // go to otp verification page
       if (response[0] && response[1]) {
         // this is important and useful see carefully
-        Get.off(() => OtpVerification(email: model.email,),
+        // Get.off(() => OtpVerification(email: model.email,),
+        //     transition: Transition.fade,
+        //     duration: const Duration(seconds: 2)
+        // );
+        Get.off(() => LoginPage(),
             transition: Transition.fade,
             duration: const Duration(seconds: 2)
         );
