@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:just_medical_center_automation/view/auth/login_page.dart';
 import 'package:just_medical_center_automation/view/doctor/firsttimeupdateprofile_page.dart';
 import 'package:just_medical_center_automation/view/main_screen.dart';
 import 'package:just_medical_center_automation/view/patient/PersonalDetails.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,11 +18,36 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  AppUpdateInfo? _updateInfo;
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
 
+  bool _flexibleUpdateAvailable = false;
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      setState(() {
+        _updateInfo = info;
+      });
+    }).catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  Future<void> tryUpdate() async {
+    if (_updateInfo?.updateAvailability == UpdateAvailability.updateAvailable) {
+      InAppUpdate.performImmediateUpdate().catchError((e) {
+        print(e.toString());
+        return AppUpdateResult.inAppUpdateFailed;
+      });
+    }
+  }
 
   @override
   void initState() {
     super.initState();
+    checkForUpdate();
+    tryUpdate();
     _navigateToNextScreen();
   }
 
@@ -33,17 +58,15 @@ class _SplashScreenState extends State<SplashScreen> {
     final role = prefs.getString('role') ?? 'patient';
     final isUpdateProfile = prefs.getBool('isUpdate');
 
-    if(isUpdateProfile == false){
-      if(role.toString().toLowerCase() == 'patient'){
+    if (isUpdateProfile == false) {
+      if (role.toString().toLowerCase() == 'patient') {
         Get.off(PersonalDetails(role: role));
-      }
-     else if(role.toString().toLowerCase() == 'doctor'){
+      } else if (role.toString().toLowerCase() == 'doctor') {
         Get.off(FirstTimeUpdateProfilePage(role: role));
       }
       // if(response[2].toString().toLowerCase() == 'patient')
       //   Get.off(PersonalDetails(role: response[2]));
-    }
-    else if (loggedIn) {
+    } else if (loggedIn) {
       // Navigate to the MainScreen based on role
       Navigator.pushReplacement(
         context,
@@ -81,28 +104,28 @@ class _SplashScreenState extends State<SplashScreen> {
                     FadeEffect(duration: Duration(milliseconds: 1500)),
                     ScaleEffect(duration: Duration(milliseconds: 1500)),
                   ],
-                  child: Image.asset('images/home picture.jpg',width: MediaQuery.of(context).size.width ), // 100% of screen width,
+                  child: Image.asset('images/home picture.jpg',
+                      width: MediaQuery.of(context)
+                          .size
+                          .width), // 100% of screen width,
                 ),
-                SizedBox(height: 30,),
-               // inherits the delay & duration from move
+                SizedBox(
+                  height: 30,
+                ),
+                // inherits the delay & duration from move
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("JUST Medical Center",
+                  child: Text(
+                    "JUST Medical Center",
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontWeight: FontWeight.w800,
-
-                      color: Colors.white
-                              ),).animate()
-                      .fade(duration: 2500.ms)
-                      .scale(delay: 500.ms),
-                ) ,// runs after fade.
+                        fontWeight: FontWeight.w800, color: Colors.white),
+                  ).animate().fade(duration: 2500.ms).scale(delay: 500.ms),
+                ), // runs after fade.
                 // SizedBox(height: 30,),
                 // CircularProgressIndicator(
                 //   color: Theme.of(context).primaryColor,
                 //   strokeWidth: 2,
                 // ),
-
-
               ],
             ),
           ),

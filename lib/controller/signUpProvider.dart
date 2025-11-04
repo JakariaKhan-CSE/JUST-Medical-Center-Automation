@@ -72,6 +72,10 @@ class SignUpNotifier extends ChangeNotifier {
       // // go to main page (because when admin add any member not need to login admin)
       else if(response[0])
       {
+        Get.off(() => LoginPage(),
+            transition: Transition.fade,
+            duration: const Duration(seconds: 2)
+        );
 // nothing happened
         // this is important and useful see carefully
         // Get.off(()=>const LoginPage(),

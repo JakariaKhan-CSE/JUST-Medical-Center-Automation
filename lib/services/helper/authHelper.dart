@@ -111,6 +111,7 @@ class AuthHelper {
 
 // update profile (personalInformation user)
   static Future<bool> updateProfile(ProfileUpdateModel model) async {
+    print('update profile api call');
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String? token = pref.getString("token");
     http.Response? response;
@@ -129,9 +130,9 @@ class AuthHelper {
     } catch (e) {
       print('update profile api call error: $e');
     }
-
+print(response?.statusCode);
     if (response!.statusCode == 200) {
-      //print('response coed is: ${response.statusCode}');
+     // print('response coed is: ${response.statusCode}');
       return true;
     } else {
       //print('response code is: ${response.statusCode}');
