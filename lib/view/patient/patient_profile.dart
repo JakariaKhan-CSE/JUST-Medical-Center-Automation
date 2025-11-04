@@ -45,7 +45,7 @@ class PatientProfile extends StatelessWidget {
 //               String imageUrl = '${Config.apiUrl}/${userData.user?.profile}';
 //               print(imageUrl);
              return SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -93,7 +93,7 @@ class PatientProfile extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    PatientProfileRow(leading: 'Student ID', title: (userData.user!.sId!).toString()),
+                    PatientProfileRow(leading: 'Student ID', title: (userData.user!.iD!).toString()),
                     PatientProfileRow(leading: 'Age', title: (userData.user!.age!).toString(),),
                     PatientProfileRow(leading: 'E-mail', title: userData.user!.email!,),
                     PatientProfileRow(leading: 'Phone Number', title: userData.user!.phone!,),
