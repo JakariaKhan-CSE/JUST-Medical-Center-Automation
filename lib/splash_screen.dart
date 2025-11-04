@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:just_medical_center_automation/view/auth/login_page.dart';
+import 'package:just_medical_center_automation/view/doctor/firsttimeupdateprofile_page.dart';
 import 'package:just_medical_center_automation/view/main_screen.dart';
+import 'package:just_medical_center_automation/view/patient/PersonalDetails.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -27,8 +31,19 @@ class _SplashScreenState extends State<SplashScreen> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final loggedIn = prefs.getBool('loggedIn') ?? false;
     final role = prefs.getString('role') ?? 'patient';
+    final isUpdateProfile = prefs.getBool('isUpdate');
 
-    if (loggedIn) {
+    if(isUpdateProfile == false){
+      if(role.toString().toLowerCase() == 'patient'){
+        Get.off(PersonalDetails(role: role));
+      }
+     else if(role.toString().toLowerCase() == 'doctor'){
+        Get.off(FirstTimeUpdateProfilePage(role: role));
+      }
+      // if(response[2].toString().toLowerCase() == 'patient')
+      //   Get.off(PersonalDetails(role: response[2]));
+    }
+    else if (loggedIn) {
       // Navigate to the MainScreen based on role
       Navigator.pushReplacement(
         context,

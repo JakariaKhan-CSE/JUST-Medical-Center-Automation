@@ -48,6 +48,7 @@ class AuthHelper {
       String? profile = loginResponse.others?.profile;
       bool? isUpdateProfile = loginResponse.others?.isUpdateProfile;
       String? role = loginResponse.role;
+      bool? isUpdate = loginResponse.others?.isUpdateProfile;
 
       await pref.setString('token', token!);
       await pref.setString('userId', userId!);
@@ -55,6 +56,7 @@ class AuthHelper {
       await pref.setBool(
           'loggedIn', true); // bar bar login screen show korbena aitar karone
       await pref.setString('role', role!);
+      await pref.setBool('isUpdate', isUpdate??false);
 
       return [true, isUpdateProfile ?? false, role];
     } else {

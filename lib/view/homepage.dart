@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
     // _loadDatabase();
     super.initState();
   }
+ // List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile()];
   List Screen = [const PatientHome(),PatientPrescription(),const PatientProfile()];
   @override
   Widget build(BuildContext context) {

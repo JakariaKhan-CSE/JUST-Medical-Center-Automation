@@ -19,10 +19,12 @@ class PatientScreen extends StatelessWidget {
 
   // drawer page added here. So that when click any item from drawer not remove bottom navigationbar. value change using provider controller
   List Screen = [
-    const PatientHome(),
+    const HomePage(),
+    //const PatientHome(),
     PatientPrescription(),
     const PatientProfile(),
-    const HomePage(),
+    const PatientHome(),
+    //const HomePage(),
     const PrescriptionDesign(),
     AboutDeveloperPage(),
     const UpdatePatientProfile(),
@@ -121,7 +123,7 @@ class PatientDrawer extends StatelessWidget {
             },
             child: const Card(
               child: ListTile(
-                title: Text('DashBoard'),
+                title: Text('Doctor'),
                 trailing: Icon(Icons.arrow_forward_sharp),
               ),
             ),
